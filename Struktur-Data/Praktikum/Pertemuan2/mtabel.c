@@ -66,5 +66,9 @@ int main() {
 	printTable(T2);
 	printf("Size T2: %d", getSize(T2));
 
+	printf("\n\nMelihat tabel yang terisi");
+	printf("\nTabel 2: ");
+	viewTable(T2);
+
 	return 0;
 }

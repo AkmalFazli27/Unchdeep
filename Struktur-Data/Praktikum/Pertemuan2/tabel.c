@@ -182,10 +182,21 @@ void printTable(Tabel T) {
 }
 
 /* procedure viewTable (input T:Tabel)
-	{I.S.: T terdefinisi}
-	{F.S.: -}
-	{Proses: menampilkan elemen T yang terisi ke layar} */
-void viewTable(Tabel T);
+{I.S.: T terdefinisi}
+{F.S.: -}
+{Proses: menampilkan elemen T yang terisi ke layar} */
+void viewTable(Tabel T) {
+    printf("[");
+    for (int i = 1; i < getSize(T)+1; i++) {
+        if (T.wadah[i] != ' ') {
+            printf("%c", T.wadah[i]);
+            if (i < getSize(T)) {
+                printf(", ");
+            }
+        }
+    }
+    printf("]\n");
+}
 
 /* procedure populateTable (input/output T:Tabel, input N: integer)
 	{I.S.: T terdefinisi, N terdefinisi dalam rentang 1..10}
