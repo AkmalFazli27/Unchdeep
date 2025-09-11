@@ -63,12 +63,15 @@ void searchX(Tabel T, char x, int *pos) {
 	{mengembalikan banyaknya elemen bernilai X dalam T.wadah} */
 int countX(Tabel T, char x) {
     int count = 0;
+    if (isEmptyTable(T)) {
+        return 0;
+    }
     for (int i = 1; i < 11; i++) {
         if (T.wadah[i] == x) {
-            count += 1;
+            count++;
         }
-    return count;
     }
+    return count;
 }
 
 /* function countVocal(T: Tabel) -> integer
@@ -148,7 +151,18 @@ void delTable(Tabel *T, int idx) {
 	{F.S.: isi T.wadah berkurang semua elemen bernilai X jika belum kosong}
 	{Proses: menghapus semua elemen bernilai X, geser elemen sisa}*/
 void delAllXTable(Tabel *T, char x) {
-
+    if (!isEmptyTable(*T)) {
+        for (int i = 1; i < getSize(*T); i++) {
+            if (T->wadah[i] == x) {
+                for (int j = i; j < getSize(*T); j++) {
+                    T->wadah[j] = T->wadah[j+1];
+                }
+                T->wadah[T->size] = ' ';
+                T->size--;
+                i--;
+            }
+        }
+    }
 }
 
 /*************************OPERASI BACA/TULIS*************************/

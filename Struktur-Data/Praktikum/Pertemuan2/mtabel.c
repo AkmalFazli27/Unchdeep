@@ -42,13 +42,29 @@ int main() {
 	printf("Size T1: %d", getSize(T1));
 	printf("\nApakah T1 kosong? %d", isEmptyTable(T1));
 	
-	
+	/* ============================================== */
 	printf("\n\n=========TABLE 2=========\n");
 	createTable(&T2);
-	printf("\n%d\n", getSize(T2));
+	printf("Table 2: ");
+	printTable(T2);
+	printf("Size T2: %d", getSize(T2));
 	
-	printf("\n%d", countX(T1, 0));
-	printf("\n%d", getSize(T1));
-	printf("\n%d", getSize(T1));
+	printf("\n\nMenambahkan nilai 'A', 'B', 'B', 'E', 'O'");
+	addXTable(&T2,'A');
+	addXTable(&T2,'B');
+	addXTable(&T2,'B');
+	addXTable(&T2,'E');
+	addXTable(&T2,'O');
+	printf("\nTable 2: ");
+	printTable(T2);
+	printf("Size T2: %d", getSize(T2));
+	printf("\nBanyak nilai 'B': %d", countX(T2, 'B'));
+	
+	printf("\n\nMenghapus nilai semua 'B' yang ada");
+	delAllXTable(&T2, 'B');
+	printf("\nTable 2: ");
+	printTable(T2);
+	printf("Size T2: %d", getSize(T2));
+
 	return 0;
 }
