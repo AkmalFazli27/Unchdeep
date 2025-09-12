@@ -239,6 +239,7 @@ int Modus(Tabel T) {
             }
             if (max_count < count) {
                 modus = T.wadah[i];
+                max_count = count;
             }
         }
         return modus;
@@ -248,7 +249,25 @@ int Modus(Tabel T) {
 /*************************OPERASI RELASIONAL*************************/
 /* function IsEqualTable (T1:Tabel, T2: Table ) -> boolean 
 	{mengembalikan true jika T1 memiliki elemen dan urutan yang sama dengan T2 } */
-boolean isEqualTable(Tabel T1, Tabel T2);
+boolean isEqualTable(Tabel T1, Tabel T2) {
+    if (getSize(T1) == getSize(T2)) {
+        boolean cond = true;
+        for (int i = 1; i < getSize(T1); i++) {
+            if (T1.wadah[i] == T2.wadah[i]) {
+                cond = 1;
+            }
+            else {
+                cond = false;
+                break;
+            }
+        }
+        return cond;
+    }
+    else {
+        return false;
+    }
+}
+
 
 /*************************OPERASI LAINNYA*************************/
 /* function getInverseTable(T:Tabel) -> Tabel 

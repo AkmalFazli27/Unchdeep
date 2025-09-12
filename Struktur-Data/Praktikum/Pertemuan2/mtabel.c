@@ -72,10 +72,17 @@ int main() {
 
 	printf("\nMengisi elemen tabel sebanyak 5 kali sesuai input user\n");
 	populateTable(&T2, 5);
+	printf("\nSetelah diinput sesuai user:");
 	printf("\nTable 2: ");
 	printTable(T2);
-	printf("Size T2: %d", getSize(T2));
-	printf("\nModus dari T2: %c", Modus(T2));
+	printf("Modus dari T2: %c", Modus(T2));
 
+	printf("\n\nHapus elemen '4'");
+	delTable(&T2, 5);
+	printf("\nTable 2: ");
+	printTable(T2);
+
+	printf("\n====================");
+	printf("\nApakah T1 dan T2 sama? %d", isEqualTable(T1, T2));
 	return 0;
 }
