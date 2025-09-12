@@ -206,13 +206,16 @@ void viewTable(Tabel T) {
 void populateTable(Tabel *T, int N) {
     if (!isEmptyTable(*T)) {
         if (N > 0 && N < 10 - getSize(*T)) {
-            for (int i = getSize(*T) + 1; i < N + getSize(*T); i++) {
-                char x;
+            int i = getSize(*T) + 1;
+            while (N != 0) {
+                int x;
                 printf("Masukkan elemen ke-%d: ", i);
                 scanf(" %c", &x);
                 if (x > 0) {
                     T->wadah[i] = x;
                     T->size++; 
+                    N--;
+                    i++;
                 }
             }
         }
@@ -225,7 +228,8 @@ void populateTable(Tabel *T, int N) {
 	/*asumsi: bila terdapat banyak yang sama maka yang diambil yang pertama*/
 int Modus(Tabel T) {
     if (!isEmptyTable(T)) {
-        int modus = 0;
+        char modus;
+        int max_count = 0;
         for (int i = 1; i < getSize(T)+1; i++) {
             int count = 0;
             for (int j = 1; j < getSize(T)+1; j++) {
@@ -233,10 +237,11 @@ int Modus(Tabel T) {
                     count++;
                 }
             }
-            if (modus < count) {
-                modus = count;
+            if (max_count < count) {
+                modus = T.wadah[i];
             }
         }
+        return modus;
     }
 }
 
