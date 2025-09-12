@@ -70,5 +70,11 @@ int main() {
 	printf("\nTabel 2: ");
 	viewTable(T2);
 
+	printf("\nMengisi semua sisa tabel dengan input user\n");
+	populateTable(&T2, 5);
+	printf("\nTable 2: ");
+	printTable(T2);
+	printf("Size T2: %d", getSize(T2));
+
 	return 0;
 }

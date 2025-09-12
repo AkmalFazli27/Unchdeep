@@ -203,13 +203,42 @@ void viewTable(Tabel T) {
 	{F.S.: T.wadah terisi sebanyak N elemen }
 	{Proses: mengisi elemen T.wadah sebanyak N kali dari keyboard}
 	{Syarat: angka-angka masukan keyboard > 0 }*/
-void populateTable(Tabel *T, int N);
+void populateTable(Tabel *T, int N) {
+    if (!isEmptyTable(*T)) {
+        if (N > 0 && N < 10 - getSize(*T)) {
+            for (int i = getSize(*T) + 1; i < N + getSize(*T); i++) {
+                char x;
+                printf("Masukkan elemen ke-%d: ", i);
+                scanf(" %c", &x);
+                if (x > 0) {
+                    T->wadah[i] = x;
+                    T->size++; 
+                }
+            }
+        }
+    }
+}
 
 /*************************OPERASI STATISTIK*************************/
 /*function Modus (T:Tabel ) -> integer 
 	{mengembalikan elemen pengisi T yang paling banyak muncul } */
 	/*asumsi: bila terdapat banyak yang sama maka yang diambil yang pertama*/
-int Modus(Tabel T);
+int Modus(Tabel T) {
+    if (!isEmptyTable(T)) {
+        int modus = 0;
+        for (int i = 1; i < getSize(T)+1; i++) {
+            int count = 0;
+            for (int j = 1; j < getSize(T)+1; j++) {
+                if (T.wadah[i] == T.wadah[j]) {
+                    count++;
+                }
+            }
+            if (modus < count) {
+                modus = count;
+            }
+        }
+    }
+}
 
 /*************************OPERASI RELASIONAL*************************/
 /* function IsEqualTable (T1:Tabel, T2: Table ) -> boolean 
