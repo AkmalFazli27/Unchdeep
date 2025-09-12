@@ -4,16 +4,13 @@ Repositori ini berisi kumpulan kode program, catatan, dan tugas dari berbagai ma
 
 ---
 
-
 ## 🛠️ Teknologi & Tools
 
-- **Bahasa**: C, C++, Python
+- **Bahasa**: C, Python
 - **IDE/Editor**: VS Code
-- **Tools**: Git & GitHub, Wokwi (ESP32), Jupyter Notebook
+- **Tools**: Git & GitHub, Wokwi (ESP32)
 
 ---
-
-
 
 ## 📌 Catatan
 
@@ -22,7 +19,6 @@ Repositori ini berisi kumpulan kode program, catatan, dan tugas dari berbagai ma
 - Bisa saja ada **kode yang belum sempurna** (masih dalam tahap belajar).
 
 ---
-
 
 ## 👨‍🎓 Identitas
 
