@@ -94,7 +94,8 @@ int main() {
 	printf("Urutkan tabel T3 dari kecil ke besar: ");
 	sortAsc(&T3);
 	printTable(T3);
+	printf("Urutkan tabel T2 dari besar ke kecil: ");
+	sortDesc(&T2);
+	printTable(T2);
 	return 0;
 }
-
-// Table 1: [B, C, C, C, D, E, F, G, H,  ]

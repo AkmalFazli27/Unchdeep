@@ -310,8 +310,8 @@ void sortAsc(Tabel *T) {
     int size = getSize(*T);
     char temp;
 
-    for (int i = 1; i < getSize(*T); i++) {
-        for (int j = i+1; j <= getSize(*T); j++) {
+    for (int i = 1; i < size; i++) {
+        for (int j = i+1; j <= size; j++) {
             if (T->wadah[i] > T->wadah[j]) {
                 temp = T->wadah[i];
                 T->wadah[i] = T->wadah[j];
@@ -325,6 +325,19 @@ void sortAsc(Tabel *T) {
 	{I.S.: T terdefinisi}
 	{F.S.: elemen dalam T.wadah terurut dari huruf abjad akhir ke awal}
 	{Proses: mengurutkan elemen dalam T.wadah dari huruf abjad akhir ke awal}*/
-void sortDesc(Tabel *T);
+void sortDesc(Tabel *T) {
+    int size = size;
+    char temp;
+
+    for (int i = 1; i < size; i++) {
+        for (int j = i+1; j <= size; j++) {
+            if (T->wadah[i] < T->wadah[j]) {
+                temp = T->wadah[i];
+                T->wadah[i] = T->wadah[j];
+                T->wadah[j] = temp;
+            }
+        }
+    }
+}
 
 #endif
