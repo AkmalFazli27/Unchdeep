@@ -272,7 +272,18 @@ boolean isEqualTable(Tabel T1, Tabel T2) {
 /*************************OPERASI LAINNYA*************************/
 /* function getInverseTable(T:Tabel) -> Tabel 
 	{mengembalikan tabel baru dengan isi elemen yang berkebalikan dengan tabel T } */
-Tabel getInverseTable(Tabel T);
+Tabel getInverseTable(Tabel T) {
+    Tabel T3;
+    createTable(&T3);
+    int x = 1;
+    
+    for (int i = getSize(T); i > 0; i--) {
+        T3.wadah[x] = T.wadah[i];
+        x++;
+        T3.size++;
+    }
+    return T3;
+}
 
 /* procedure inverseTable(input/output T:Tabel)
 	{I.S.: T terdefinisi}

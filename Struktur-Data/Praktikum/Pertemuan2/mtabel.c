@@ -8,6 +8,7 @@ int main() {
 	/*kamus*/
 	Tabel T1;
 	Tabel T2;
+	Tabel T3;
 	
 	/*algoritma*/
 	printf("=========TABLE 1=========\n");
@@ -77,12 +78,16 @@ int main() {
 	printTable(T2);
 	printf("Modus dari T2: %c", Modus(T2));
 
-	printf("\n\nHapus elemen '4'");
-	delTable(&T2, 5);
+	printf("\n\nHapus elemen index ke-4");
+	delTable(&T2, 3);
 	printf("\nTable 2: ");
 	printTable(T2);
 
 	printf("\n====================");
 	printf("\nApakah T1 dan T2 sama? %d", isEqualTable(T1, T2));
+	T3 = getInverseTable(T2);
+	printf("\nInverse Tabel T2 menjadi Tabel T3");
+	printf("\nTabel 3: ");
+	printTable(T3);
 	return 0;
 }
