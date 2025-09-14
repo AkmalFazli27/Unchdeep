@@ -289,7 +289,17 @@ Tabel getInverseTable(Tabel T) {
 	{I.S.: T terdefinisi}
 	{F.S.: elemen dalam T.wadah memiliki isi berkabalikan dengan isi tabel semula}
 	{Proses: membalik isi elemen pada tabel T}*/
-void inverseTable(Tabel *T);
+void inverseTable(Tabel *T) {
+    char temp;
+    int size = getSize(*T);
+
+    for (int i = 1; i <= size / 2; i++) {
+        temp = T->wadah[i];
+        T->wadah[i] = T->wadah[size - i + 1];
+        T->wadah[size - i + 1] = temp;
+    }
+}
+
 
 /*************************OPERASI PENGURUTAN*************************/
 /* procedure SortAsc ( input/output T:Tabel)

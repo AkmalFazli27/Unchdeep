@@ -86,8 +86,12 @@ int main() {
 	printf("\n====================");
 	printf("\nApakah T1 dan T2 sama? %d", isEqualTable(T1, T2));
 	T3 = getInverseTable(T2);
-	printf("\nInverse Tabel T2 menjadi Tabel T3");
-	printf("\nTabel 3: ");
+	printf("\nInverse Tabel T2 menjadi Tabel T3: ");
 	printTable(T3);
+	printf("\nInverse Table T1: ");
+	inverseTable(&T1);
+	printTable(T1);
 	return 0;
 }
+
+// Table 1: [B, C, C, C, D, E, F, G, H,  ]
