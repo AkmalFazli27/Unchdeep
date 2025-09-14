@@ -88,9 +88,12 @@ int main() {
 	T3 = getInverseTable(T2);
 	printf("\nInverse Tabel T2 menjadi Tabel T3: ");
 	printTable(T3);
-	printf("\nInverse Table T1: ");
+	printf("Inverse Table T1: ");
 	inverseTable(&T1);
 	printTable(T1);
+	printf("Urutkan tabel T3 dari kecil ke besar: ");
+	sortAsc(&T3);
+	printTable(T3);
 	return 0;
 }
 

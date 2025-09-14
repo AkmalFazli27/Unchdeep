@@ -306,7 +306,20 @@ void inverseTable(Tabel *T) {
 	{I.S.: T terdefinisi}
 	{F.S.: elemen dalam T.wadah terurut dari huruf abjad awal ke akhir}
 	{Proses: mengurutkan elemen dalam T.wadah dari huruf abjad awal ke akhir}*/
-void sortAsc(Tabel *T);
+void sortAsc(Tabel *T) {
+    int size = getSize(*T);
+    char temp;
+
+    for (int i = 1; i < getSize(*T); i++) {
+        for (int j = i+1; j <= getSize(*T); j++) {
+            if (T->wadah[i] > T->wadah[j]) {
+                temp = T->wadah[i];
+                T->wadah[i] = T->wadah[j];
+                T->wadah[j] = temp;
+            }
+        }
+    }
+}
 
 /* procedure SortDesc ( input/output T:Tabel)
 	{I.S.: T terdefinisi}
