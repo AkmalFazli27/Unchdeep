@@ -1,7 +1,8 @@
 #ifndef tabel_c
 #define tabel_c
 #include "tabel.h"
-/* Deskripsi : */
+/* Deskripsi : Implementasi ADT Tabel berbasis array dengan elemen bertipe char.
+               Berisi realisasi fungsi/prosedur yang dideklarasikan pada tabel.h. */
 /* NIM/Nama : 24060124130123/Muhammad Akmal Fazli Riyadi */
 /* Tanggal : 9/11/2025 */
 

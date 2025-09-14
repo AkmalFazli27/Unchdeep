@@ -1,7 +1,9 @@
 #ifndef tabel_H
 #define tabel_H 
-/* Program   : */
-/* Deskripsi : */
+/* Program   : tabel.h */
+/* Deskripsi : Header file ADT Tabel berbasis array dengan elemen bertipe char.
+               Berisi definisi tipe data, konstanta, dan fungsi/prosedur
+               yang digunakan untuk memanipulasi tabel. */
 /* NIM/Nama : 24060124130123/Muhammad Akmal Fazli Riyadi */
 /* Tanggal : 9/11/2025 */
 /***********************************/
