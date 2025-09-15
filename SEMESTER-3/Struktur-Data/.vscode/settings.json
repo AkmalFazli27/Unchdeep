@@ -1,0 +1,16 @@
+{
+    "window.zoomLevel": 0.2,
+    "editor.fontSize": 14,
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": true,
+    "files.associations": {
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "UTS2024.C": "cpp",
+        "soal1.C": "cpp"
+    },
+    "discord.smallImage": "Code",
+    "discord.removeDetails": false,
+    "C_Cpp.errorSquiggles": "disabled"
+}

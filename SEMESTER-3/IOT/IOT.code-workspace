@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "simon-says-game",
+			"path": "simon-says-game"
+		}
+	],
+	"settings": {
+		"window.zoomLevel": 0.2,
+		"workbench.colorTheme": "Default Dark Modern",
+		"workbench.iconTheme": "material-icon-theme",
+		"files.associations": {
+			"stdio.h": "c",
+			"stdlib.h": "c",
+			"UTS2024.C": "cpp",
+			"soal1.C": "cpp"
+		},
+		"python-envs.defaultEnvManager": "ms-python.python:system"
+	}
+}

@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7B9DA2D8-C262-FFC1-0165-83FECBF666B5" name="Transaksi">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:19:10 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Transaksi" id="8F4B5D10-F4A8-674E-B53D-5CCDF60051E9">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:19:17 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tanggal" id="95AAA764-2E4E-1DCF-FB12-16CEEFFC1072">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:19:27 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Pembeli" id="7F03CF9D-C6FD-0360-D568-D5AD4B520AF2">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:19:39 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Produk yang dibeli" id="0821DE21-BC30-C50E-2BF3-72CC64714227">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:20:26 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Jumlah" id="A6D712D7-D5E2-14B6-E2E4-E1B9EB484F38">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:20:35 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Total Harga" id="0E7CE839-8AF4-2A75-D4C4-7A83617040D9">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:20:38 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Asal Desa" id="B25792E5-D765-DAB1-7B20-16DF6EA01152">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:23:34 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nomor Telepon" id="FE37CBBA-DFC3-52AC-80A3-97178BE05B24">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:23:42 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8C129A8A-D834-5B7D-53D7-4D2C097089FB" name="Transaksi PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:19:25 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<engineerTo>
+<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8F4B5D10-F4A8-674E-B53D-5CCDF60051E9</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

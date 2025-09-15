@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="44526B9A-A866-B0BF-3405-FBAB572E5B03" name="Mahasiswa">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:07:17 UTC</createdTime>
+<ownerDesignName>test1</ownerDesignName>
+<engineerTo>
+<item key="B24E71AA-5FCD-1228-8EE3-6C97C15CE44A" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NIM" id="C9B4D1D2-287D-208A-75A5-9DB85D8987A7">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:07:23 UTC</createdTime>
+<ownerDesignName>test1</ownerDesignName>
+<engineerTo>
+<item key="B24E71AA-5FCD-1228-8EE3-6C97C15CE44A" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nama" id="0BC3A17A-52FA-32D3-1FE6-B4684C27CEBD">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:07:27 UTC</createdTime>
+<ownerDesignName>test1</ownerDesignName>
+<engineerTo>
+<item key="B24E71AA-5FCD-1228-8EE3-6C97C15CE44A" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Email" id="D738DFF1-B896-48B7-31E0-3979C55239E2">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:07:36 UTC</createdTime>
+<ownerDesignName>test1</ownerDesignName>
+<engineerTo>
+<item key="B24E71AA-5FCD-1228-8EE3-6C97C15CE44A" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nomor Telepon" id="F1BA2659-14E5-1956-A559-180053828560">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:08:02 UTC</createdTime>
+<ownerDesignName>test1</ownerDesignName>
+<engineerTo>
+<item key="B24E71AA-5FCD-1228-8EE3-6C97C15CE44A" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6DA18992-10CE-FAA9-7258-057EF6D85421" name="Mahasiswa PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:07:26 UTC</createdTime>
+<ownerDesignName>test1</ownerDesignName>
+<engineerTo>
+<item key="B24E71AA-5FCD-1228-8EE3-6C97C15CE44A" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C9B4D1D2-287D-208A-75A5-9DB85D8987A7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

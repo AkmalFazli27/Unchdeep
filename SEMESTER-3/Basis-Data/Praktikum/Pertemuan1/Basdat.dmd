@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Basdat" id="DA6DCE5B-9DB6-D8CE-D890-CDB5D785AC9E" version="3.5">
+<createdBy>Lenovo</createdBy>
+<createdTime>2025-09-15 09:15:04 UTC</createdTime>
+<ownerDesignName>Basdat</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>DA6DCE5B-9DB6-D8CE-D890-CDB5D785AC9E</designId>
+</OSDM_Design>
