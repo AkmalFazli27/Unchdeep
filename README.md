@@ -4,11 +4,48 @@ Repositori ini berisi kumpulan kode program, catatan, dan tugas dari berbagai ma
 
 ---
 
+
+
+## 🗂️ Daftar Mata Kuliah
+
+### Semester 1
+
+- Dasar Pemrograman
+- Matematika 1
+- Struktur Diskrit
+- Dasar Sistem
+- Aljabar Linear
+- Bahasa Indonesia
+- Pancasila
+
+### Semester 2
+
+- Algoritma Pemrograman
+- Bahasa Inggris
+- Organisasi & Arsitektur Komputer
+- Matematika 2
+- Kewarganegaraan
+- Metode Numerik
+- Statistika
+- Pendidikan Agama Islam
+
+### Semester 3
+
+- Struktur Data
+- Basis Data
+- Internet of Things
+- Kewirausahaan
+- Teori Bahasa & Automata
+
+---
+
+
+
 ## 🛠️ Teknologi & Tools
 
 - **Bahasa**: C, Python
 - **IDE/Editor**: VS Code
-- **Tools**: Git & GitHub, Wokwi (ESP32)
+- **Tools**: Git & GitHub, Wokwi (ESP32), HiveMQ
 
 ---
 
