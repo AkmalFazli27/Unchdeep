@@ -1,0 +1,478 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage[a4paper, margin=0.5in]{geometry}
+\renewcommand\thesubsection{\alph{subsection}}
+\renewcommand*{\thesubsubsection}{-{}}
+
+\title{Metode Numerik : Interpolasi Polinomial}
+\author{Muhammad Akmal Fazli Riyadi / Kelas D}
+\date{24060124130123}
+
+\begin{document}
+
+\maketitle
+
+\section{Diberikan data sebagai berikut :}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $f(x)$ \\
+    \hline
+    1.0 & 1.63 \\
+    1.2 & 2.20 \\
+    1.4 & 2.81 \\
+    1.6 & 3.62 \\
+    1.8 & 4.43 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\subsection{Tentukan nilai interpolasi polinomial metode Newton Beda Maju untuk $P_n(1.1)$ dan
+tentukan galat absolutnya, jika diasumsikan y = f(x) = x.exp(0.5x)! Tunjukkan langkah-langkahnya!}
+
+Selisih maju pertama:
+
+\begin{align*}
+    \Delta f(x) &= f(x_{i+1}) - f(x_i)
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta f(x)$ \\
+    \hline
+    1.0 & 0.57 \\
+    1.2 & 0.61 \\
+    1.4 & 0.81 \\
+    1.6 & 0.81 \\
+    \hline
+\end{tabular}
+\end{center}
+
+Selisih maju kedua:
+
+\begin{align*}
+    \Delta^2 f(x) &= \Delta f(x_{i+1}) - \Delta f(x_i)
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta^2 f(x)$ \\
+    \hline
+    1.0 & 0.04 \\
+    1.2 & 0.20 \\
+    1.4 & 0.00 \\
+    \hline
+\end{tabular}
+\end{center}
+
+Selisih maju ketiga:
+
+\begin{align*}
+    \Delta^3 f(x) &= \Delta^2 f(x_{i+1}) - \Delta^2 f(x_i)
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta^3 f(x)$ \\
+    \hline
+    1.0 & 0.16 \\
+    1.2 & -0.20 \\
+    \hline
+\end{tabular}
+\end{center}
+
+Selisih maju keempat:
+
+\begin{align*}
+    \Delta^4 f(x) &= \Delta^3 f(x_{i+1}) - \Delta^3 f(x_i)
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta^4 f(x)$ \\
+    \hline
+    1.0 & -0.36 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Polinomial Newton Beda Maju}
+Rumus interpolasi Newton beda maju:
+
+\begin{align*}
+    P_n(x) &= f(x_0) + u\Delta f(x_0) + \frac{u(u-1)}{2!} \Delta^2 f(x_0) \\
+    &+ \frac{u(u-1)(u-2)}{3!} \Delta^3 f(x_0) + \frac{u(u-1)(u-2)(u-3)}{4!} \Delta^4 f(x_0)
+\end{align*}
+
+Dengan:
+
+\begin{align*}
+    u &= \frac{x - x_0}{h}, \quad h = 0.2, \quad x_0 = 1.0
+\end{align*}
+
+Untuk $x = 1.1$:
+
+\begin{align*}
+    u &= \frac{1.1 - 1.0}{0.2} = 0.5
+\end{align*}
+
+Substitusi nilai:
+
+\begin{align*}
+    P_n(1.1) &= 1.63 + (0.5)(0.57) + \frac{(0.5)(-0.5)}{2!} (0.04) \\
+    &+ \frac{(0.5)(-0.5)(-1.5)}{3!} (0.16) + \frac{(0.5)(-0.5)(-1.5)(-2.5)}{4!} (-0.36)
+\end{align*}
+
+Hitung tiap suku:
+
+\begin{align*}
+    P_n(1.1) &= 1.63 + 0.285 + (-0.005) + 0.02 + (-0.0075)
+\end{align*}
+
+\begin{align*}
+    P_n(1.1) &\approx 1.9225
+\end{align*}
+
+\subsubsection{Galat Absolut}
+Nilai sebenarnya:
+
+\begin{align*}
+    f(1.1) &= 1.1 \times e^{0.5 \times 1.1}
+\end{align*}
+
+\begin{align*}
+    f(1.1) &= 1.1 \times e^{0.55} \approx 1.1 \times 1.733 = 1.906
+\end{align*}
+
+Galat absolut:
+
+\begin{align*}
+    | f(1.1) - P_n(1.1) | &= | 1.906 - 1.9225 |
+\end{align*}
+
+\begin{align*}
+    &= 0.0165
+\end{align*}
+
+\subsubsection{Kesimpulan}
+Nilai interpolasi Newton Beda Maju untuk $P_n(1.1)$ adalah \textbf{1.9225}, dengan galat absolut sekitar \textbf{0.0165}.
+
+\subsection{Tentukan nilai interpolasi polinomial metode Newton Beda Mundur untuk $P_n(1.7)$ dan
+tentukan galat absolutnya, jika diasumsikan y = f(x) = x.exp(0.5x)! Tunjukkan langkah-langkahnya!}
+
+Selisih mundur pertama:
+
+\begin{align*}
+    \Delta f(x) &= f(x_i) - f(x_{i-1})
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta f(x)$ \\
+    \hline
+    1.2 & 0.57 \\
+    1.4 & 0.61 \\
+    1.6 & 0.81 \\
+    1.8 & 0.81 \\
+    \hline
+\end{tabular}
+\end{center}
+
+Selisih mundur kedua:
+
+\begin{align*}
+    \Delta^2 f(x) &= \Delta f(x_i) - \Delta f(x_{i-1})
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta^2 f(x)$ \\
+    \hline
+    1.2 & 0.04 \\
+    1.4 & 0.20 \\
+    1.6 & 0.00 \\
+    1.8 & 0.00 \\
+    \hline
+\end{tabular}
+\end{center}
+
+Selisih mundur ketiga:
+
+\begin{align*}
+    \Delta^3 f(x) &= \Delta^2 f(x_i) - \Delta^2 f(x_{i-1})
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta^3 f(x)$ \\
+    \hline
+    1.4 & 0.16 \\
+    1.6 & -0.20 \\
+    1.8 & -0.20 \\
+    \hline
+\end{tabular}
+\end{center}
+
+Selisih mundur keempat:
+
+\begin{align*}
+    \Delta^4 f(x) &= \Delta^3 f(x_i) - \Delta^3 f(x_{i-1})
+\end{align*}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $\Delta^4 f(x)$ \\
+    \hline
+    1.6 & -0.36 \\
+    1.8 & 0.00 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Polinomial Newton Beda Mundur}
+Rumus interpolasi Newton beda mundur:
+
+\begin{align*}
+    P_n(x) &= f(x_n) + u\Delta f(x_n) + \frac{u(u+1)}{2!} \Delta^2 f(x_n) \\
+    &+ \frac{u(u+1)(u+2)}{3!} \Delta^3 f(x_n) + \frac{u(u+1)(u+2)(u+3)}{4!} \Delta^4 f(x_n)
+\end{align*}
+
+Dengan:
+
+\begin{align*}
+    u &= \frac{x - x_n}{h}, \quad h = 0.2, \quad x_n = 1.8
+\end{align*}
+
+Untuk $x = 1.7$:
+
+\begin{align*}
+    u &= \frac{1.7 - 1.8}{0.2} = -0.5
+\end{align*}
+
+Substitusi nilai:
+
+\begin{align*}
+    P_n(1.7) &= 4.43 + (-0.5)(0.81) + \frac{(-0.5)(-1.5)}{2!} (0.00) \\
+    &+ \frac{(-0.5)(-1.5)(-2.5)}{3!} (-0.20) + \frac{(-0.5)(-1.5)(-2.5)(-3.5)}{4!} (0.00)
+\end{align*}
+
+Hitung tiap suku:
+
+\begin{align*}
+    P_n(1.7) &= 4.43 - 0.405 + 0 + (-0.021) + 0
+\end{align*}
+
+\begin{align*}
+    P_n(1.7) &\approx 4.004
+\end{align*}
+
+\subsubsection{Galat Absolut}
+Nilai sebenarnya:
+
+\begin{align*}
+    f(1.7) &= 1.7 \times e^{0.5 \times 1.7}
+\end{align*}
+
+\begin{align*}
+    f(1.7) &= 1.7 \times e^{0.85} \approx 1.7 \times 2.339 = 3.976
+\end{align*}
+
+Galat absolut:
+
+\begin{align*}
+    | f(1.7) - P_n(1.7) | &= | 3.976 - 4.004 |
+\end{align*}
+
+\begin{align*}
+    &= 0.028
+\end{align*}
+
+\subsubsection{Kesimpulan}
+Nilai interpolasi Newton Beda Mundur untuk $P_n(1.7)$ adalah \textbf{4.004}, dengan galat absolut sekitar \textbf{0.028}.
+
+\section{Diketahui:}
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $f(x)$ \\
+    \hline
+    0.4 & 2.50 \\
+    0.6 & 3.51 \\
+    0.7 & 4.12 \\
+    1.0 & 6.03 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\subsection{Tentukan nilai interpolasi polinomial metode Lagrange untuk $P_n(0.5)$! Tunjukkan
+langkah-langkahnya!}
+
+\subsubsection{Rumus Polinomial Lagrange}
+Polinomial interpolasi Lagrange didefinisikan sebagai:
+\[
+P_n(x) = \sum_{i=0}^{n} L_i(x) f(x_i)
+\]
+dengan:
+\[
+L_i(x) = \prod_{\substack{j=0 \\ j\neq i}}^{n} \frac{x - x_j}{x_i - x_j}
+\]
+
+\subsubsection{Menghitung Lagrange Basis \( L_i(0.5)\)}
+Basis \( L_0(0.5) \) 
+\[
+L_0(0.5) = \frac{(0.5 - 0.6)(0.5 - 0.7)(0.5 - 1.0)}{(0.4 - 0.6)(0.4 - 0.7)(0.4 - 1.0)}
+\]
+
+Basis \( L_1(0.5) \)
+\[
+L_1(0.5) = \frac{(0.5 - 0.4)(0.5 - 0.7)(0.5 - 1.0)}{(0.6 - 0.4)(0.6 - 0.7)(0.6 - 1.0)}
+\]
+
+Basis \( L_2(0.5) \)
+\[
+L_2(0.5) = \frac{(0.5 - 0.4)(0.5 - 0.6)(0.5 - 1.0)}{(0.7 - 0.4)(0.7 - 0.6)(0.7 - 1.0)}
+\]
+
+Basis \( L_3(0.5) \)
+\[
+L_3(0.5) = \frac{(0.5 - 0.4)(0.5 - 0.6)(0.5 - 0.7)}{(1.0 - 0.4)(1.0 - 0.6)(1.0 - 0.7)}
+\]
+
+\subsubsection{Substitusi ke dalam Rumus}
+\[
+P_n(0.5) = L_0(0.5) f(0.4) + L_1(0.5) f(0.6) + L_2(0.5) f(0.7) + L_3(0.5) f(1.0)
+\]
+
+Setelah perhitungan diperoleh:
+\[
+P_n(0.5) \approx 2.961
+\]
+
+Dengan demikian, nilai interpolasi polinomial metode Lagrange di \( x = 0.5 \) adalah \textbf{2.961}.
+
+\subsection{Tentukan galat absolutnya, bila diasumsikan bahwa $f(x) = 2x^2 + 3x +1$. Tunjukkan langkah-langkahnya!}
+
+Nilai interpolasi yang telah dihitung sebelumnya:
+\[
+P_n(0.5) \approx 2.961
+\]
+
+Substitusi  ke dalam fungsi asli:
+\begin{align*}
+f(0.5) &= 2(0.5)^2 + 3(0.5) + 1 
+= 2(0.25) + 1.5 + 1 
+= 0.5 + 1.5 + 1 
+= 3.0
+\end{align*}
+
+Galat absolut didefinisikan sebagai:
+\[
+E = | f(0.5) - P_n(0.5) |
+\]
+
+Substitusi nilai yang telah dihitung:
+\begin{align*}
+E &= |3.0 - 2.961| = 0.0394
+\end{align*}
+
+Dengan demikian, galat absolut dari Interpolasi Lagrange adalah \textbf{0.0394}.
+
+\section{Diketahui:}
+\begin{center}
+\begin{tabular}{|c|c|}
+    \hline
+    $x$ & $f(x)$ \\
+    \hline
+    0.4 & 2.53 \\
+    0.6 & 3.50 \\
+    0.7 & 4.11 \\
+    1.0 & 6.02 \\
+    1.2 & 7.53 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\subsection{Tentukan nilai interpolasi polinomial metode Neville untuk $P_n(0.5)$! Tunjukkan langkah-langkahnya!}
+Interpolasi dilakukan untuk $x = 0.5$ menggunakan metode Neville dengan formula:
+\begin{align*}
+    P_{i,j} = \frac{(x - x_{i-j}) P_{i,j-1} - (x - x_i) P_{i-1,j-1}}{x_i - x_{i-j}}
+\end{align*}
+
+\subsubsection{Perhitungan:}
+Tingkat pertama ($j = 1$)
+\begin{align*}
+    P_{1,1} &= \frac{(0.5 - 0.4) \cdot 3.50 - (0.5 - 0.6) \cdot 2.53}{0.6 - 0.4} \\
+            &= \frac{(0.1) \cdot 3.50 - (-0.1) \cdot 2.53}{0.2} \\
+            &= \frac{0.35 + 0.253}{0.2} = 3.015
+\end{align*}
+
+\begin{align*}
+    P_{2,1} &= \frac{(0.5 - 0.6) \cdot 4.11 - (0.5 - 0.7) \cdot 3.50}{0.7 - 0.6} \\
+            &= \frac{(-0.1) \cdot 4.11 - (-0.2) \cdot 3.50}{0.1} \\
+            &= \frac{-0.411 + 0.7}{0.1} = 2.89
+\end{align*}
+
+\begin{align*}
+    P_{3,1} &= \frac{(0.5 - 0.7) \cdot 6.02 - (0.5 - 1.0) \cdot 4.11}{1.0 - 0.7} \\
+            &= \frac{(-0.2) \cdot 6.02 - (-0.5) \cdot 4.11}{0.3} \\
+            &= \frac{-1.204 + 2.055}{0.3} = 2.837
+\end{align*}
+
+Tingkat kedua ($j = 2$)
+\begin{align*}
+    P_{2,2} &= \frac{(0.5 - 0.4) \cdot 2.89 - (0.5 - 0.7) \cdot 3.015}{0.7 - 0.4} \\
+            &= \frac{(0.1) \cdot 2.89 - (-0.2) \cdot 3.015}{0.3} \\
+            &= \frac{0.289 + 0.603}{0.3} = 2.9733
+\end{align*}
+
+\begin{align*}
+    P_{3,2} &= \frac{(0.5 - 0.6) \cdot 2.837 - (0.5 - 0.7) \cdot 2.89}{1.0 - 0.6} \\
+            &= \frac{(-0.1) \cdot 2.837 - (-0.2) \cdot 2.89}{0.4} \\
+            &= \frac{-0.2837 + 0.578}{0.4} = 2.8575
+\end{align*}
+
+Tingkat ketiga ($j = 3$)
+\begin{align*}
+    P_{3,3} &= \frac{(0.5 - 0.4) \cdot 2.8575 - (0.5 - 0.7) \cdot 2.9733}{1.0 - 0.4} \\
+            &= \frac{(0.1) \cdot 2.8575 - (-0.2) \cdot 2.9733}{0.6} \\
+            &= \frac{0.28575 + 0.59466}{0.6} \\
+            &= 2.934
+\end{align*}
+
+\subsubsection{Kesimpulan}
+Hasil interpolasi polinomial metode Neville untuk $P_3(0.5)$ adalah \textbf{2.934}.
+
+\subsection{Tentukan galat absolutnya, bila diasumsikan bahwa $f(x) = 2x^2+3x+1$. Tunjukkan langkah-langkahnya!}
+Diketahui fungsi asli:
+\begin{align*}
+    f(x) = 2x^2 + 3x + 1
+\end{align*}
+
+Hitung nilai eksak di $x = 0.5$:
+\begin{align*}
+    f(0.5) &= 2(0.5)^2 + 3(0.5) + 1 \\
+           &= 2(0.25) + 1.5 + 1 \\
+           &= 0.5 + 1.5 + 1 = 3
+\end{align*}
+
+Galat absolut dihitung sebagai:
+\begin{align*}
+    E &= |f(0.5) - P_3(0.5)| \\
+      &= |3 - 2.934| \\
+      &= 0.066
+\end{align*}
+
+Dengan demikian, galat absolut dari Interpolasi Neville adalah \textbf{0.066}.
+
+
+\end{document}
