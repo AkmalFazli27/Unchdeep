@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="UMKM" id="5B825539-D0F1-44E4-7B4A-61F80A67BD6C" version="3.5">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-15 09:14:16 UTC</createdTime>
+<ownerDesignName>UMKM</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>5B825539-D0F1-44E4-7B4A-61F80A67BD6C</designId>
+</OSDM_Design>
