@@ -1,4 +1,21 @@
-.mp4a
-.mp4a
-.MP3
-.MOV
+# Abaikan semua file video
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.AVI
+*.mkv
+*.MKV
+
+# Abaikan semua file audio
+*.mp3
+*.MP3
+*.wav
+*.WAV
+*.flac
+*.FLAC
+*.aac
+*.AAC
+*.mp4a
+*.MP4A
