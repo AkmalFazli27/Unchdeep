@@ -35,26 +35,6 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Pembeli" id="7F03CF9D-C6FD-0360-D568-D5AD4B520AF2">
-<createdBy>Xiamengs</createdBy>
-<createdTime>2025-09-15 09:19:39 UTC</createdTime>
-<ownerDesignName>UMKM</ownerDesignName>
-<engineerTo>
-<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Produk yang dibeli" id="0821DE21-BC30-C50E-2BF3-72CC64714227">
-<createdBy>Xiamengs</createdBy>
-<createdTime>2025-09-15 09:20:26 UTC</createdTime>
-<ownerDesignName>UMKM</ownerDesignName>
-<engineerTo>
-<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="Jumlah" id="A6D712D7-D5E2-14B6-E2E4-E1B9EB484F38">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-09-15 09:20:35 UTC</createdTime>
@@ -72,28 +52,6 @@
 <engineerTo>
 <item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
 </engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Asal Desa" id="B25792E5-D765-DAB1-7B20-16DF6EA01152">
-<createdBy>Xiamengs</createdBy>
-<createdTime>2025-09-15 09:23:34 UTC</createdTime>
-<ownerDesignName>UMKM</ownerDesignName>
-<engineerTo>
-<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Nomor Telepon" id="FE37CBBA-DFC3-52AC-80A3-97178BE05B24">
-<createdBy>Xiamengs</createdBy>
-<createdTime>2025-09-15 09:23:42 UTC</createdTime>
-<ownerDesignName>UMKM</ownerDesignName>
-<engineerTo>
-<item key="F4CD1CA6-C151-A0BD-8DDB-CEB825F562E4" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
