@@ -145,6 +145,8 @@ void isiMatriksRandom(Matriks *M, int x, int y) {
             addX(&(*M), randInt, i, j);
         }
     }
+    M->nbaris = x;
+    M->nkolom = y;
 }
 
 /* procedure isiMatriksIdentitas(input/output M: Matriks, input n: integer)
@@ -159,6 +161,9 @@ void isiMatriksIdentitas(Matriks *M, int n) {
                 M->cell[i][j] = 1;
                 M->nbaris++;
                 M->nkolom++;
+            }
+            else {
+                M->cell[i][j] = 0;
             }
         }
     }
@@ -180,6 +185,8 @@ void populateMatriks(Matriks *M, int x, int y) {
         }
         printf("\n");
     }
+    M->nbaris = x;
+    M->nkolom = y;
 }
 
 /* procedure printMatriks(input M:Matriks)
@@ -218,6 +225,8 @@ Matriks addMatriks(Matriks M1, Matriks M2) {
                 M3.cell[i][j] = M2.cell[i][j] + M1.cell[i][j];
             }
         }
+        M3.nbaris = getNBaris(M1);
+        M3.nkolom = getNKolom(M1);
         return M3;
     }
 }
@@ -233,6 +242,8 @@ Matriks subMatriks(Matriks M1, Matriks M2) {
                 M3.cell[i][j] = M2.cell[i][j] - M1.cell[i][j];
             }
         }
+        M3.nbaris = getNBaris(M1);
+        M3.nkolom = getNKolom(M1);
         return M3;
     }
 }
@@ -253,6 +264,8 @@ Matriks kaliMatriks(Matriks M1, Matriks M2) {
                 }
             }
             M3.cell[i][j] = hasil;
+            M3.nbaris = j;
+            M3.nkolom = k;
         }
     }
     return M3;
@@ -278,11 +291,38 @@ Matriks kaliSkalarMatriks(Matriks M1, int x) {
 	{I.S.: M terdefinisi}
 	{F.S.: Matriks M sudah ditukar susunan baris dan kolomnya (Transpose)}
 	{proses: mengubah susunan cell matriks, M.cell[i,j] menjadi M.cell[j,i]} */
-void transposeMatriks(Matriks *M);
+void transposeMatriks(Matriks *M) {
+    int i, j, temp;
+
+    if (!isEmptyMatriks(*M)) {
+        for (i = 1; i <= getNBaris(*M); i++) {
+            j = i;
+            while (j <= getNKolom(*M)) {
+                temp = M->cell[j][i];
+                M->cell[j][i] = M->cell[i][j];
+                M->cell[i][j] = temp;
+                j++;
+            }
+        }
+    }
+}
 
 /* function getTransposeMatriks(M: Matriks)
 	{menghasilkan sebuah matriks yang merupakan hasil transpose dari matriks M} */
-Matriks getTransposeMatriks(Matriks M);
+Matriks getTransposeMatriks(Matriks M) {
+    Matriks M2;
+    int i, j;
+    
+    initMatriks(&M2);
+    M2.nbaris = getNBaris(M);
+    M2.nkolom = getNKolom(M);
+    for (i = 1; i <= getNBaris(M); i++) {
+        for (j = 1; j <= getNKolom(M); j++) {
+            M2.cell[i][j] = M.cell[j][i];
+        }
+    }
+    return M2;
+}
 
 /* function addPadding(M: Matriks, input n:integer)
 	{menghasilkan matriks baru dari M yang ditambahkan padding 0 sesuai dengan ukuran padding n */
