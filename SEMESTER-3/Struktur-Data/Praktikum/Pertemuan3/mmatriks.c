@@ -18,13 +18,18 @@ int main() {
 	initMatriks(&M1);
 	initMatriks(&M2);
 	printf("Apakah matriks full? %d\n", isFullMatriks(M1));
-	isiMatriksRandom(&M1, 3, 3);
-	// addX(&M1, 5, 2, 2);
+	addX(&M1, 5, 3, 3);
+	addX(&M1, 7, 2, 3);
 	printMatriks(&M1);
+	printf("\nBaris matriks: %d", getNBaris(M1));
+	printf("\nKolom matriks: %d\n", getNKolom(M1));
 	
 	printf("\n");
-	populateMatriks(&M2, 3, 3);
+	// populateMatriks(&M2, 3, 3);
+	isiMatriksIdentitas(&M2, 3);
 	printMatriks(&M2);
+	printf("\nBaris matriks: %d", getNBaris(M2));
+	printf("\nKolom matriks: %d\n", getNKolom(M2));
 	
 	return 0;
 }

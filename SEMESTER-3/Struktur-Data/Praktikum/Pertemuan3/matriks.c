@@ -49,7 +49,7 @@ boolean isEmptyMatriks(Matriks M) {
 /* function isFullMatriks(M: Matriks) -> boolean
 	{mengembalikan True jika matriks M penuh } */
 boolean isFullMatriks(Matriks M) {
-    return getNBaris(M) == 0 && getNKolom(M) == 0;
+    return getNBaris(M) != 0 && getNKolom(M) != 0;
 }
 
 /* MUTATOR */
@@ -58,30 +58,32 @@ boolean isFullMatriks(Matriks M) {
 	{F.S.: isi M.cell bertambah 1 elemen pada baris ke-row dan kolom ke-col jika belum penuh}
 	{Proses: mengisi elemen M.cell dengan nilai X} */
 void addX (Matriks *M, int X, int row, int col) {
-    int i = 1, j = 1;
-
     if (M->cell[row][col] == -999) {
-        M->cell[row][col] = X;
+        int i, j;
+        int rowBaru = 1; 
+        int colBaru = 1; 
 
-        
-    }
-
-    if (isEmptyMatriks(*M) || (M->cell[row][col] == -999)) {
-        M->cell[row][col] = X;
-
-        while (j <= 11 && M->cell[row][j] == -999) {
-            j++;
+        for (j = 1; j < 11; j++) {
+            if (M->cell[row][j] != -999) {
+                rowBaru = 0; 
+                break;
+            }
         }
 
-        if (j > 11) {
+        for (i = 1; i < 11; i++) {
+            if (M->cell[i][col] != -999) {
+                colBaru = 0; 
+                break;
+            }
+        }
+
+        M->cell[row][col] = X;
+
+        if (rowBaru == 1) {
             M->nbaris++;
         }
 
-        while (i <= 11 && M->cell[i][col] == -999) {
-            i++;
-        }
-
-        if (i > 11) {
+        if (colBaru == 1) {
             M->nkolom++;
         }
     }
@@ -92,7 +94,43 @@ void addX (Matriks *M, int X, int row, int col) {
 	{I.S.: M terdefinisi, X terdefinisi}
 	{F.S.: elemen M.cell berkurang 1}
 	{Proses: menghapus 1 elemen bernilai X dari M.cell*/
-void delX (Matriks *M, int X);
+void delX (Matriks *M, int X) {
+    int i, j;
+    int idxRow, idxCol;
+
+    for (i = 1; i < 11; i++) {
+        for (j = 1; j < 11; j++) {
+            if (M->cell[i][j] == X) {
+                idxRow = i;
+                idxCol = j;
+                M->cell[i][j] = -999;
+                break;
+            }
+        }
+    }
+
+    if (M->cell[idxRow][idxRow] == -999) {
+        for (j = 1; j <= 11; j++) {
+            if (M->cell[idxRow][j] != -999) {
+                break;
+            }
+        }
+
+        if (j > 11) {
+            M->nbaris--;
+        }
+
+        for (i = 1; i <= 11; i++) {
+            if (M->cell[i][idxCol] != -999) {
+                break;
+            }
+        }
+
+        if (i > 11) {
+            M->nkolom--;
+        }
+    }
+}
 
 /* procedure isiMatriksRandom(input/output M: Matriks, input x: integer, input y: integer)
 	{I.S.: M terdefinisi}
@@ -113,7 +151,18 @@ void isiMatriksRandom(Matriks *M, int x, int y) {
 	{I.S.: M terdefinisi}
 	{F.S.: M terisi dengan matriks identitas berukuran n x n, nbaris=nkolom=n}
 	{proses: mengisi matriks dengan matriks identitas berukuran n x n} */
-void isiMatriksIdentitas(Matriks *M, int n);
+void isiMatriksIdentitas(Matriks *M, int n) {
+    int i, j;
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            if (i == j) {
+                M->cell[i][j] = 1;
+                M->nbaris++;
+                M->nkolom++;
+            }
+        }
+    }
+}
 
 /* OPERASI BACA/TULIS */
 /* procedure populateMatriks(input/output M: Matriks, input x: integer, input y: integer)
@@ -169,6 +218,7 @@ Matriks addMatriks(Matriks M1, Matriks M2) {
                 M3.cell[i][j] = M2.cell[i][j] + M1.cell[i][j];
             }
         }
+        return M3;
     }
 }
 
@@ -183,23 +233,43 @@ Matriks subMatriks(Matriks M1, Matriks M2) {
                 M3.cell[i][j] = M2.cell[i][j] - M1.cell[i][j];
             }
         }
+        return M3;
     }
 }
 
 /* function kaliMatriks(M1,M2: Matriks) -> Matriks
 {mengembalikan hasil perkalian antara matriks M1 dengan M2} */
-Matriks kaliMatriks(Matriks M1, Matriks M2);
+Matriks kaliMatriks(Matriks M1, Matriks M2) {
+    Matriks M3;
+    int i, j, k, hasil;
+    
+    initMatriks(&M3);
+    if (getNBaris(M1) == getNKolom(M2) || getNBaris(M2) == getNKolom(M1)) {
+        for (i = 1; i <= getNBaris(M1); i++) {
+            for (j = 1; j <= getNKolom(M2); j++) {
+                hasil = 0;
+                for (k = 0; k <= getNKolom(M1); k++) {
+                    hasil += M1.cell[i][k] * M2.cell[k][j];
+                }
+            }
+            M3.cell[i][j] = hasil;
+        }
+    }
+    return M3;
+}
 
 /* function kaliSkalarMatriks(M: Matriks, x: integer) -> Matriks
 {mengembalikan perkalian antara matriks M dengan nilai skalar x} */
 Matriks kaliSkalarMatriks(Matriks M1, int x) {
+    Matriks M2;
     int i, j;
-    if (isEmptyMatriks(M1)) {
+    if (!isEmptyMatriks(M1)) {
         for (i; i <= getNBaris(M1); i++) {
             for (j; j <= getNKolom(M1); j++) {
-                M1.cell[i][j] = M1.cell[i][j] * x;
+                M2.cell[i][j] = M1.cell[i][j] * x;
             }
         }
+        return M2;
     }
 }
 
