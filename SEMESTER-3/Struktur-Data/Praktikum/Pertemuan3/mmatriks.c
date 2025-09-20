@@ -15,6 +15,7 @@ void header (char *title) {
 int main() {
 	/*kamus*/
 	Matriks M1, M2, M3, M4;
+	int r, c;
 	srand(time(NULL));
 	
 	/*algoritma*/
@@ -44,11 +45,11 @@ int main() {
 	printf("Panjang baris M1 setelah ditambah nilai: %d", getNBaris(M1));
 	printf("\nPanjang kolom M1 setelah ditambah nilai: %d", getNKolom(M1));
 
-	// printf("\nHapus nilai 2 pada matriks M1\n");
-	// delX(&M1, 2);
-	// viewMatriks(&M1);
-	// printf("Panjang baris M1 setelah menghapus nilai 2: %d", getNBaris(M1));
-	// printf("\nPanjang kolom M1 setelah menghapus nilai 2: %d", getNKolom(M1));
+	printf("\n\nHapus nilai 2 pada matriks M1\n");
+	delX(&M1, 2);
+	viewMatriks(&M1);
+	printf("Panjang baris M1 setelah menghapus nilai 2: %d", getNBaris(M1));
+	printf("\nPanjang kolom M1 setelah menghapus nilai 2: %d", getNKolom(M1));
 
 	printf("\n\nMengubah matriks M2 menjadi identitas 3x3\n");
 	isiMatriksIdentitas(&M2, 3);
@@ -103,11 +104,13 @@ int main() {
 	Matriks F = getTransposeMatriks(D);
 	printf("Matriks F:\n");
 	viewMatriks(&F);
-
+	
 	printf("\nPadding matriks F dengan n = 1 menjadi matriks G\n");
 	Matriks G = addPadding(F, 1);
 	printf("Matriks G:\n");
 	viewMatriks(&G);
+	printf("Panjang baris F: %d", getNBaris(G));
+	printf("\nPanjang kolom F: %d\n", getNKolom(G));
 
 	printf("\nMax pooling matriks M4 dengan size 2 menjadi matriks H\n");
 	initMatriks(&M4);
@@ -122,6 +125,26 @@ int main() {
 	printf("Matriks I:\n");
 	Matriks I = avgPooling(M4, 2);
 	viewMatriks(&I);
+
+	Matriks kernel;
+	initMatriks(&kernel);
+	isiMatriksIdentitas(&kernel, 2);
+	printf("\nKonvolusi matriks M4 dengan kernel 2x2 menjadi matriks J\n");
+	printf("Kernel:\n");
+	viewMatriks(&kernel);
+	Matriks J = conv(M4, kernel);
+	printf("Matriks J:\n");
+	viewMatriks(&J);
+
+	/* ================= 6. OPERASI PENCARIAN ================= */
+	printf("\n");
+	header("6. OPERASI PENCARIAN & PENGHAPUSAN");
+	printf("Mencari angka 6 pada matriks M3\n");
+	viewMatriks(&M3);
+	searchX(M3, 6, &r, &c);
+	printf("Angka 6 berada pada baris ke-%d, kolom ke-%d",r , c);
+	
+	printf("\nJumlah angka 6 pada matriks M3: %d", countX(M3, 6));
 
 	return 0;
 }
