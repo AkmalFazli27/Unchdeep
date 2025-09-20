@@ -374,13 +374,11 @@ Matriks maxPooling(Matriks M, int size) {
     int i, j, k, l, max, temp, row, col;
     Matriks T;
 
-    // algoritma
     initMatriks(&T);
     if (getNBaris(M) % size == 0 && getNKolom(M) % size == 0) {
         for (i = 1; i <= getNBaris(M); i = i + size) {
             for (j = 1; j <= getNKolom(M); j = j + size) {
                 max = 0;
-
                 for (k = i; k < i + size; k++) {
                     for (l = j; l < j + size; l++) {
                         temp = M.cell[k][l];
@@ -411,7 +409,6 @@ Matriks avgPooling(Matriks M, int size) {
         for (i = 1; i <= getNBaris(M); i = i + size) {
             for (j = 1; j <= getNKolom(M); j = j + size) {
                 sum = 0;
-
                 for (k = i; k < i + size; k++) {
                     for (l = j; l < j + size; l++) {
                         sum += M.cell[k][l];
@@ -431,17 +428,77 @@ Matriks avgPooling(Matriks M, int size) {
 
 /* function conv(M: Matriks, K:Matriks)
 	{menghasilkan matriks hasil konvolusi matriks M dengan kernel K  */
-Matriks conv(Matriks M, Matriks K);
+Matriks conv(Matriks M, Matriks K) {
+    int i, j, k, l, rowM, colM, rowK, colK, sum, row, col;
+    Matriks T;
+
+    initMatriks(&T);
+    rowM = getNBaris(M);
+    colM = getNKolom(M);
+    rowK = getNBaris(K);
+    colK = getNKolom(K);
+
+    if (rowM >= rowK && colM > colK) {
+        for (i = 1; i <= rowM - rowK + 1; i++) {
+            for (j = 1; j <= colM - colK + 1; j++) {
+                sum = 0;
+                for (k = 0; k < rowK; k++) {
+                    for (l = 0; l < colK; l++) {
+                        sum += M.cell[k + i][l + j] * K.cell[k + 1][k + 1];
+                    }
+                }
+                T.cell[i][j] = sum;
+            }
+        }
+    }
+    return T;
+}
 
 /* OPERASI PENCARIAN*/
 /* procedure searchX( input M:Matriks, input X: integer, output row: integer, output col: integer )
 	{I.S.: M terdefinisi, X terdefinisi }
 	{F.S.: row berisi indeks baris dan col berisi indeks kolom ketemu X di M.cell, atau -999 jika tidak ketemu}
 	{Proses: mencari elemen bernilai X dalam M.cell} */
-void searchX(Matriks M, int X, int *row, int *col);
+void searchX(Matriks M, int X, int *row, int *col) {
+    int i, j;
+    boolean found = false;
+
+    *row = -999;
+    *col = -999;
+
+    if (!isEmptyMatriks(M)) {
+        i = 1;
+        while (i <= getNBaris(M) && !found) {
+            j = 1;
+            while (j <= getNKolom(M) && !found) {
+                if (M.cell[i][j] == X) {
+                    found = true;
+                    *row = i;
+                    *col = j;
+                } else {
+                    j++; 
+                }
+            }
+            i++;
+        }
+    }
+}
 
 /* function countX (M:Matriks, X: integer) -> integer
 	{mengembalikan banyaknya elemen bernilai X dalam M.cell} */
-int countX (Matriks M, int X);
+int countX (Matriks M, int X) {
+    int i, j, count = 0;
+
+    if (!isEmptyMatriks(M)) {
+        for (i = 1; i <= getNBaris(M); i++) {
+            for (j = 1; j <= getNKolom(M); j++) {
+                if (M.cell[i][j] == X) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
 
 #endif
