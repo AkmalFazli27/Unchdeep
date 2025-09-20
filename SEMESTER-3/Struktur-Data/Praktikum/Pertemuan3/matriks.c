@@ -49,7 +49,7 @@ boolean isEmptyMatriks(Matriks M) {
 /* function isFullMatriks(M: Matriks) -> boolean
 	{mengembalikan True jika matriks M penuh } */
 boolean isFullMatriks(Matriks M) {
-    return getNBaris(M) != 0 && getNKolom(M) != 0;
+    return getNBaris(M) == 10 && getNKolom(M) == 10;
 }
 
 /* MUTATOR */
@@ -143,7 +143,7 @@ void isiMatriksRandom(Matriks *M, int x, int y) {
     for (i = 1; i <= x; i++) {
         for (j = 1; j <= y; j++) {
             randInt = rand() % 10 + 1;
-            addX(&(*M), randInt, i, j);
+            M->cell[i][j] = randInt;
         }
     }
     M->nbaris = x;
@@ -160,8 +160,6 @@ void isiMatriksIdentitas(Matriks *M, int n) {
         for (j = 1; j <= n; j++) {
             if (i == j) {
                 M->cell[i][j] = 1;
-                M->nbaris++;
-                M->nkolom++;
             }
             else {
                 M->cell[i][j] = 0;
@@ -245,8 +243,8 @@ Matriks addMatriks(Matriks M1, Matriks M2) {
         }
         M3.nbaris = getNBaris(M1);
         M3.nkolom = getNKolom(M1);
-        return M3;
     }
+    return M3;
 }
 
 /* function subMatriks(M1,M2: Matriks) -> Matriks
@@ -264,8 +262,8 @@ Matriks subMatriks(Matriks M1, Matriks M2) {
         }
         M3.nbaris = getNBaris(M1);
         M3.nkolom = getNKolom(M1);
-        return M3;
     }
+    return M3;
 }
 
 /* function kaliMatriks(M1,M2: Matriks) -> Matriks
@@ -279,7 +277,7 @@ Matriks kaliMatriks(Matriks M1, Matriks M2) {
         for (i = 1; i <= getNBaris(M1); i++) {
             for (j = 1; j <= getNKolom(M2); j++) {
                 hasil = 0;
-                for (k = 0; k <= getNKolom(M1); k++) {
+                for (k = 1; k <= getNKolom(M1); k++) {
                     hasil += M1.cell[i][k] * M2.cell[k][j];
                 }
                 M3.cell[i][j] = hasil;
@@ -305,8 +303,8 @@ Matriks kaliSkalarMatriks(Matriks M1, int x) {
         }
         M2.nbaris = getNBaris(M1);
         M2.nkolom = getNKolom(M1);
-        return M2;
     }
+    return M2;
 }
 
 /* OPERASI LAINNYA */
@@ -341,7 +339,7 @@ Matriks getTransposeMatriks(Matriks M) {
     M2.nkolom = getNKolom(M);
     for (i = 1; i <= getNBaris(M); i++) {
         for (j = 1; j <= getNKolom(M); j++) {
-            M2.cell[i][j] = M.cell[j][i];
+            M2.cell[j][i] = M.cell[i][j];
         }
     }
     return M2;
@@ -416,7 +414,7 @@ Matriks avgPooling(Matriks M, int size) {
                     }
                 }
 
-                avg = sum / size * size;
+                avg = sum / (size * size);
                 row = (i - 1) / size + 1;
                 col = (j - 1) / size + 1;
                 addX(&T, avg, row, col);
@@ -432,20 +430,18 @@ Matriks avgPooling(Matriks M, int size) {
 Matriks conv(Matriks M, Matriks K) {
     int i, j, k, l, rowM, colM, rowK, colK, sum, row, col;
     Matriks T;
-
+    
     initMatriks(&T);
-    rowM = getNBaris(M);
-    colM = getNKolom(M);
-    rowK = getNBaris(K);
-    colK = getNKolom(K);
-
-    if (rowM >= rowK && colM > colK) {
-        for (i = 1; i <= rowM - rowK + 1; i++) {
-            for (j = 1; j <= colM - colK + 1; j++) {
+    
+    if (getNBaris(M) >= getNBaris(K) && getNKolom(M) >= getNKolom(K)) {
+        T.nbaris = getNBaris(M) - getNBaris(K) + 1;
+        T.nkolom = getNKolom(M) - getNKolom(K) + 1;
+        for (i = 1; i <= T.nbaris + 1; i++) {
+            for (j = 1; j <= T.nkolom + 1; j++) {
                 sum = 0;
-                for (k = 0; k < rowK; k++) {
-                    for (l = 0; l < colK; l++) {
-                        sum += M.cell[k + i][l + j] * K.cell[k + 1][k + 1];
+                for (k = 1; k <= getNBaris(K); k++) {
+                    for (l = 1; l <= getNKolom(K); l++) {
+                        sum += M.cell[i + k - 1][j + l - 1] * K.cell[k][l];
                     }
                 }
                 T.cell[i][j] = sum;
