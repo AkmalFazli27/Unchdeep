@@ -296,11 +296,14 @@ Matriks kaliSkalarMatriks(Matriks M1, int x) {
     Matriks M2;
     int i, j;
     if (!isEmptyMatriks(M1)) {
-        for (i; i <= getNBaris(M1); i++) {
-            for (j; j <= getNKolom(M1); j++) {
+        initMatriks(&M2);
+        for (i = 1; i <= getNBaris(M1); i++) {
+            for (j = 1; j <= getNKolom(M1); j++) {
                 M2.cell[i][j] = M1.cell[i][j] * x;
             }
         }
+        M2.nbaris = getNBaris(M1);
+        M2.nkolom = getNKolom(M1);
         return M2;
     }
 }
@@ -355,10 +358,10 @@ Matriks addPadding(Matriks M, int n) {
     for (i = 1; i <= getNBaris(T); i++) {
         for (j = 1; j <= getNKolom(T); j++) {
             if (i > n && i <= getNBaris(M) + n && j > n && j <= getNKolom(M) + n) {
-                addX(&T, M.cell[i - n][j - n], i, j);
+                T.cell[i][j] = M.cell[i - n][j - n];
             }
             else {
-                addX(&T, 0, i, j);
+                T.cell[i][j] = 0;
             }
         }
     }
