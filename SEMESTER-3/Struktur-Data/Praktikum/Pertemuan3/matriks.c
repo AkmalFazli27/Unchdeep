@@ -167,6 +167,8 @@ void isiMatriksIdentitas(Matriks *M, int n) {
             }
         }
     }
+    M->nbaris = n;
+    M->nkolom = n;
 }
 
 /* OPERASI BACA/TULIS */
@@ -199,7 +201,7 @@ void printMatriks(Matriks *M) {
         for (int j = 1; j < 11; j++) {
             printf("%d", M->cell[i][j]);
             if (j < 10) {
-                printf("  ");
+                printf("\t");
             }
         }
         printf("]");
@@ -211,17 +213,32 @@ void printMatriks(Matriks *M) {
 	{I.S.: M terdefinisi}
 	{F.S.: -}
 	{Proses: menampilkan elemen M.cell yang terisi ke layar} */
-void viewMatriks (Matriks M);
+void viewMatriks (Matriks *M) {
+    int i, j;
+
+    for (i = 1; i <= getNBaris(*M); i++) {
+        printf("[");
+        for (j = 1; j <= getNKolom(*M); j++) {
+            printf("%d", M->cell[i][j]);
+            if (j < getNKolom(*M)) {
+                printf("\t");
+            }
+        }
+        printf("]");
+        printf("\n");
+    }
+}
 
 /* OPERASI ARITMATIKA */
 /* function addMatriks(M1,M2: Matriks) -> Matriks
 {mengembalikan hasil penjumlahan matriks M1 dengan M2} */
 Matriks addMatriks(Matriks M1, Matriks M2) {
+    int i, j;
     Matriks M3;
-    if (getNBaris(M1) == getNBaris(M2) && getNKolom(M1) == getNBaris(M2)) {
-        int i, j = 1;
-        for (i; i <= getNBaris(M1); i++) {
-            for (j; j <= getNKolom(M2); j++) {
+    if (getNBaris(M1) == getNBaris(M2) && getNKolom(M1) == getNKolom(M2)) {
+        initMatriks(&M3);
+        for (i = 1; i <= getNBaris(M1); i++) {
+            for (j = 1; j <= getNKolom(M2); j++) {
                 M3.cell[i][j] = M2.cell[i][j] + M1.cell[i][j];
             }
         }
@@ -234,12 +251,14 @@ Matriks addMatriks(Matriks M1, Matriks M2) {
 /* function subMatriks(M1,M2: Matriks) -> Matriks
 {mengembalikan hasil pengurangan antara matriks M1 dengan M2} */
 Matriks subMatriks(Matriks M1, Matriks M2) {
+    int i, j;
     Matriks M3;
-    if (getNBaris(M1) == getNBaris(M2) && getNKolom(M1) == getNBaris(M2)) {
-        int i, j = 1;
-        for (i; i <= getNBaris(M1); i++) {
-            for (j; j <= getNKolom(M2); j++) {
-                M3.cell[i][j] = M2.cell[i][j] - M1.cell[i][j];
+
+    if (getNBaris(M1) == getNBaris(M2) && getNKolom(M1) == getNKolom(M2)) {
+        initMatriks(&M3);
+        for (i = 1; i <= getNBaris(M1); i++) {
+            for (j = 1; j <= getNKolom(M2); j++) {
+                M3.cell[i][j] = M1.cell[i][j] - M2.cell[i][j];
             }
         }
         M3.nbaris = getNBaris(M1);
@@ -262,11 +281,11 @@ Matriks kaliMatriks(Matriks M1, Matriks M2) {
                 for (k = 0; k <= getNKolom(M1); k++) {
                     hasil += M1.cell[i][k] * M2.cell[k][j];
                 }
+                M3.cell[i][j] = hasil;
             }
-            M3.cell[i][j] = hasil;
-            M3.nbaris = j;
-            M3.nkolom = k;
         }
+        M3.nbaris = j-1;
+        M3.nkolom = k-1;
     }
     return M3;
 }
@@ -326,15 +345,86 @@ Matriks getTransposeMatriks(Matriks M) {
 
 /* function addPadding(M: Matriks, input n:integer)
 	{menghasilkan matriks baru dari M yang ditambahkan padding 0 sesuai dengan ukuran padding n */
-Matriks addPadding(Matriks M, int n);
+Matriks addPadding(Matriks M, int n) {
+    Matriks T;
+    int i, j;
+    initMatriks(&T);
+    T.nbaris = getNBaris(M) + 2 * n;
+    T.nkolom = getNKolom(M) + 2 * n;
+
+    for (i = 1; i <= getNBaris(T); i++) {
+        for (j = 1; j <= getNKolom(T); j++) {
+            if (i > n && i <= getNBaris(M) + n && j > n && j <= getNKolom(M) + n) {
+                addX(&T, M.cell[i - n][j - n], i, j);
+            }
+            else {
+                addX(&T, 0, i, j);
+            }
+        }
+    }
+    return T;
+}
 
 /* function maxPooling(M: Matriks, input size:integer)
 	{menghasilkan matriks hasil max pooling matriks M dengan pool size = size  */
-Matriks maxPooling(Matriks M, int size);
+Matriks maxPooling(Matriks M, int size) {
+    int i, j, k, l, max, temp, row, col;
+    Matriks T;
+
+    // algoritma
+    initMatriks(&T);
+    if (getNBaris(M) % size == 0 && getNKolom(M) % size == 0) {
+        for (i = 1; i <= getNBaris(M); i = i + size) {
+            for (j = 1; j <= getNKolom(M); j = j + size) {
+                max = 0;
+
+                for (k = i; k < i + size; k++) {
+                    for (l = j; l < j + size; l++) {
+                        temp = M.cell[k][l];
+                        if (temp > max) {
+                            max = temp;
+                        }
+                    }
+                }
+
+                row = (i - 1) / size + 1;
+                col = (j - 1) / size + 1;
+                addX(&T, max, row, col);
+            }
+        }
+    }
+
+    return T;
+}
 
 /* function avgPooling(M: Matriks, input size:integer)
 	{menghasilkan matriks hasil average pooling matriks M dengan pool size = size  */
-Matriks avgPooling(Matriks M, int size);
+Matriks avgPooling(Matriks M, int size) {
+    int i, j, k, l, sum, avg, temp, row, col;
+    Matriks T;
+
+    initMatriks(&T);
+    if (getNBaris(M) % size == 0 && getNKolom(M) % size == 0) {
+        for (i = 1; i <= getNBaris(M); i = i + size) {
+            for (j = 1; j <= getNKolom(M); j = j + size) {
+                sum = 0;
+
+                for (k = i; k < i + size; k++) {
+                    for (l = j; l < j + size; l++) {
+                        sum += M.cell[k][l];
+                    }
+                }
+
+                avg = sum / size * size;
+                row = (i - 1) / size + 1;
+                col = (j - 1) / size + 1;
+                addX(&T, avg, row, col);
+            }
+        }
+    }
+
+    return T;
+}
 
 /* function conv(M: Matriks, K:Matriks)
 	{menghasilkan matriks hasil konvolusi matriks M dengan kernel K  */

@@ -84,7 +84,7 @@ void printMatriks(Matriks *M);
 	{I.S.: M terdefinisi}
 	{F.S.: -}
 	{Proses: menampilkan elemen M.cell yang terisi ke layar} */
-void viewMatriks (Matriks M);
+void viewMatriks (Matriks *M);
 
 /* OPERASI ARITMATIKA */
 /* function addMatriks(M1,M2: Matriks) -> Matriks
