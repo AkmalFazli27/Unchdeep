@@ -58,33 +58,37 @@ boolean isFullMatriks(Matriks M) {
 	{F.S.: isi M.cell bertambah 1 elemen pada baris ke-row dan kolom ke-col jika belum penuh}
 	{Proses: mengisi elemen M.cell dengan nilai X} */
 void addX (Matriks *M, int X, int row, int col) {
-    if (M->cell[row][col] == -999) {
-        int i, j;
-        int rowBaru = 1; 
-        int colBaru = 1; 
+    int i, j;
+    boolean isRowEmpty = true, isColEmpty = true;
+    int rowBaru = 1; 
+    int colBaru = 1; 
 
-        for (j = 1; j < 11; j++) {
-            if (M->cell[row][j] != -999) {
-                rowBaru = 0; 
-                break;
+    if (!isFullMatriks(*M)) {
+        if (M->cell[row][col] == -999) {
+    
+            for (j = 1; j < 11; j++) {
+                if (M->cell[row][j] != -999) {
+                    isRowEmpty = false; 
+                    break;
+                }
             }
-        }
-
-        for (i = 1; i < 11; i++) {
-            if (M->cell[i][col] != -999) {
-                colBaru = 0; 
-                break;
+    
+            for (i = 1; i < 11; i++) {
+                if (M->cell[i][col] != -999) {
+                    isColEmpty = false; 
+                    break;
+                }
             }
-        }
-
-        M->cell[row][col] = X;
-
-        if (rowBaru == 1) {
-            M->nbaris++;
-        }
-
-        if (colBaru == 1) {
-            M->nkolom++;
+    
+            M->cell[row][col] = X;
+    
+            if (isRowEmpty) {
+                M->nbaris++;
+            }
+    
+            if (isColEmpty) {
+                M->nkolom++;
+            }
         }
     }
 }
@@ -95,39 +99,36 @@ void addX (Matriks *M, int X, int row, int col) {
 	{F.S.: elemen M.cell berkurang 1}
 	{Proses: menghapus 1 elemen bernilai X dari M.cell*/
 void delX (Matriks *M, int X) {
-    int i, j;
-    int idxRow, idxCol;
+    int i, j, row, col;
+    boolean isRowEmpty = true, isColEmpty = true;
 
-    for (i = 1; i < 11; i++) {
-        for (j = 1; j < 11; j++) {
-            if (M->cell[i][j] == X) {
-                idxRow = i;
-                idxCol = j;
-                M->cell[i][j] = -999;
-                break;
+    if (!isEmptyMatriks(*M)) {
+        searchX(*M, X, &row, &col);
+    
+        if (row != -999 && col != -999) {
+            M->cell[row][col] = -999;
+    
+            for (int j = 1; j < 11; j++) {
+                if (M->cell[row][j] != -999) {
+                    isRowEmpty = false; 
+                    break;
+                }
             }
-        }
-    }
-
-    if (M->cell[idxRow][idxRow] == -999) {
-        for (j = 1; j <= 11; j++) {
-            if (M->cell[idxRow][j] != -999) {
-                break;
+    
+            if (isRowEmpty) {
+                M->nbaris--;
             }
-        }
-
-        if (j > 11) {
-            M->nbaris--;
-        }
-
-        for (i = 1; i <= 11; i++) {
-            if (M->cell[i][idxCol] != -999) {
-                break;
+    
+            for (int i = 1; i < 11; i++) {
+                if (M->cell[i][col] != -999) {
+                    isColEmpty = false; 
+                    break;
+                }
             }
-        }
-
-        if (i > 11) {
-            M->nkolom--;
+    
+            if (isColEmpty) {
+                M->nkolom--;
+            }
         }
     }
 }
