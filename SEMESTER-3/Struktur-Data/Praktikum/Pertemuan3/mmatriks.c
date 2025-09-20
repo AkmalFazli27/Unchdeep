@@ -1,7 +1,7 @@
 /* Program   : mmatriks.c */
 /* Deskripsi : driver ADT matriks integer */
-/* NIM/Nama  : */
-/* Tanggal   : */
+/* NIM/Nama  : 24060124130123/Muhammad Akmal Fazli Riyadi */
+/* Tanggal   : 20 September 2025 */
 /***********************************/
 
 #include <stdio.h>
