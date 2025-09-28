@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2D522BD1-F726-CBE3-6CD7-0A5C25FA72AC" containerWithKeyObject="727E2D2A-6B88-823A-5143-CBEB093B4D0F" localFKIndex="D6B2E55E-EFF1-1536-7302-49D384433A38" name="Produk_UMKM_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<generatorID>1D0934D3-D995-F0EE-6A92-C5F26602E4E0</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<referredTableLongName>UMKM</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7B1CA58F-C5B7-2A53-24E2-68532CB76213</referredTableID>
+<keyObject>9E2DB66E-D797-795C-70CC-7D0D095CE8FE</keyObject>
+<referredKeyID>9E2DB66E-D797-795C-70CC-7D0D095CE8FE</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_UMKM</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

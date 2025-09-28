@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7B1CA58F-C5B7-2A53-24E2-68532CB76213" name="UMKM">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>9D11AE4E-D311-AA7F-3B9C-B8A9D39C06DC</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_UMKM" id="27099C31-8F74-13A7-77D2-A306699A48E9">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>5D1BAD19-773A-CFC5-14E0-0CB376184545</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nama_Usaha" id="A4C04F79-6FD0-81DD-2B4D-6210D436AD2C">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>D6536E64-02FD-0A85-305F-5017826B3324</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jenis_Usaha" id="13CEAF41-0C47-6C67-0620-4A1B913CA0C4">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>AEFCEB59-B04D-106A-D6F1-CEF112F3447A</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tahun_Berdiri" id="05190A7D-4EC6-55EE-7E8D-155767C381A6">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>8398E6DF-4912-7DD1-2D9F-AF545E432752</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Status_Izin_Usaha" id="6436AC15-460D-2559-9C48-76854A461510">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>D4F005BD-2229-926D-6EC9-CC32F23C53DC</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Omzet_Tahunan" id="75A662EF-B25F-04CB-8BE1-E0E093B7FC23">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>C2A2E9C8-FBC5-84A5-58EA-2940079E2DFA</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9E2DB66E-D797-795C-70CC-7D0D095CE8FE" name="UMKM_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>70C82527-869E-A31B-15BE-DB8299C944EA</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27099C31-8F74-13A7-77D2-A306699A48E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

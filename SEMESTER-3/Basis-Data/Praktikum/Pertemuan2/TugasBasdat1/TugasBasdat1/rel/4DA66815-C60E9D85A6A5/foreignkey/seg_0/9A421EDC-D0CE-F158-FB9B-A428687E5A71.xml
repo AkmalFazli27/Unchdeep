@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9A421EDC-D0CE-F158-FB9B-A428687E5A71" containerWithKeyObject="407552E1-74C8-F8BE-1214-BB54D67E0511" localFKIndex="574EA5C5-84A6-7A13-4F25-3E1CC78A7484" name="Partisipasi_UMKM_Program_Pendampingan_&amp;_Bantuan_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<generatorID>91F9D900-F5C8-12C5-32C3-D00631EA16B4</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<referredTableLongName>Program_Pendampingan_&amp;_Bantuan</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E621735E-4BFF-9C69-A8A2-7AC6C0A3A179</referredTableID>
+<keyObject>881F687B-EB3A-C0ED-14D0-FC4D74E66DDD</keyObject>
+<referredKeyID>881F687B-EB3A-C0ED-14D0-FC4D74E66DDD</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_Program</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

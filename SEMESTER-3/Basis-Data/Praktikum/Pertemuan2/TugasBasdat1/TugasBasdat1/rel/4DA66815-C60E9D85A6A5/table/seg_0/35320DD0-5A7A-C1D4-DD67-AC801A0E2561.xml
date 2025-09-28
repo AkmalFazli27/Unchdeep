@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="35320DD0-5A7A-C1D4-DD67-AC801A0E2561" name="Transaksi">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>991B7B50-217D-AC78-7AF4-DAB4F6FA0943</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Transaksi" id="BD7FF609-358B-8F21-6C6F-89234DFD9A62">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>4CE13253-B30C-30A9-0257-D75D7C3D0B36</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanggal" id="3DA87A6B-8EC1-87F9-1C2F-7C864A0C1F02">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>90CB4B89-34A8-D81F-EB3E-2267F18A887E</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jumlah" id="3AC4E9E1-4FCA-756B-72E0-FC8EFD6355D7">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>BB4378F3-3673-4AD7-1FE1-AAEF657D7F5E</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Total_Harga" id="605427EE-7B8B-64BF-643B-A6D654552C27">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>3A069C32-93DE-1985-4D5A-7ECADC9D0D9E</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pembeli_Luar_NIK" id="9BB1A00C-149F-B986-1BF9-DE4F377DECC3">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>549BCDEA-7AE2-B723-3A37-20F768A96E5E</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="459513C9-7315-5F7D-4A0A-8B24F742B0FD" referredColumn="88C3A18B-6236-7BB2-B5E7-20F3C839FDEE"/>
+</associations>
+</Column>
+<Column name="Penduduk_NIK" id="89518104-16D5-8540-CF3B-6666D76680A1">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>576F5843-A3FD-AD19-30BA-067CE00D0E8D</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8DD689D5-5E14-6648-5D8E-524EE4173888" referredColumn="207026C9-ED3E-E843-6F84-B3D4DC865C7A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="66E7CECB-8B72-0663-B185-B74B9914E6FC" name="Transaksi_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>56956B95-9E2A-5FD8-07D2-CE71657EC97F</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BD7FF609-358B-8F21-6C6F-89234DFD9A62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7DFB3714-639F-814E-B3BC-2DA45AE87320" name="Transaksi_Pembeli_Luar_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<generatorID>7EBA928C-7577-2213-2E37-BE7F04A33518</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9BB1A00C-149F-B986-1BF9-DE4F377DECC3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="37690C60-7954-4B7A-087A-A2AAAB70713F" name="Transaksi_Penduduk_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<generatorID>3232A24C-F1A5-818E-AEFB-05E65C5E7173</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="89518104-16D5-8540-CF3B-6666D76680A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

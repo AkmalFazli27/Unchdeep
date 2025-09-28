@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E621735E-4BFF-9C69-A8A2-7AC6C0A3A179" name="Program_Pendampingan_&amp;_Bantuan">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>A88FB822-2659-297F-F1B5-7A3864B6C4CE</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Program" id="2AE46A9D-65FB-3C75-75F7-AEFD830B4429">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>EE70306B-DF84-118B-6A6A-184F41EEB13F</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nama_Program" id="548CF911-18FA-B4E3-F57B-9D464AF14737">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>F7A6F8D2-AA53-5D54-9F9A-AB0BB15462FD</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jenis" id="E203B449-8F8B-C1B0-8B88-F28AB1F6BC82">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>402266E9-9708-5346-363B-DF97BADF1422</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanggal_Mulai" id="4C3E1FC7-9003-1A9C-E958-66059F1C91CC">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>00D17634-CFBE-84B1-DC95-5B3603056C20</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanggal_Selesai" id="F92F0A62-6358-1459-25F2-C0B7220A8AE9">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>B5584BD7-9436-A06E-8A3B-779F6E096627</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="881F687B-EB3A-C0ED-14D0-FC4D74E66DDD" name="Program_Pendampingan_&amp;_Bantuan_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>633ACB7C-D99B-30C9-7849-4273A7B1FB57</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2AE46A9D-65FB-3C75-75F7-AEFD830B4429"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

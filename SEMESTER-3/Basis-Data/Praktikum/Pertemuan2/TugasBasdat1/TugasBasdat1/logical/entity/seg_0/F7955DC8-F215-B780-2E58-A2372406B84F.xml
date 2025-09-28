@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F7955DC8-F215-B780-2E58-A2372406B84F" name="Pelaku UMKM">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:29:28 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_UMKM" id="AE3F23B8-D79F-5E33-BE29-C8577DC6A5DC">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:30:38 UTC</createdTime>
+<generatorID>B4C6E7BB-EEC7-29BC-CD50-1E35ED854DA1</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<referedAttribute>5D1BAD19-773A-CFC5-14E0-0CB376184545</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIK" id="73CA0684-C277-4DEF-0EC7-E5E264D49D20">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:37:18 UTC</createdTime>
+<generatorID>807CAC7C-7048-708A-7DFB-61BC764711BD</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<referedAttribute>3644AF58-8C23-79FD-1377-17F674676CC0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="02F60CE6-2CEE-F74E-B7ED-C8DED18E8C7F" name="Pelaku UMKM PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:32:07 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>73CA0684-C277-4DEF-0EC7-E5E264D49D20</attributeRef>
+<attributeRef>AE3F23B8-D79F-5E33-BE29-C8577DC6A5DC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

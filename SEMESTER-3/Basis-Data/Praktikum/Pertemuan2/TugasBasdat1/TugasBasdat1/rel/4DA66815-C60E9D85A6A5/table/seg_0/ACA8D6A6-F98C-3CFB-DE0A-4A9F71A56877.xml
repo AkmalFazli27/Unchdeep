@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ACA8D6A6-F98C-3CFB-DE0A-4A9F71A56877" name="Pembeli_Luar">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>0B42A966-55E8-1F6A-26FD-1EB3BA11AE73</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NIK" id="88C3A18B-6236-7BB2-B5E7-20F3C839FDEE">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>C7B91625-B3D6-4522-196A-2313F32FB670</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nama" id="38E4646E-7702-43C0-2B1D-9BA41ABD599E">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>E0368D85-AAAF-DBC1-24A8-7D61666FB920</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nomor_Telepon" id="14FC4428-CF81-EEC5-724F-FF95E34DC0FB">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>8C742F14-93CD-94C2-0004-115B4A134BFE</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="4C337692-0254-D532-CD32-3048DB73D1EC">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>700A20F7-D086-93CF-0B87-DC250063565F</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="96ADDAAE-26DE-6262-6A2E-4B25FF104548" name="Pembeli_Luar_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>36C63FFE-4025-CC89-D625-8D6A9417CA08</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88C3A18B-6236-7BB2-B5E7-20F3C839FDEE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

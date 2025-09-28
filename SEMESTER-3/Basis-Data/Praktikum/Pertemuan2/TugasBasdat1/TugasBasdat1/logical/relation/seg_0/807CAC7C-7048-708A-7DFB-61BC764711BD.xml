@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Penduduk_Pelaku" directorySegmentName="seg_0" id="807CAC7C-7048-708A-7DFB-61BC764711BD">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:30:00 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<sourcePk>AADC0D2F-EEFC-1C22-96BB-F2B74AC71BC3</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>7262149F-687D-2D21-02D9-0EC1CDE66683</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F7955DC8-F215-B780-2E58-A2372406B84F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C8D7BDB7-A9C0-CAB0-B095-904803F8218F" name="Penduduk">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>7262149F-687D-2D21-02D9-0EC1CDE66683</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NIK" id="207026C9-ED3E-E843-6F84-B3D4DC865C7A">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>3644AF58-8C23-79FD-1377-17F674676CC0</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nama" id="2D72E1AF-1E41-B8A3-0B6D-65C22578B023">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>C019603F-9E26-9F25-4687-4B37D975915A</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>35</dataTypeSize>
+<ownDataTypeParameters>35,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Alamat_Lengkap" id="1D21F418-A0F7-3CA4-A4E7-FF3AF068C19D">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>62146BFD-9959-BB1D-8EA4-D9936F4C7003</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanggal_Lahir" id="2A4C5843-997B-C5FC-B811-8B6873744854">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>C3D68D0E-EAEE-6B15-D1A9-AC940E917FBD</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jenis_Kelamin" id="391FC1CC-07E4-03E0-CA39-2DB401CE7787">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>28C97C72-AA31-2D94-4E5B-4E54882B43A4</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="No_HP" id="9D493433-FFDB-8866-D3CB-D68D864C24FC">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>56E47228-5434-B3C5-DA49-330284A34C50</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3BF9AB95-0143-C209-EBA9-44FBCC4D000C" name="Penduduk_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:55 UTC</createdTime>
+<generatorID>AADC0D2F-EEFC-1C22-96BB-F2B74AC71BC3</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="207026C9-ED3E-E843-6F84-B3D4DC865C7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

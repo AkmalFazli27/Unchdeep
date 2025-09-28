@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0B42A966-55E8-1F6A-26FD-1EB3BA11AE73" name="Pembeli Luar">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:51:27 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NIK" id="C7B91625-B3D6-4522-196A-2313F32FB670">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:51:38 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nama" id="E0368D85-AAAF-DBC1-24A8-7D61666FB920">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:51:42 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nomor Telepon" id="8C742F14-93CD-94C2-0004-115B4A134BFE">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:51:46 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Email" id="700A20F7-D086-93CF-0B87-DC250063565F">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:51:56 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="36C63FFE-4025-CC89-D625-8D6A9417CA08" name="Pembeli Luar PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 09:51:41 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C7B91625-B3D6-4522-196A-2313F32FB670</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

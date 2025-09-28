@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="219FC012-6204-FA4D-4228-43113A7944B8" name="Relation_21">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="kjh_kjh_ID" id="4686B8D5-CFBA-824B-2807-25ADBB4B5F34">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A520DE7-B5BF-E8B7-B577-C9D6968156C8" referredColumn="6A7BFD4D-516F-69B8-E20E-8C16D51C17FB"/>
+</associations>
+</Column>
+<Column name="Pembeli_Luar_NIK" id="52A92081-4E70-F17E-88A2-20AA20BFF12B">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F06CA25D-B832-2B2A-AFED-A557BA906F06" referredColumn="88C3A18B-6236-7BB2-B5E7-20F3C839FDEE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E5AE77D0-BB30-9109-92DC-AEB35CA74F55" name="Relation_21_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4686B8D5-CFBA-824B-2807-25ADBB4B5F34"/>
+<colUsage columnID="52A92081-4E70-F17E-88A2-20AA20BFF12B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5F4FD06C-067B-D9F1-2404-DCCDE7C23E36" name="Relation_21_kjh_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<generatorID>02FCE1F2-A7B1-CE08-A7DF-0C483E6C8B73</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4686B8D5-CFBA-824B-2807-25ADBB4B5F34"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0FC7DC8A-E4AA-ED81-A0D0-41162129B152" name="Relation_21_Pembeli_Luar_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:30:56 UTC</createdTime>
+<generatorID>02FCE1F2-A7B1-CE08-A7DF-0C483E6C8B73</generatorID>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52A92081-4E70-F17E-88A2-20AA20BFF12B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

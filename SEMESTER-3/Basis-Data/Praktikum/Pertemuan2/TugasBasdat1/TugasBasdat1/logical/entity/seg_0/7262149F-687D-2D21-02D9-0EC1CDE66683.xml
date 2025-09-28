@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7262149F-687D-2D21-02D9-0EC1CDE66683" name="Penduduk">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:16:45 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NIK" id="3644AF58-8C23-79FD-1377-17F674676CC0">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:17:06 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nama" id="C019603F-9E26-9F25-4687-4B37D975915A">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:17:11 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>35</dataTypeSize>
+<ownDataTypeParameters>35,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Alamat Lengkap" id="62146BFD-9959-BB1D-8EA4-D9936F4C7003">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:17:19 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tanggal Lahir" id="C3D68D0E-EAEE-6B15-D1A9-AC940E917FBD">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:17:38 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Jenis Kelamin" id="28C97C72-AA31-2D94-4E5B-4E54882B43A4">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:17:50 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="No HP" id="56E47228-5434-B3C5-DA49-330284A34C50">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:18:27 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AADC0D2F-EEFC-1C22-96BB-F2B74AC71BC3" name="Penduduk PK">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:18:55 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3644AF58-8C23-79FD-1377-17F674676CC0</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

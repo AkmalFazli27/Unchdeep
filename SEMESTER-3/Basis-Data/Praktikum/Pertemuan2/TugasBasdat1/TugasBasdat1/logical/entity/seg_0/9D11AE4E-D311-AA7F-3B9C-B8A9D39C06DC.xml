@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9D11AE4E-D311-AA7F-3B9C-B8A9D39C06DC" name="UMKM">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:20:25 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_UMKM" id="5D1BAD19-773A-CFC5-14E0-0CB376184545">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:20:37 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nama Usaha" id="D6536E64-02FD-0A85-305F-5017826B3324">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:21:01 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Jenis Usaha" id="AEFCEB59-B04D-106A-D6F1-CEF112F3447A">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:21:23 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tahun Berdiri" id="8398E6DF-4912-7DD1-2D9F-AF545E432752">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:21:34 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Status Izin Usaha" id="D4F005BD-2229-926D-6EC9-CC32F23C53DC">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:21:53 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Omzet Tahunan" id="C2A2E9C8-FBC5-84A5-58EA-2940079E2DFA">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:22:13 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="70C82527-869E-A31B-15BE-DB8299C944EA" name="UMKM PK">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:20:59 UTC</createdTime>
+<ownerDesignName>TugasBasdat1</ownerDesignName>
+<engineerTo>
+<item key="4DA66815-8B00-D3F8-0695-C60E9D85A6A5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5D1BAD19-773A-CFC5-14E0-0CB376184545</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
