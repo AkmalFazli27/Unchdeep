@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76D59D33-8D36-C125-AD5F-7B401A58F153" name="Produk">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:26:16 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Produk" id="A966A9B6-C979-8FEE-877E-66A8788CC77F">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:26:49 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nama produk" id="5808EA0C-C8BE-3D0A-6A90-671F194CE4AB">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:27:08 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Kategori" id="604ED81E-2D8B-78D5-8CFD-30AFDA3C9431">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:27:23 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Harga" id="503B97DB-DA6A-435C-ADD2-C3387D8F1725">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:27:33 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Stok" id="C239F81A-C2FA-7B9F-3549-E279ABC424AE">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:27:40 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_UMKM" id="C04DA0D4-E104-3979-D54F-A16CD58F6E59">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:20:19 UTC</createdTime>
+<generatorID>1D0934D3-D995-F0EE-6A92-C5F26602E4E0</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<referedAttribute>5D1BAD19-773A-CFC5-14E0-0CB376184545</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DA8F6302-ED81-C440-F31A-6A1AAEE9C034" name="Produk PK">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-15 09:27:51 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A966A9B6-C979-8FEE-877E-66A8788CC77F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

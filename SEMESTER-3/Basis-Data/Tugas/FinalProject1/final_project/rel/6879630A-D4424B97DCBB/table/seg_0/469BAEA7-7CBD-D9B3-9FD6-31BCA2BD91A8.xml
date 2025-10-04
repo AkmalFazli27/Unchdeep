@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="469BAEA7-7CBD-D9B3-9FD6-31BCA2BD91A8" name="Organisasi_UMKM">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="UMKM_ID_UMKM" id="0DD036C4-16CE-E437-AB47-AB8A0B116CF1">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EB7CA8D0-09EF-644E-DF3C-E14497958214" referredColumn="1094D050-9C80-2446-D7D7-FA942CBDF7DE"/>
+</associations>
+</Column>
+<Column name="Hubungan_Antar_UMKM_ID_Asosiasi" id="9110403E-D83A-C5F6-E429-ABC3F79A0BCD">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DAF32DD1-AE3B-BCA8-732A-6AD30BD5A6CA" referredColumn="513C5EEB-4A08-30C1-003E-ED3F647D8766"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E6E6BDCE-E3DD-5885-C035-9077F356A8AD" name="Organisasi_UMKM_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DD036C4-16CE-E437-AB47-AB8A0B116CF1"/>
+<colUsage columnID="9110403E-D83A-C5F6-E429-ABC3F79A0BCD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A9813D9-E4FE-1D7C-50A6-0DC08D16D678" name="Organisasi_UMKM_UMKM_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>71E5301F-94E5-8F2D-50DA-C551209B6D7F</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DD036C4-16CE-E437-AB47-AB8A0B116CF1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="43C8CFDC-0218-7367-42BE-B8141AB9E096" name="Organisasi_UMKM_Hubungan_Antar_UMKM_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>71E5301F-94E5-8F2D-50DA-C551209B6D7F</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9110403E-D83A-C5F6-E429-ABC3F79A0BCD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

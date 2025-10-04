@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="UMKM ke Laporan Keuangan" directorySegmentName="seg_0" id="A1F247F4-F99B-2868-1B63-CC6129087B40">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-09-28 10:13:09 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<targetTransferable>false</targetTransferable>
+<sourcePk>70C82527-869E-A31B-15BE-DB8299C944EA</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>9D11AE4E-D311-AA7F-3B9C-B8A9D39C06DC</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>DDBBA51E-C6FF-2DDC-C804-761136CA87D7</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

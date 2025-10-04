@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Pembayaran" directorySegmentName="seg_0" id="9E8693DB-34DF-E035-A1DC-469AE1960528">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 09:44:38 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>76D59D33-8D36-C125-AD5F-7B401A58F153</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>991B7B50-217D-AC78-7AF4-DAB4F6FA0943</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

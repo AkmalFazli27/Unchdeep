@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DDBBA51E-C6FF-2DDC-C804-761136CA87D7" name="Laporan Keuangan">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:23:28 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Laporan" id="3B9D3D16-B20D-5CE4-7F99-A8DA9C80E2C2">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:23:49 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Bulan" id="4C051900-C5B1-7BD3-EC4B-31381C3B7626">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:23:58 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tahun" id="EC7B0772-9D46-43B9-9157-0375952DB1AC">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:24:03 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Pemasukan" id="3FED5FDB-C083-E8C6-F7AF-FC20BB8A2A6E">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:24:08 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>182</dataTypePrecision>
+<ownDataTypeParameters>,182,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Pengeluaran" id="413135D0-DB91-FA0B-31EA-AA724CE8B5F5">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:24:13 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Keuntungan" id="15CA8B96-8071-F030-A06E-9A239CC30396">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:24:19 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>69230305-AB6A-99EB-35A1-CC306D543604</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_UMKM" id="E250CE7F-5438-B72E-01E9-0E5F74383185">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:20:19 UTC</createdTime>
+<generatorID>A1F247F4-F99B-2868-1B63-CC6129087B40</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<referedAttribute>5D1BAD19-773A-CFC5-14E0-0CB376184545</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="906E21C2-B783-6080-5A2B-921A0503D7BF" name="Laporan Keuangan PK">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:24:28 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3B9D3D16-B20D-5CE4-7F99-A8DA9C80E2C2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

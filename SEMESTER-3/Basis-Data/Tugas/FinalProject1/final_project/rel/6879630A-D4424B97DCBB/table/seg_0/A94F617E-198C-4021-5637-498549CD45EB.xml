@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A94F617E-198C-4021-5637-498549CD45EB" name="Partisipasi_UMKM">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="UMKM_ID_UMKM" id="66A504CC-6B47-AAE5-DB53-E58BC23B2B4E">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="370D81BA-4C70-42AB-C8F1-FBA3650706A0" referredColumn="1094D050-9C80-2446-D7D7-FA942CBDF7DE"/>
+</associations>
+</Column>
+<Column name="Program_Pendampingan_&amp;_Bantuan_ID_Program" id="8CA23F76-64E9-D07C-C0F8-F845C439E180">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="19F448D7-10BF-167D-42A8-DFEE4001112D" referredColumn="B9B39FAB-1447-67E7-C37C-C45575A5C3BD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DCC02150-0DDF-7456-28C6-A617BA1ED6DB" name="Partisipasi_UMKM_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66A504CC-6B47-AAE5-DB53-E58BC23B2B4E"/>
+<colUsage columnID="8CA23F76-64E9-D07C-C0F8-F845C439E180"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B2117537-9899-51E7-A30C-7D4DFE5952D8" name="Partisipasi_UMKM_UMKM_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>0DC49195-0A3C-32D1-69EF-75C6B4FCBA11</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66A504CC-6B47-AAE5-DB53-E58BC23B2B4E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90500F5E-F822-7104-5DF0-9A239FE0D290" name="Partisipasi_UMKM_Program_Pendampingan_&amp;_Bantuan_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>0DC49195-0A3C-32D1-69EF-75C6B4FCBA11</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8CA23F76-64E9-D07C-C0F8-F845C439E180"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

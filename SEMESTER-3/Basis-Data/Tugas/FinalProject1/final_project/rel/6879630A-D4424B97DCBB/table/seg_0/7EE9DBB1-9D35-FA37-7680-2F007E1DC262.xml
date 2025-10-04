@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7EE9DBB1-9D35-FA37-7680-2F007E1DC262" name="Pelaku_UMKM">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NIK" id="C10689CF-7DE6-CE05-70C7-7C5D11BA31F8">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="23AE2B16-BD0C-7812-9E0C-5AC7C2B66D63" referredColumn="9F4D5C09-B8C1-6954-8F3B-42559105AD8F"/>
+</associations>
+</Column>
+<Column name="ID_UMKM" id="39796BA5-0ECE-AFAA-C854-51515B3159B2">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="05F7328D-6675-4FD3-D8F9-3DFD8F9D2E1D" referredColumn="1094D050-9C80-2446-D7D7-FA942CBDF7DE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="948E4E7B-77FD-4B14-7017-8FED894394DB" name="Pelaku_UMKM_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C10689CF-7DE6-CE05-70C7-7C5D11BA31F8"/>
+<colUsage columnID="39796BA5-0ECE-AFAA-C854-51515B3159B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="58452FDB-E3F0-0133-E381-EF9D7BA28E5D" name="Pelaku_UMKM_Penduduk_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>791AAA4E-06A6-2C2E-274B-8E90A8014497</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C10689CF-7DE6-CE05-70C7-7C5D11BA31F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5F89B6C8-F361-E2FE-E3E5-1B5B8D198951" name="Pelaku_UMKM_UMKM_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>791AAA4E-06A6-2C2E-274B-8E90A8014497</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39796BA5-0ECE-AFAA-C854-51515B3159B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

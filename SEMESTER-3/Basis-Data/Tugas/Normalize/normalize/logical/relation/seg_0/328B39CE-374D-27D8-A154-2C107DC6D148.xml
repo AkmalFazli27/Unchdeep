@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Pembeli Luar ke Telp" directorySegmentName="seg_0" id="328B39CE-374D-27D8-A154-2C107DC6D148">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-02 18:13:55 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<sourcePk>36C63FFE-4025-CC89-D625-8D6A9417CA08</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0B42A966-55E8-1F6A-26FD-1EB3BA11AE73</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B51FC14A-8CCA-862D-ECB9-BD96EFA9C6A6</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

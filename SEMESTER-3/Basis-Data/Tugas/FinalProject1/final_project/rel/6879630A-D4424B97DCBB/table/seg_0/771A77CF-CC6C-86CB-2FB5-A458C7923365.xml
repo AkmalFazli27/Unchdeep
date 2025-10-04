@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="771A77CF-CC6C-86CB-2FB5-A458C7923365" name="Transaksi">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>991B7B50-217D-AC78-7AF4-DAB4F6FA0943</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Transaksi" id="F72BAC1A-9848-EC77-0EED-383B405E2CDB">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>4CE13253-B30C-30A9-0257-D75D7C3D0B36</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanggal" id="DE89611B-2413-FEE2-0E73-E4C9E2B20D07">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>90CB4B89-34A8-D81F-EB3E-2267F18A887E</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jumlah" id="4BB7F159-E2FE-109E-9BE4-9794DC301482">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>BB4378F3-3673-4AD7-1FE1-AAEF657D7F5E</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Total_Harga" id="FD7DBA75-CABD-3498-4BA0-87F78B92E08A">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>3A069C32-93DE-1985-4D5A-7ECADC9D0D9E</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Pembeli_Luar_NIK" id="BC611AA2-C2CA-12BF-66E6-32A0A34EE67D">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>549BCDEA-7AE2-B723-3A37-20F768A96E5E</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="53835D98-C97A-CD54-3DE2-664F15AF05E3" referredColumn="115912EC-1824-2125-E6B7-934C06052D9C"/>
+</associations>
+</Column>
+<Column name="Penduduk_NIK" id="8CCD8227-3348-BDDD-159E-2ECA5D43DF0E">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>576F5843-A3FD-AD19-30BA-067CE00D0E8D</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ABCEB5D4-C24B-B990-13E8-64F5D3827F9D" referredColumn="9F4D5C09-B8C1-6954-8F3B-42559105AD8F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="73D65D3B-C9E3-BC18-5C14-363CC0E1E2E8" name="Transaksi_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>56956B95-9E2A-5FD8-07D2-CE71657EC97F</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F72BAC1A-9848-EC77-0EED-383B405E2CDB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="652042B9-13B2-E820-43BD-02D1224D33F5" name="Transaksi_Pembeli_Luar_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>7EBA928C-7577-2213-2E37-BE7F04A33518</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BC611AA2-C2CA-12BF-66E6-32A0A34EE67D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B0679DA1-939B-6DF7-9CE0-CD6C9D51A577" name="Transaksi_Penduduk_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-01 10:02:14 UTC</createdTime>
+<generatorID>3232A24C-F1A5-818E-AEFB-05E65C5E7173</generatorID>
+<ownerDesignName>final_project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8CCD8227-3348-BDDD-159E-2ECA5D43DF0E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

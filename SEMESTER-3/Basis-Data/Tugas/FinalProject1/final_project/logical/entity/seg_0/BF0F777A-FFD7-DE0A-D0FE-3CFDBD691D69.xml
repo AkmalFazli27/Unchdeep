@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BF0F777A-FFD7-DE0A-D0FE-3CFDBD691D69" name="Hubungan Antar UMKM">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:24:57 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Asosiasi" id="A9EB3E3D-E3EC-14AE-88A7-3433FE28BFED">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:25:09 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nama Asosiasi" id="4C58A67D-B197-C914-D53C-7F7017D95296">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:25:22 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Bidang Usaha" id="CAD8C756-2AC0-3592-F086-8184E7A28072">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:25:28 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Tahun Pembentukan" id="78C9015F-1917-FC7F-3EF4-BA24DFBA646D">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:25:34 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="40170D08-8F0E-4B23-F7B3-DB4B21D3878C" name="Hubungan Antar UMKM PK">
+<createdBy>fahri</createdBy>
+<createdTime>2025-09-20 14:28:19 UTC</createdTime>
+<ownerDesignName>final_project</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A9EB3E3D-E3EC-14AE-88A7-3433FE28BFED</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
