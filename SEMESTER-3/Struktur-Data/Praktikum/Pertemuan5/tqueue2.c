@@ -208,23 +208,19 @@ void enqueue2N(tqueue2 *Q, int N) {
 {mengembalikan true jika Q1 dan Q2 berisi elemen yang sama}
 {ingat, kondisi head Q1 dan Q2 mungkin tidak sama} */
 boolean isEqualQueue2(tqueue2 Q1, tqueue2 Q2) {
-    boolean cond = true;
-    int i = 1;
-    
-    resetHead(Q1);
-    resetHead(Q2);
     if (sizeQueue2(Q1) != sizeQueue2(Q2)) {
         return false;
     }
-    else if (isEmptyQueue2(Q1) && isEmptyQueue2(Q2)) {
+    if (isEmptyQueue2(Q1) && isEmptyQueue2(Q2)) {
         return true;
     }
-    else {
-        for (int i = 1; i <= tail2(Q1); i++) {
-            if (Q1.wadah[i] != Q2.wadah[i]) {
-                return false;
-            }
+
+    resetHead(&Q1);
+    resetHead(&Q2);
+    for (int i = 1; i <= tail2(Q1); i++) {
+        if (Q1.wadah[i] != Q2.wadah[i]) {
+            return false;
         }
-        return true;
     }
+    return true;
 }
