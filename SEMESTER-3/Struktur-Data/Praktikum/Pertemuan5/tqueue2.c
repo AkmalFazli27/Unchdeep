@@ -125,7 +125,7 @@ void resetHead(tqueue2 *Q) {
     }
     Q->tail = idx - 1;
     Q->head = 1;
-    for (int i = tail2(*Q); i <= 5; i++) {
+    for (int i = tail2(*Q) + 1; i <= 5; i++) {
         Q->wadah[i] = '-';
     }
 }
