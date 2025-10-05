@@ -1,0 +1,182 @@
+#ifndef PROSESQUEUE_H
+#define PROSESQUEUE_H
+
+#include <stdbool.h>
+#include "boolean.h"
+
+/* ----- Definisi Tipe Proses ----- */
+typedef struct {
+    char IDProses;  /* komponen IDProses bertipe character  */
+    int BurstTime;  /* komponen Burst Time bertipe integer  */
+} Proses;
+
+/* ----- Definisi Tipe Daftar Proses ----- */
+typedef	struct { 
+    Proses wadah[6];
+} daftarProses;
+
+/* ----- Definisi Tipe Queue ----- */
+/* type tQueue = <  wadah: array [1..5] of Proses,
+                     head: integer,
+                     tail: integer > */
+typedef struct {
+    Proses wadah[6]; 
+    int head;
+    int tail;
+} tqueue;
+
+
+/* ----- KONSTRUKTOR ----- */
+
+/* procedure makeProses(input/output P: Proses, input ID: character, BT: integer)
+{I.S. P tak terdefinisi, ID dan BT terdefinisi.}
+{F.S. P terisi dengan IDProses=ID dan BurstTime=BT.} 
+*/
+void makeProses(Proses *P, char ID, int BT);
+
+/* procedure makeDaftar(input/output DP: daftarProses)
+{I.S.: -}
+{F.S.: DP terisi dengan elemen Proses berisi kosong.}
+*/
+void makeDaftar(daftarProses *DP);
+
+/*procedure createQueue(output Q:tQueue)*/
+/*{I.S.: -}
+{F.S.: Q terdefinisi, kosong}
+{Proses: mengisi elemen dengan Proses kosong, head=tail=0 }
+*/ 
+void createQueue(tqueue *Q);
+
+
+/* ----- SELEKTOR ----- */
+/* Mengirimkan komponen dari sebuah Proses */
+
+/*function head(Q:tQueue)-> integer 
+{mengembalikan elemen terdepan antrian Q} 
+*/
+#define head(Q) (Q).head
+
+/*function tail(Q:tQueue)-> integer 
+{mengembalikan elemen terakhir antrian Q} 
+*/
+#define tail(Q) (Q).tail
+
+/*function infoHead(Q:tQueue)-> Proses 
+{mengembalikan nilai elemen terdepan antrian Q} 
+*/
+Proses infoHead(tqueue Q); 
+
+/*function infoTail(Q:tQueue)-> Proses 
+{mengembalikan nilai elemen terakhir antrian Q} 
+*/
+Proses infoTail(tqueue Q); 
+
+/* function getIDProses(P: Proses) -> character
+{I.S. P terdefinisi.}
+{F.S. Mengembalikan nilai IDProses dari P.}
+*/
+char getIDProses(Proses P);
+
+/* function getBurstTime(P: Proses) -> integer
+{I.S. P terdefinisi.}
+{F.S. Mengembalikan nilai BurstTime dari P.}
+*/
+int getBurstTime(Proses P);
+
+
+/* ----- MUTATOR ----- */
+/* Mengubah nilai komponen dari sebuah Proses */
+
+/* procedure setIDProses(input/output P: Proses, input newID: character)
+{I.S. P terdefinisi, newID terdefinisi.}
+{F.S. Mengubah nilai IDProses dari P menjadi newID.}
+{Menggunakan pointer agar nilai P yang asli berubah.}
+*/
+void setIDProses(Proses *P, char newID);
+
+/* procedure setBurstTime(input/output P: Proses, input newBT: integer)
+{I.S. P terdefinisi, newBT terdefinisi dan non-negatif.}
+{F.S. Mengubah nilai BurstTime dari P menjadi newBT.}
+{Menggunakan pointer agar nilai P yang asli berubah.}
+*/
+void setBurstTime(Proses *P, int newBT);
+
+/* procedure setDaftar(output DP: daftarProses, input Q: tqueue)
+{I.S. Q terdefinisi, DP terdefinisi berisi proses kosong.}
+{F.S. Mengisi daftar proses dengan queue proses}
+*/
+void setDaftar(daftarProses *DP, tqueue *Q);
+
+/*procedure enqueue( input/output Q:tQueue, input P: Proses )
+{I.S.: Q dan e terdefinisi}
+{F.S.: elemen wadah Q bertambah 1, bila belum penuh}
+{proses: menambah elemen wadah Q } 
+*/
+void enqueue(tqueue *Q, Proses P); 
+
+/*procedure deQueue( input/output Q:tQueue, output P: Proses )
+{I.S.: }
+{F.S.: e=infohead(Q) atau e='-' bila Q kosong, elemen wadah Q berkurang 1 }
+{proses: mengurangi elemen wadah Q, semua elemen di belakang head digeser maju}
+{bila awalnya 1 elemen, maka Head dan Tail menjadi 0} 
+*/
+void dequeue(tqueue *Q, Proses *P); 
+
+
+/* ----- OPERATOR ----- */
+/* Menampilkan informasi Proses */
+
+/* procedure printProses(input/output P: Proses)
+{I.S. P terdefinisi.}
+{F.S. Menampilkan IDProses dan BurstTime dari P ke layar}
+*/
+void printProses(Proses P);
+
+/*procedure viewQueue(input Q:tQueue)
+{I.S.: Q terdefinisi}
+{F.S.: -}
+{proses: Mencetak elemen tak kosong ke layar}
+*/
+void viewQueue(tqueue *Q);
+
+/*procedure printEksekusi(input Q:tQueue)
+{I.S.: Q terdefinisi}
+{F.S.: -}
+{proses: Mencetak proses eksekusi dengan waktu mulai dan waktu selesai}
+*/
+void printEksekusi(tqueue *Q);
+
+/* ----- PREDIKAT ----- */
+/*function isEmptyQueue(Q:tQueue) -> boolean
+{mengembalikan true jika Q kosong}
+*/
+boolean isEmptyQueue(tqueue Q);
+
+/*function isFullQueue(Q:tQueue) -> boolean
+{mengembalikan true jika Q penuh}
+*/
+boolean isFullQueue(tqueue Q);
+
+
+/* ----- LAINNYA ----- */
+
+/* procedure swapProses(input/output a: Proses, b: Proses)
+{I.S. a dan b terdefinisi.}
+{F.S. Menukar posisi Prses a dan Proses b}
+*/
+void swapProses(Proses *a, Proses *b);
+
+/* procedure sortDaftarProses(input/output DP: daftarProses)
+{I.S. DP terdefinisi.}
+{F.S. Menghasilkan daftar proses yang sudah diurutkan berdasarkan burst time}
+*/
+void sortDaftarProses(daftarProses *DP); 
+
+/* procedure daftarKeQueue(input/output Q: tqueue, input DP: daftarProses)
+{I.S. DP terdefinisi.}
+{F.S. Memasukkan elemen daftar proses yang sudah diurutkan berdasarkan burst time ke dalam queue}
+*/
+void daftarKeQueue(tqueue *Q, daftarProses DP); 
+
+
+#endif
