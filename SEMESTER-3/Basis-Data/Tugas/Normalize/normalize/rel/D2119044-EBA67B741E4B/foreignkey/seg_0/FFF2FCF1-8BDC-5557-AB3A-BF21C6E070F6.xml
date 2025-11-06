@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FFF2FCF1-8BDC-5557-AB3A-BF21C6E070F6" containerWithKeyObject="978F8403-3E0D-21F2-3D6D-01A182932886" localFKIndex="319DC1B0-F6E6-40A2-5F49-7DCE5DEE632D" name="Transaksi_Pembeli_Luar_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>7EBA928C-7577-2213-2E37-BE7F04A33518</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<referredTableLongName>Pembeli_Luar</referredTableLongName>
+<arc>2B8FBF48-6C9A-690D-4E50-0B927DDC70F3</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>1D0D3009-7265-793E-331A-2013E2BD4860</referredTableID>
+<keyObject>DEE6F88E-2C8B-E210-D4CC-4AD594170C61</keyObject>
+<referredKeyID>DEE6F88E-2C8B-E210-D4CC-4AD594170C61</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>NIK</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

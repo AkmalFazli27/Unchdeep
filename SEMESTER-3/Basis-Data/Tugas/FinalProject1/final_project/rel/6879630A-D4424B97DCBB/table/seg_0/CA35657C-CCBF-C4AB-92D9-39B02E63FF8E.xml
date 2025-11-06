@@ -44,19 +44,6 @@
 <ownDataTypeParameters>15,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Email" id="F60A7741-7EB2-5EA6-78FE-056FFD7FF6C6">
-<createdBy>Xiamengs</createdBy>
-<createdTime>2025-10-01 10:02:14 UTC</createdTime>
-<generatorID>700A20F7-D086-93CF-0B87-DC250063565F</generatorID>
-<ownerDesignName>final_project</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="4EEE1795-E5AA-524B-C7A3-001EE0F4B773" name="Pembeli_Luar_PK">

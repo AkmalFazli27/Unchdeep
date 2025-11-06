@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F3DE45D9-DBB6-5CE9-1E1B-CA700F83FEA9" name="Program_Pendampingan_&amp;_Bantuan">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>A88FB822-2659-297F-F1B5-7A3864B6C4CE</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Program" id="D07AB6B4-C9D7-468D-CAE7-8E81CBA32189">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>EE70306B-DF84-118B-6A6A-184F41EEB13F</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nama_Program" id="695D24A7-6AEC-362C-8497-3152D0E298D8">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>F7A6F8D2-AA53-5D54-9F9A-AB0BB15462FD</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jenis" id="19C9C131-DEFC-C944-3747-D9250719D8D7">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>402266E9-9708-5346-363B-DF97BADF1422</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanggal_Mulai" id="4BD5916F-0439-22DF-EB1D-34C922C3DF7B">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>00D17634-CFBE-84B1-DC95-5B3603056C20</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tanggal_Selesai" id="FEE110E9-7B72-7BFF-CE89-8496C63C021C">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>B5584BD7-9436-A06E-8A3B-779F6E096627</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="431CAB6F-2DDE-0C9D-38C8-ABA92FF5B8F7" name="Program_Pendampingan_&amp;_Bantuan_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>633ACB7C-D99B-30C9-7849-4273A7B1FB57</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D07AB6B4-C9D7-468D-CAE7-8E81CBA32189"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

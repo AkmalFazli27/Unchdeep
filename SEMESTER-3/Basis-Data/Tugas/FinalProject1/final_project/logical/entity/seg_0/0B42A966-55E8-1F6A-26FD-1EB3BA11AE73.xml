@@ -54,20 +54,6 @@
 <dataTypeSize>15</dataTypeSize>
 <ownDataTypeParameters>15,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Email" id="700A20F7-D086-93CF-0B87-DC250063565F">
-<createdBy>Xiamengs</createdBy>
-<createdTime>2025-09-28 09:51:56 UTC</createdTime>
-<ownerDesignName>final_project</ownerDesignName>
-<engineerTo>
-<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="36C63FFE-4025-CC89-D625-8D6A9417CA08" name="Pembeli Luar PK">

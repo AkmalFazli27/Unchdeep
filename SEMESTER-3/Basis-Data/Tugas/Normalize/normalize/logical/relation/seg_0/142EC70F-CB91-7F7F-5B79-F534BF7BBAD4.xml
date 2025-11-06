@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Laporan ke Keuntungan" directorySegmentName="seg_0" id="142EC70F-CB91-7F7F-5B79-F534BF7BBAD4">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:49:46 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
+</engineerTo>
+<targetTransferable>false</targetTransferable>
+<sourcePk>906E21C2-B783-6080-5A2B-921A0503D7BF</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DDBBA51E-C6FF-2DDC-C804-761136CA87D7</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>ED141FE1-E947-6EFF-11DB-BE2E8578564A</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

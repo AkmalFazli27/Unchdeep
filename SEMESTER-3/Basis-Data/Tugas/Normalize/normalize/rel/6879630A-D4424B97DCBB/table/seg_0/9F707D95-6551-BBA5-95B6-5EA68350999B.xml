@@ -78,12 +78,24 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>7</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="916B7344-AFF9-2628-904E-C4944CC2E97C" referredColumn="1094D050-9C80-2446-D7D7-FA942CBDF7DE"/>
 </associations>
+</Column>
+<Column name="ID_UMKM1" id="9AE77598-9909-F5FB-47B9-359ADAD18E51">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>C04DA0D4-E104-3979-D54F-A16CD58F6E59</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="82A67CA2-F295-6F07-F998-6B44D67A422E" containerWithKeyObject="978F8403-3E0D-21F2-3D6D-01A182932886" localFKIndex="9E722538-0AC9-BD3F-9FC2-B8B9A8F2793E" name="Transaksi_Penduduk_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 11:01:05 UTC</createdTime>
+<generatorID>3232A24C-F1A5-818E-AEFB-05E65C5E7173</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<referredTableLongName>Penduduk</referredTableLongName>
+<arc>2B8FBF48-6C9A-690D-4E50-0B927DDC70F3</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5266E5B9-4B2E-E486-ECB0-A4DF625F7049</referredTableID>
+<keyObject>F7F7B2AB-D677-F82B-5838-5421298B9509</keyObject>
+<referredKeyID>F7F7B2AB-D677-F82B-5838-5421298B9509</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>NIK</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

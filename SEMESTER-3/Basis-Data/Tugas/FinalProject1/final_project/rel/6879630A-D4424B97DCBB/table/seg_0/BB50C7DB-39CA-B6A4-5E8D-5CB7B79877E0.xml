@@ -50,8 +50,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT026</logicalDatatype>
-<dataTypePrecision>182</dataTypePrecision>
-<ownDataTypeParameters>,182,</ownDataTypeParameters>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Pengeluaran" id="B9987AAD-F163-DF0E-5132-C0857721D916">

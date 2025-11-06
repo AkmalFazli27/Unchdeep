@@ -5,6 +5,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -21,6 +22,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -34,6 +36,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -46,6 +49,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -58,6 +62,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -71,24 +76,11 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT026</logicalDatatype>
-<dataTypePrecision>18</dataTypePrecision>
-<dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,18,2</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Keuntungan" id="15CA8B96-8071-F030-A06E-9A239CC30396">
-<createdBy>fahri</createdBy>
-<createdTime>2025-09-20 14:24:19 UTC</createdTime>
-<ownerDesignName>normalize</ownerDesignName>
-<engineerTo>
-<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>69230305-AB6A-99EB-35A1-CC306D543604</logicalDatatype>
 <dataTypePrecision>18</dataTypePrecision>
 <dataTypeScale>2</dataTypeScale>
 <ownDataTypeParameters>,18,2</ownDataTypeParameters>
@@ -100,6 +92,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <referedAttribute>5D1BAD19-773A-CFC5-14E0-0CB376184545</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -114,9 +107,9 @@
 <createdBy>fahri</createdBy>
 <createdTime>2025-09-20 14:24:28 UTC</createdTime>
 <ownerDesignName>normalize</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="false"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

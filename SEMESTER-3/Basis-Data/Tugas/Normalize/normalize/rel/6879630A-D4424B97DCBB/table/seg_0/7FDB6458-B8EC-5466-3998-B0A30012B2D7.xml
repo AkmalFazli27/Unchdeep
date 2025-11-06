@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7FDB6458-B8EC-5466-3998-B0A30012B2D7" name="Keuntungan">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>ED141FE1-E947-6EFF-11DB-BE2E8578564A</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Keuntungan" id="898E744C-C718-3EC3-118F-694EAD8F87E0">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>7BA1AC57-1D2B-E054-C75D-170B20D00755</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>18</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,18,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Laporan_Keuangan_ID_Laporan" id="1ECBC082-42B3-C6C1-530E-339C5595C9E0">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>6F41C862-AE33-0680-FDA1-BAEB6BC12179</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1416981A-FDE5-57B0-D1B3-03AE4BDE836A" referredColumn="46EE3E07-F647-5009-6668-70331EE74E6E"/>
+</associations>
+</Column>
+<Column name="Keuntungan_ID" id="5F08015C-611E-B401-D4BE-FA95F57F2B44">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7C00BFC0-2589-7053-E68E-7906DBE9058B" name="Keuntungan_PK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="5F08015C-611E-B401-D4BE-FA95F57F2B44"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FDA12EC3-2962-9776-C31D-2C1DEBF421C1" name="Keuntungan__IDX">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>142EC70F-CB91-7F7F-5B79-F534BF7BBAD4</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="1ECBC082-42B3-C6C1-530E-339C5595C9E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7194FA5C-544B-3E61-32FB-3E1F7EA26E3E" name="Keuntungan_Laporan_Keuangan_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>142EC70F-CB91-7F7F-5B79-F534BF7BBAD4</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1ECBC082-42B3-C6C1-530E-339C5595C9E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

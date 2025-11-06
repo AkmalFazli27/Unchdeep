@@ -51,7 +51,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -80,21 +80,17 @@
 <ownDataTypeParameters>,18,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ID_Usaha" id="ED974BE6-30F5-A86F-439B-ADF3D51CA3B4">
+<Column name="Jenis_Usaha1" id="2F963AA5-B02E-2963-F32E-0D0177FDB610">
 <createdBy>Xiamengs</createdBy>
-<createdTime>2025-10-02 18:24:45 UTC</createdTime>
-<generatorID>433AB2B0-D955-8EEE-3EEF-5A13F8E966C3</generatorID>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>BB3A1857-F1A6-3A5B-D26E-C91A3BCA162C</generatorID>
 <ownerDesignName>normalize</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>7</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="21BFE1C4-7732-45FA-DBA8-2148FE25ADC4" referredColumn="961F6B88-8868-EFE1-D999-E1A640C34E82"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -108,17 +104,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1094D050-9C80-2446-D7D7-FA942CBDF7DE"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="8AB66650-D834-187D-3DF6-6CB247F2CE51" name="UMKM_Jenis_Usaha_FK">
-<createdBy>Xiamengs</createdBy>
-<createdTime>2025-10-02 18:24:45 UTC</createdTime>
-<generatorID>D3B56AB4-0F1F-CB97-BC36-3C53A1212255</generatorID>
-<ownerDesignName>normalize</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="ED974BE6-30F5-A86F-439B-ADF3D51CA3B4"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

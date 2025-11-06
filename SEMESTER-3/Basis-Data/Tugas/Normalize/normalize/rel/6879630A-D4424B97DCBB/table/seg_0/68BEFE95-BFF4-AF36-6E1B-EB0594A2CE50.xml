@@ -80,6 +80,32 @@
 <ownDataTypeParameters>15,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="No_Telepon_1" id="E78F857A-644F-024E-7F73-E6D72E67D9E9">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>D6D11EA9-16CF-2747-8899-B44EB003C014</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="No_Telepon_2" id="81913D81-67A6-B5D8-A9CB-19BB65E3438B">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>094803BC-95A6-E352-C38C-E6E720DDAF4B</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="1455A4D0-FB28-49C5-E3D8-71E02B606BBE" name="Penduduk_PK">

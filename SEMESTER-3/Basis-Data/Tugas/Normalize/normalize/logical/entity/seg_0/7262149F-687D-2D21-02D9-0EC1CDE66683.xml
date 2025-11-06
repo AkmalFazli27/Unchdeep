@@ -5,6 +5,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -21,6 +22,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -34,6 +36,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -47,6 +50,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -60,6 +64,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -72,6 +77,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -79,15 +85,45 @@
 <dataTypeSize>1</dataTypeSize>
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="No Telepon 1" id="D6D11EA9-16CF-2747-8899-B44EB003C014">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:47:10 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="No Telepon 2" id="094803BC-95A6-E352-C38C-E6E720DDAF4B">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:47:21 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="AADC0D2F-EEFC-1C22-96BB-F2B74AC71BC3" name="Penduduk PK">
 <createdBy>fahri</createdBy>
 <createdTime>2025-09-15 09:18:55 UTC</createdTime>
 <ownerDesignName>normalize</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="false"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

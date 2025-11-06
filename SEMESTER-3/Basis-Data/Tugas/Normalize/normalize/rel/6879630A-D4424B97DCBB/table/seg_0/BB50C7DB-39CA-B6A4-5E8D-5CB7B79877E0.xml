@@ -89,11 +89,37 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>7</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="3E425CA5-57C0-504E-8F6A-5983841CBBDE" referredColumn="1094D050-9C80-2446-D7D7-FA942CBDF7DE"/>
+</associations>
+</Column>
+<Column name="ID_UMKM1" id="A351CFFA-5456-F5EB-5076-AF41CC279272">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>E250CE7F-5438-B72E-01E9-0E5F74383185</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Keuntungan_Keuntungan_ID" id="FD45A170-F125-1F0C-E169-2CF8810970F1">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4DF6F3A4-D923-0E40-5596-5E7248F243F7" referredColumn="5F08015C-611E-B401-D4BE-FA95F57F2B44"/>
 </associations>
 </Column>
 </columns>
@@ -110,6 +136,17 @@
 <colUsage columnID="46EE3E07-F647-5009-6668-70331EE74E6E"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="79763054-29FE-6749-0D23-213B90F5C828" name="Laporan_Keuangan__IDX">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>142EC70F-CB91-7F7F-5B79-F534BF7BBAD4</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="FD45A170-F125-1F0C-E169-2CF8810970F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="B75E9DF0-A8AC-30D6-287D-AB0D7497E030" name="Laporan_Keuangan_UMKM_FK">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-10-01 10:02:14 UTC</createdTime>
@@ -119,6 +156,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="867EDE20-585F-D2FD-5990-79AE9024A847"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="41FDE38A-D80F-2781-A9C4-5E79F650DF3A" name="Laporan_Keuangan_Keuntungan_FK">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:58:19 UTC</createdTime>
+<generatorID>142EC70F-CB91-7F7F-5B79-F534BF7BBAD4</generatorID>
+<ownerDesignName>normalize</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FD45A170-F125-1F0C-E169-2CF8810970F1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

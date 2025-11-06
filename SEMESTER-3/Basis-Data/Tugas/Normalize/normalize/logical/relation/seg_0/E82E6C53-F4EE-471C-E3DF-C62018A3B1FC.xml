@@ -1,19 +1,20 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Pembeli Luar ke Telp" directorySegmentName="seg_0" id="328B39CE-374D-27D8-A154-2C107DC6D148">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="UMKM ke Omzet" directorySegmentName="seg_0" id="E82E6C53-F4EE-471C-E3DF-C62018A3B1FC">
 <createdBy>Xiamengs</createdBy>
-<createdTime>2025-10-02 18:13:55 UTC</createdTime>
+<createdTime>2025-10-14 10:56:32 UTC</createdTime>
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
-<sourcePk>36C63FFE-4025-CC89-D625-8D6A9417CA08</sourcePk>
+<sourcePk>70C82527-869E-A31B-15BE-DB8299C944EA</sourcePk>
 <identifying>false</identifying>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
-<sourceEntity>0B42A966-55E8-1F6A-26FD-1EB3BA11AE73</sourceEntity>
+<sourceEntity>9D11AE4E-D311-AA7F-3B9C-B8A9D39C06DC</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>B51FC14A-8CCA-862D-ECB9-BD96EFA9C6A6</targetEntity>
+<targetEntity>13162D3E-7422-B18E-C435-C3A3659AB076</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 </Relation>

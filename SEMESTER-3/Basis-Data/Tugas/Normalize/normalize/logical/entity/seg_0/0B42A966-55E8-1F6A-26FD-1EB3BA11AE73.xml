@@ -5,6 +5,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -21,6 +22,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -34,6 +36,7 @@
 <ownerDesignName>normalize</ownerDesignName>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -41,15 +44,44 @@
 <dataTypeSize>60</dataTypeSize>
 <ownDataTypeParameters>60,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="No Telepon 1" id="5CF5C0BB-8BFB-DE74-B614-86D299080837">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:46:10 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="No Telepon 2" id="EA4F0612-28D8-913A-D6E1-3AD55CF92B14">
+<createdBy>Xiamengs</createdBy>
+<createdTime>2025-10-14 10:46:56 UTC</createdTime>
+<ownerDesignName>normalize</ownerDesignName>
+<engineerTo>
+<item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="true"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16</dataTypeSize>
+<ownDataTypeParameters>16,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="36C63FFE-4025-CC89-D625-8D6A9417CA08" name="Pembeli Luar PK">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-09-28 09:51:41 UTC</createdTime>
 <ownerDesignName>normalize</ownerDesignName>
-<shouldEngineer>false</shouldEngineer>
 <engineerTo>
 <item key="6879630A-D97C-393B-63DE-D4424B97DCBB" value="false"/>
+<item key="D2119044-23AF-4DC0-D045-EBA67B741E4B" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
