@@ -78,6 +78,7 @@ void InsertVFirst(List1 *L, infotype V );
 void InsertVLast(List1 *L, infotype V );
 
 /******* PENGHAPUSAN ELEMEN ********/
+
 /*Procedure DeleteVFirst(input/output L:List1, output V:infotype )
 { I.S. L terdefinisi,  }
 { F.S. L tetap, atau berkurang elemen pertamanya.
@@ -93,13 +94,15 @@ List mungkin menjadi kosong. Jika tidak kosong, elemen terakhir yang baru adalah
 void DeleteVLast(List1 *L, infotype *V);
 
 /*** PENCARIAN ***/
+
 /*Procedure SearchX(input L:List1, input X:infotype, output A:address )
 { I.S. L, X terdefinisi }
 { F.S. A berisi alamat elemen yang nilainya X.
 Proses: Mencari apakah ada elemen list dengan info(P)= X. Jika ada, mengisi A dengan address elemen tersebut. Jika tidak ada, A=Nil }*/
-void SearchX(List1 L, infotype X, address A);
+void SearchX(List1 L, infotype X, address *A);
 
 /*** MANIPULASI ELEMEN LIST ***/
+
 /*Procedure UpdateX(input/output L:List1, input X:infotype, input Y:infotype)
 { I.S. L, X, Y terdefinisi }
 { F.S. L tetap, atau elemen bernilai X berubah menjadi Y.
@@ -112,9 +115,10 @@ void UpdateX(List1 *L, infotype X, infotype Y);
 void Invers(List1 *L);
 
 /*********** SOAL TAMBAHAN, DIKERJAKAN BILA LUANG *****************/
+
 /*function CountVocal(L:List1, X:infotype) -> integer */
 /*{ mengembalikan banyaknya kemunculan huruf vokal dalam list L}*/
-int CountVocal(List1 L, infotype X);
+int CountVocal(List1 L);
 
 /*function CountX(L:List1, X:infotype) -> integer */
 /*{ mengembalikan banyaknya kemunculan X dalam list L}*/
@@ -151,6 +155,7 @@ infotype Modus(List1 L);
 int NbModus(List1 L);
 
 /*OPERASI BANYAK LIST*/
+
 /*Procedure ConcatList(input L1:List1, input L2:List1, output L:List1)
 {I.S.: L1,L2 terdefinisi ; 
  F.S.: L gabungan L1 dan L2}*/
