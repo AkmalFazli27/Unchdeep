@@ -57,7 +57,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="AE506529-0ED8-9D2F-4C71-CE5710931E8F" name="Hubungan_Antar_UMKM_PK">
+<ind_PK_UK id="AE506529-0ED8-9D2F-4C71-CE5710931E8F" name="Hubungan_UMKM_PK">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-10-14 11:01:05 UTC</createdTime>
 <generatorID>40170D08-8F0E-4B23-F7B3-DB4B21D3878C</generatorID>

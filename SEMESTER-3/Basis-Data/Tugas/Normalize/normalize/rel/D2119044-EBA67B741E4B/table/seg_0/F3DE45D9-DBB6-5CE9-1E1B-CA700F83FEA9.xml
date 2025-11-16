@@ -4,6 +4,7 @@
 <createdTime>2025-10-14 11:01:05 UTC</createdTime>
 <generatorID>A88FB822-2659-297F-F1B5-7A3864B6C4CE</generatorID>
 <ownerDesignName>normalize</ownerDesignName>
+<ordsAlias>program_bantuan</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
@@ -68,7 +69,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="431CAB6F-2DDE-0C9D-38C8-ABA92FF5B8F7" name="Program_Pendampingan_&amp;_Bantuan_PK">
+<ind_PK_UK id="431CAB6F-2DDE-0C9D-38C8-ABA92FF5B8F7" name="Program_Bantuan_PK">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-10-14 11:01:05 UTC</createdTime>
 <generatorID>633ACB7C-D99B-30C9-7849-4273A7B1FB57</generatorID>

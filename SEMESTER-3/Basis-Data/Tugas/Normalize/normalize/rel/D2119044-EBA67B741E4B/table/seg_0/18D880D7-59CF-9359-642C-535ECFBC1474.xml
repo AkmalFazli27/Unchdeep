@@ -7,7 +7,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="UMKM_ID_UMKM" id="F5FF7ED6-1D69-38F6-B4C7-E65911917887">
+<Column name="ID_UMKM" id="F5FF7ED6-1D69-38F6-B4C7-E65911917887">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-10-14 11:01:05 UTC</createdTime>
 <ownerDesignName>normalize</ownerDesignName>
@@ -22,7 +22,7 @@
 <colAssociation fkAssociation="40A2D839-738C-F243-2F22-E69C016CDBD7" referredColumn="AB17DE2E-116D-0010-0B7B-0D28AA661C20"/>
 </associations>
 </Column>
-<Column name="Hubungan_Antar_UMKM_ID_Asosiasi" id="502BFAD9-97D4-B59A-212B-2E451D5598CA">
+<Column name="ID_Asosiasi" id="502BFAD9-97D4-B59A-212B-2E451D5598CA">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-10-14 11:01:05 UTC</createdTime>
 <ownerDesignName>normalize</ownerDesignName>
@@ -51,7 +51,7 @@
 <colUsage columnID="502BFAD9-97D4-B59A-212B-2E451D5598CA"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="42E319B6-6E30-7147-6764-F7126CC7F10A" name="Organisasi_UMKM_UMKM_FK">
+<ind_PK_UK id="42E319B6-6E30-7147-6764-F7126CC7F10A" name="UMKM_FK">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-10-14 11:01:05 UTC</createdTime>
 <generatorID>71E5301F-94E5-8F2D-50DA-C551209B6D7F</generatorID>
@@ -62,7 +62,7 @@
 <colUsage columnID="F5FF7ED6-1D69-38F6-B4C7-E65911917887"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="1E3F7164-8213-68FE-FEAF-B8FE8C7C8875" name="Organisasi_UMKM_Hubungan_Antar_UMKM_FK">
+<ind_PK_UK id="1E3F7164-8213-68FE-FEAF-B8FE8C7C8875" name="Hubungan_Antar_UMKM_FK">
 <createdBy>Xiamengs</createdBy>
 <createdTime>2025-10-14 11:01:05 UTC</createdTime>
 <generatorID>71E5301F-94E5-8F2D-50DA-C551209B6D7F</generatorID>
