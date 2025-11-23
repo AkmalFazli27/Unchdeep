@@ -19,3 +19,16 @@
 *.AAC
 *.mp4a
 *.MP4A
+
+
+Video Project/
+logical/
+mapping/
+businessinfo/
+rdbms/
+rel/
+*.png
+*.pdf
+*.rar
+*.zip
+*.xml
