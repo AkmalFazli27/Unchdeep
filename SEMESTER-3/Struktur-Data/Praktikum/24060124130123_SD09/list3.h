@@ -105,6 +105,7 @@ void DeleteX(List3 *L, infotype X);
 void SearchX(List3 L, infotype X, address *A);
 
 /*** MANIPULASI ELEMEN LIST ***/
+
 /*Procedure UpdateX(input/output L:List3, input X:infotype, input Y:infotype)
 { I.S. L, X, Y terdefinisi }
 { F.S. L tetap, atau elemen bernilai X berubah menjadi Y.}
@@ -117,6 +118,7 @@ void UpdateX(List3 *L, infotype X, infotype Y);
 void Invers(List3 *L);
 
 /*********** SOAL TAMBAHAN, DIKERJAKAN BILA LUANG *****************/
+
 /*Procedure InsertVAfterX(input/output L:List3, input X:infotype, input V:infotype )
 { I.S. List L mungkin kosong }
 { F.S. P dialokasi, Info(P)=V }
@@ -180,6 +182,7 @@ void SearchAllX(List3 L, infotype X);
 void DeleteAllX(List3 *L, infotype X);
 
 /*OPERASI BANYAK LIST*/
+
 /*Procedure ConcatList(input L1:List3, input L2:List3, output L:List3)
 {I.S.: L1,L2 terdefinisi ; 
  F.S.: L gabungan L1 dan L2}*/
