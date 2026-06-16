@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ringkasan Materi: Pengenalan Kriptografi</title>
+  <style>
+    :root {
+      --bg: #f6fbff;
+      --card: #ffffff;
+      --primary: #0b5fa5;
+      --primary-2: #1779c7;
+      --text: #1f2937;
+      --muted: #5b6573;
+      --border: #dbe7f3;
+      --good: #0f766e;
+      --bad: #b42318;
+      --shadow: 0 10px 30px rgba(31, 95, 139, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef7ff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 920px;
+      opacity: 0.95;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      color: var(--primary);
+      margin: 18px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li { margin: 8px 0; }
+
+    .tag {
+      display: inline-block;
+      background: #e8f3fb;
+      color: var(--primary);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin: 0 8px 8px 0;
+      border: 1px solid #cae4f7;
+    }
+
+    .highlight {
+      background: #f1f8ff;
+      border-left: 5px solid var(--primary-2);
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-top: 14px;
+    }
+
+    .quiz-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #fcfeff;
+    }
+
+    .options label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .options input { margin-right: 10px; }
+
+    .btn {
+      appearance: none;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn.secondary { background: #64748b; }
+
+    .result {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      display: none;
+      font-weight: bold;
+    }
+
+    .result.good {
+      display: block;
+      background: #ecfdf3;
+      color: var(--good);
+      border: 1px solid #abefc6;
+    }
+
+    .result.bad {
+      display: block;
+      background: #fff1f1;
+      color: var(--bad);
+      border: 1px solid #fecaca;
+    }
+
+    .answer-key {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      color: var(--muted);
+      display: none;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .mini-box {
+      padding: 14px;
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    code {
+      background: #eef6ff;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Pengenalan Kriptografi</h1>
+      <p>
+        Ringkasan materi ini membahas dasar kriptografi: ancaman keamanan, istilah penting,
+        sejarah singkat, algoritma kriptografi klasik dan modern, serta perbedaan enkripsi,
+        dekripsi, dan hashing.
+      </p>
+    </section>
+
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h2>Ringkasan Materi</h2>
+          <span class="tag">Ancaman & Keamanan</span>
+          <span class="tag">Terminologi</span>
+          <span class="tag">Algoritma</span>
+          <span class="tag">Klasik</span>
+          <span class="tag">Modern</span>
+
+          <div class="highlight">
+            <strong>Inti materi:</strong> kriptografi dipakai untuk menjaga keamanan pesan dengan
+            mengubah informasi agar hanya pihak yang berhak yang bisa membacanya atau memverifikasinya.
+          </div>
+
+          <h3>1. Masalah, ancaman, dan keamanan komputer</h3>
+          <ul>
+            <li>Komunikasi di jaringan/internet melibatkan pihak baik (legal) dan pihak jahat (ilegal).</li>
+            <li>Ancaman dapat muncul terhadap keamanan informasi sehingga pengamanan jaringan menjadi hal utama.</li>
+            <li>Serangan dibagi menjadi <strong>pasif</strong> dan <strong>aktif</strong>.</li>
+            <li>Pasif bersifat memata-matai atau memantau informasi, sedangkan aktif memodifikasi atau menciptakan informasi palsu.</li>
+          </ul>
+
+          <h3>2. Sejarah kriptografi</h3>
+          <ul>
+            <li>Kata kriptografi berasal dari <strong>kripto</strong> (rahasia) dan <strong>graphia</strong> (tulisan).</li>
+            <li>Sudah digunakan sejak lama, salah satunya oleh tentara Sparta di Yunani sekitar 400 SM.</li>
+            <li>Contoh alat awal adalah <strong>scytale</strong>, yaitu pita papyrus yang dililitkan pada silinder.</li>
+          </ul>
+
+          <h3>3. Terminologi kriptografi</h3>
+          <ul>
+            <li><strong>Sender</strong> dan <strong>receiver</strong>: pengirim dan penerima pesan.</li>
+            <li><strong>Plaintext</strong>: pesan asli.</li>
+            <li><strong>Ciphertext</strong>: pesan tersandi.</li>
+            <li><strong>Algorithm</strong>: aturan penyandian.</li>
+            <li><strong>Key</strong>: kunci/sandi yang dipakai dalam proses enkripsi dan dekripsi.</li>
+            <li><strong>Cryptanalysis</strong>: usaha memecahkan ciphertext tanpa mengetahui kunci.</li>
+            <li><strong>Cryptology</strong>: studi yang mencakup kriptografi dan kriptanalisis.</li>
+          </ul>
+
+          <h3>4. Enkripsi dan dekripsi</h3>
+          <ul>
+            <li><strong>Enkripsi</strong> mengubah plaintext menjadi ciphertext dengan kunci.</li>
+            <li><strong>Dekripsi</strong> mengubah ciphertext kembali menjadi plaintext dengan kunci.</li>
+            <li>Secara sederhana ditulis sebagai <code>E<sub>K</sub>(M)=C</code> dan <code>D<sub>K</sub>(C)=M</code>.</li>
+          </ul>
+
+          <h3>5. Algoritma kriptografi</h3>
+          <ul>
+            <li><strong>Algoritma klasik</strong>: Caesar Cipher, Vigenere Cipher, Hill Cipher, dan lainnya.</li>
+            <li><strong>Algoritma modern</strong> terbagi menjadi simetri dan asimetri.</li>
+            <li>Simetri mencakup block cipher seperti DES dan AES, serta stream cipher seperti RC4.</li>
+            <li>Asimetri mencakup RSA dan ECC.</li>
+            <li>Catatan penting: stream dan block cipher adalah mode operasi, bukan jenis algoritma.</li>
+          </ul>
+
+          <h3>6. Kriptografi klasik</h3>
+          <ul>
+            <li>Beroperasi pada karakter alfabet dan memakai substitusi serta transposisi.</li>
+            <li>Contoh paling terkenal adalah <strong>Caesar Cipher</strong>, yang mengganti huruf dengan huruf berikutnya sebanyak 3 langkah.</li>
+            <li>Rumusnya: <code>C = (P + 3) mod 26</code> dan <code>P = (C - 3) mod 26</code>.</li>
+            <li><strong>ROT13</strong> membagi alfabet menjadi dua kelompok 13 huruf, dengan rumus <code>C = (P + 13) mod 26</code>.</li>
+          </ul>
+
+          <h3>7. Kriptografi modern</h3>
+          <ul>
+            <li>Bekerja pada mode bit; plaintext, ciphertext, dan kunci diproses sebagai rangkaian bit.</li>
+            <li>Operasi XOR sangat sering digunakan.</li>
+            <li>Keamanan modern berfokus pada sulitnya menemukan kunci yang tepat, bukan sekadar menyamarkan pola karakter.</li>
+          </ul>
+
+          <div class="highlight">
+            <strong>Contoh latihan:</strong> untuk kata <em>SEMARANG</em>, kamu bisa mencoba mengubahnya dengan Caesar Cipher dan ROT13 lalu membandingkan hasilnya.
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>Poin Penting</h2>
+          <ul>
+            <li>Serangan pasif memantau, serangan aktif memodifikasi.</li>
+            <li>Plaintext, ciphertext, algoritma, dan key adalah istilah inti.</li>
+            <li>Enkripsi dan dekripsi adalah proses yang saling berlawanan.</li>
+            <li>Kriptografi modern umumnya jauh lebih kuat daripada metode klasik.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Istilah Cepat</h2>
+          <div class="two-col">
+            <div class="mini-box"><strong>Sender</strong><br>pengirim pesan</div>
+            <div class="mini-box"><strong>Receiver</strong><br>penerima pesan</div>
+            <div class="mini-box"><strong>Encryption</strong><br>plaintext → ciphertext</div>
+            <div class="mini-box"><strong>Decryption</strong><br>ciphertext → plaintext</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card">
+      <h2>Kuis</h2>
+      <p class="footer-note">Pilih jawaban yang paling tepat, lalu klik <strong>Periksa Jawaban</strong>.</p>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>1. Apa tujuan utama kriptografi pada materi ini?</strong>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> Mempercepat komputer</label>
+          <label><input type="radio" name="q1" value="b"> Menjaga keamanan pesan</label>
+          <label><input type="radio" name="q1" value="c"> Mengubah warna teks</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>2. Apa yang dimaksud dengan plaintext?</strong>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Pesan asli</label>
+          <label><input type="radio" name="q2" value="b"> Pesan yang sudah disembunyikan</label>
+          <label><input type="radio" name="q2" value="c"> Kunci rahasia</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>3. Serangan yang memata-matai atau memantau informasi disebut...</strong>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Aktif</label>
+          <label><input type="radio" name="q3" value="b"> Modifikasi</label>
+          <label><input type="radio" name="q3" value="c"> Pasif</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>4. Rumus Caesar Cipher yang benar adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> C = (P + 13) mod 26</label>
+          <label><input type="radio" name="q4" value="b"> C = (P + 3) mod 26</label>
+          <label><input type="radio" name="q4" value="c"> C = (P - 1) mod 26</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>5. Algoritma modern simetri yang disebut di materi adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> AES</label>
+          <label><input type="radio" name="q5" value="b"> Scytale</label>
+          <label><input type="radio" name="q5" value="c"> Caesar</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>6. Hashing, dalam konteks keamanan, paling tepat dipakai untuk...</strong>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Mengirim pesan rahasia dengan enkripsi</label>
+          <label><input type="radio" name="q6" value="b"> Mengubah ciphertext menjadi plaintext</label>
+          <label><input type="radio" name="q6" value="c"> Memvalidasi informasi</label>
+        </div>
+      </div>
+
+      <button class="btn" onclick="checkQuiz()">Periksa Jawaban</button>
+      <button class="btn secondary" onclick="toggleKey()">Tampilkan Kunci Jawaban</button>
+
+      <div id="result" class="result"></div>
+      <div id="answerKey" class="answer-key">
+        <strong>Kunci jawaban:</strong><br>
+        1) B · 2) A · 3) C · 4) B · 5) A · 6) C
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function checkQuiz() {
+      const questions = [
+        { name: 'q1', answer: 'b' },
+        { name: 'q2', answer: 'a' },
+        { name: 'q3', answer: 'c' },
+        { name: 'q4', answer: 'b' },
+        { name: 'q5', answer: 'a' },
+        { name: 'q6', answer: 'c' },
+      ];
+
+      let score = 0;
+      const total = questions.length;
+
+      questions.forEach(q => {
+        const selected = document.querySelector(`input[name="${q.name}"]:checked`);
+        if (selected && selected.value === q.answer) score++;
+      });
+
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+      result.className = 'result ' + (score >= 4 ? 'good' : 'bad');
+      result.textContent = `Skor kamu: ${score}/${total}. ${score >= 4 ? 'Bagus! Kamu sudah memahami sebagian besar materi.' : 'Coba baca ringkasannya lagi, lalu ulangi kuis.'}`;
+    }
+
+    function toggleKey() {
+      const key = document.getElementById('answerKey');
+      key.style.display = key.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

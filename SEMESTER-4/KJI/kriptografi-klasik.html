@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul Kriptografi Klasik</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f7fb;}
+header{background:#0b5fa5;color:white;text-align:center;padding:25px;}
+nav{background:#083d6b;display:flex;flex-wrap:wrap;}
+nav button{flex:1;padding:12px 8px;border:none;background:#083d6b;color:white;cursor:pointer;font-size:13px;}
+nav button:hover{background:#0b5fa5;}
+nav button.active-tab{background:#0b5fa5;font-weight:bold;}
+.content{display:none;padding:25px;}
+.content.active{display:block;}
+.card{background:white;padding:20px;margin-bottom:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+h2{color:#0b5fa5;margin-top:0;}
+h3{color:#083d6b;}
+.step{background:#eef6ff;border-left:5px solid #0b5fa5;padding:10px;margin:10px 0;}
+.step ul{margin:5px 0;padding-left:20px;}
+.example-box{background:#fffbe6;border:1px solid #ffd700;padding:15px;margin:10px 0;border-radius:5px;}
+.matrix-cell{display:inline-block;width:32px;height:32px;line-height:32px;text-align:center;border:1px solid #0b5fa5;margin:1px;font-weight:bold;font-family:monospace;}
+.matrix-highlight{background:#ffd700;}
+input{padding:10px;width:100%;margin:5px 0;box-sizing:border-box;}
+textarea{padding:10px;width:100%;margin:5px 0;box-sizing:border-box;font-family:monospace;}
+button.run{background:#0b5fa5;color:white;border:none;padding:10px 20px;cursor:pointer;border-radius:5px;margin:5px;}
+button.run:hover{background:#083d6b;}
+.result{margin-top:10px;font-weight:bold;background:#e8f5e9;padding:10px;border-radius:5px;}
+.quiz{margin:15px 0;padding:10px;background:#f8f9fa;border-radius:5px;}
+.quiz p{font-weight:bold;margin:0 0 8px 0;}
+.quiz label{margin-right:15px;}
+.correct{color:green;font-weight:bold;}
+.wrong{color:red;font-weight:bold;}
+table.matrix{border-collapse:collapse;margin:10px 0;}
+table.matrix td{border:1px solid #0b5fa5;width:36px;height:36px;text-align:center;font-weight:bold;font-family:monospace;}
+table.visual{border-collapse:collapse;margin:10px 0;}
+table.visual td{border:1px solid #999;padding:4px 8px;text-align:center;font-size:12px;}
+table.visual th{background:#083d6b;color:white;padding:4px 8px;font-size:12px;}
+.tabula-recta{overflow-x:auto;max-width:100%;}
+.tabula-recta td{min-width:22px;font-size:10px;padding:2px 4px;}
+.tabula-recta .highlight{background:#ffd700;}
+.compare{display:flex;gap:15px;flex-wrap:wrap;}
+.compare>div{flex:1;min-width:200px;}
+.badge{display:inline-block;background:#0b5fa5;color:white;padding:3px 8px;border-radius:3px;font-size:11px;margin:2px;}
+.formula{font-family:monospace;background:#e3f2fd;padding:8px 12px;display:inline-block;border-radius:4px;margin:5px 0;}
+.code{font-family:monospace;background:#eceff1;padding:2px 6px;border-radius:3px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Modul Interaktif Kriptografi Klasik</h1>
+<p>Caesar &bull; Monoalphabetic &bull; Vigen&egrave;re &bull; Beaufort &bull; Autokey &bull; Playfair &bull; Hill Cipher</p>
+</header>
+
+<nav>
+<button class="active-tab" onclick="showTab('caesar')">Caesar</button>
+<button onclick="showTab('mono')">Monoalphabetic</button>
+<button onclick="showTab('vigenere')">Vigen&egrave;re</button>
+<button onclick="showTab('beaufort')">Beaufort</button>
+<button onclick="showTab('autokey')">Autokey</button>
+<button onclick="showTab('playfair')">Playfair</button>
+<button onclick="showTab('hill')">Hill</button>
+<button onclick="showTab('quiz')">Kuis</button>
+</nav>
+
+<!-- ==================== CAESAR CIPHER ==================== -->
+<div id="caesar" class="content active">
+<div class="card">
+<h2>Caesar Cipher</h2>
+<p>Teknik kriptografi pertama dan paling sederhana, ditemukan oleh Julius Caesar. Mengganti setiap karakter dengan menggesernya sejumlah nilai tertentu dalam urutan alfabet.</p>
+
+<h3>Rumus</h3>
+<div class="formula">Enkripsi: C = (P + K) mod 26</div>
+<div class="formula">Dekripsi: P = (C - K) mod 26</div>
+<p>Dimana P = posisi plaintext (0-25), K = key/pergeseran, C = posisi ciphertext</p>
+
+<h3>Step-by-Step</h3>
+<div class="step">1. Ubah setiap huruf menjadi angka: <b>A=0, B=1, C=2, ..., Z=25</b></div>
+<div class="step">2. Tambahkan key: <b>C = (P + K) mod 26</b></div>
+<div class="step">3. Konversi kembali angka hasil menjadi huruf</div>
+
+<h3>Tabel Pergeseran (K=3)</h3>
+<table class="visual">
+<tr><th>Plain</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+<tr><th>Index</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
+<tr><th>Cipher</th><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td>A</td><td>B</td><td>C</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>Contoh Soal Enkripsi</h3>
+<div class="example-box">
+<p><b>Plaintext:</b> WAKTU KULIAH JANGAN NGANTUK</p>
+<p><b>Key:</b> K = 3</p>
+</div>
+<div class="step">
+<b>Langkah 1:</b> W=22, A=0, K=10, T=19, U=20 ...<br>
+<b>Langkah 2:</b> (22+3) mod 26 = 25 = Z, (0+3) mod 26 = 3 = D, ...<br>
+<b>Langkah 3:</b> Hasil ciphertext
+</div>
+<div class="example-box"><b>Hasil Ciphertext:</b> ZDNWX NXOLDK MDQJDQ QJDQWXN</div>
+</div>
+
+<div class="card">
+<h3>Contoh Brute-Force Attack</h3>
+<p>Caesar Cipher hanya memiliki <b>25 kemungkinan</b> key (n-1), sangat mudah dipecahkan.</p>
+<div class="example-box"><b>Ciphertext:</b> PHHW PH DIWHU WKH WRJD SDUWB</div>
+<div class="step">
+Coba K=1: OGGV OG CHVGT VJG VQIC RCTVA (bukan)<br>
+Coba K=2: NFFU NF BGUFU UIF UPHB QBSUZ (bukan)<br>
+Coba K=3: <b>MEET ME AFTER THE TOGA PARTY</b> ← plaintext ditemukan!
+</div>
+<p><b>Kesimpulan:</b> Dengan hanya 25 kemungkinan, Caesar Cipher sangat jauh dari kriteria aman.</p>
+</div>
+
+<div class="card">
+<h3>Simulasi Caesar Cipher</h3>
+<input id="caesarText" placeholder="Masukkan plaintext / ciphertext">
+<input id="caesarKey" type="number" value="3" placeholder="Key (angka)">
+<button class="run" onclick="encryptCaesar()">Enkripsi</button>
+<button class="run" onclick="decryptCaesar()">Dekripsi</button>
+<div id="caesarResult" class="result"></div>
+</div>
+</div>
+
+<!-- ==================== MONOALPHABETIC CIPHER ==================== -->
+<div id="mono" class="content">
+<div class="card">
+<h2>Monoalphabetic Cipher</h2>
+<p>Enkripsi metode substitusi yang memetakan tiap abjad dengan abjad lain secara <b>random</b>, bukan metode pergeseran seperti Caesar Cipher.</p>
+
+<h3>Perbandingan Ruang Kunci</h3>
+<div class="compare">
+<div class="step">
+<b>Caesar Cipher:</b><br>
+n - 1 = 26 - 1<br>
+= <b>25 kemungkinan</b>
+</div>
+<div class="step">
+<b>Monoalphabetic Cipher:</b><br>
+n! - 1 = 26! - 1<br>
+= <b>403.291.461.126.605.635.583.999.999</b><br>
+&gt; 4 &times; 10<sup>26</sup> kemungkinan
+</div>
+</div>
+
+<h3>Step-by-Step</h3>
+<div class="step">1. Buat tabel substitusi acak (1-to-1 mapping A-Z)</div>
+<div class="step">2. Cari huruf plaintext pada tabel</div>
+<div class="step">3. Ganti dengan huruf pasangannya</div>
+
+<h3>Contoh Tabel Substitusi</h3>
+<table class="visual">
+<tr><th>Plain</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+<tr><th>Cipher</th><td>D</td><td>K</td><td>V</td><td>Q</td><td>F</td><td>I</td><td>B</td><td>J</td><td>W</td><td>P</td><td>E</td><td>S</td><td>C</td><td>X</td><td>H</td><td>T</td><td>M</td><td>Y</td><td>A</td><td>U</td><td>O</td><td>L</td><td>R</td><td>G</td><td>Z</td><td>N</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>Contoh Enkripsi Monoalphabetic Cipher</h3>
+<p>Menggunakan tabel substitusi di atas. Mari enkripsi plaintext: <b>KRIPTO</b></p>
+
+<div class="step">
+<b>Step-by-step lookup:</b><br>
+<span class="badge">K</span> cari K di baris plain &rarr; lihat cipher di bawah = <b>E</b><br>
+<span class="badge">R</span> cari R di baris plain &rarr; lihat cipher di bawah = <b>Y</b><br>
+<span class="badge">I</span> cari I di baris plain &rarr; lihat cipher di bawah = <b>W</b><br>
+<span class="badge">P</span> cari P di baris plain &rarr; lihat cipher di bawah = <b>T</b><br>
+<span class="badge">T</span> cari T di baris plain &rarr; lihat cipher di bawah = <b>U</b><br>
+<span class="badge">O</span> cari O di baris plain &rarr; lihat cipher di bawah = <b>H</b>
+</div>
+
+<div class="step">
+<b>Tabel penjajaran:</b>
+<table class="visual">
+<tr><th>Plaintext</th><td>K</td><td>R</td><td>I</td><td>P</td><td>T</td><td>O</td></tr>
+<tr><th>Ciphertext</th><td>E</td><td>Y</td><td>W</td><td>T</td><td>U</td><td>H</td></tr>
+</table>
+</div>
+
+<div class="example-box">
+<b>Hasil enkripsi:</b> KRIPTO &rarr; <b>EYWTUH</b>
+</div>
+</div>
+
+<div class="card">
+<h3>Contoh: Analisis Frekuensi</h3>
+<p>Meskipun memiliki ruang kunci besar, Monoalphabetic Cipher mudah dipecahkan dengan <b>analisis frekuensi huruf</b> karena merefleksikan frekuensi pesan asli.</p>
+
+<div class="example-box">
+<b>Ciphertext:</b><br>
+<small>UZQSOVUOHXMOPVGPOZPEVSGZWSZOPFPESXUDBMETSXAIZ VUEPHZHMDZSHZOWSFPAPPDTSVPQUZWYMXUZUHSX EPYEPOPDZSZUFPOMBZWPFUPZHMDJUDTMOHMQ</small>
+</div>
+
+<div class="step">
+<b>Langkah 1 - Frekuensi huruf ciphertext:</b><br>
+P paling sering muncul &rarr; kemungkinan pengganti <b>e</b> (huruf paling sering dalam bahasa Inggris)<br>
+Z terbanyak kedua &rarr; kemungkinan pengganti <b>t</b>
+</div>
+
+<div class="step">
+<b>Langkah 2 - Analisis digram & trigram:</b><br>
+ZW muncul sering &rarr; kemungkinan <b>th</b><br>
+ZWP &rarr; kemungkinan <b>the</b><br>
+ZWSZ &rarr; kemungkinan <b>that</b>
+</div>
+
+<div class="step">
+<b>Identifikasi sementara:</b> P = e, Z = t, W = h, S = a
+</div>
+
+<div class="step">
+<b>Langkah 3 - Trial & error + tebakan konteks</b> hingga ditemukan plaintext utuh.
+</div>
+
+<div class="example-box">
+<b>Hasil dekripsi:</b><br>
+"it was disclosed yesterday that several informal but direct contacts have been made with political representatives of the viet cong in moscow"
+</div>
+</div>
+
+<div class="card">
+<h3>Contoh Dekripsi Monoalphabetic Cipher</h3>
+<p>Dekripsi adalah kebalikan enkripsi: mencari huruf ciphertext di <b>baris bawah</b>, lalu mengambil huruf plaintext dari <b>baris atas</b> pada kolom yang sama.</p>
+
+<div class="example-box"><b>Tabel Substitusi (Enkripsi):</b> A→D, B→K, C→V, D→Q, E→F, F→I, G→B, H→J, I→W, J→P, K→E, L→S, M→C, N→X, O→H, P→T, Q→M, R→Y, S→A, T→U, U→O, V→L, W→R, X→G, Y→Z, Z→N</div>
+
+<div class="step">
+<b>Dekripsi ciphertext: "DKVQ"</b>
+<table class="visual">
+<tr><th>Plaintext (A-Z)</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+<tr><th>Cipher (sub)</th><td>D</td><td>K</td><td>V</td><td>Q</td><td>F</td><td>I</td><td>B</td><td>J</td><td>W</td><td>P</td><td>E</td><td>S</td><td>C</td><td>X</td><td>H</td><td>T</td><td>M</td><td>Y</td><td>A</td><td>U</td><td>O</td><td>L</td><td>R</td><td>G</td><td>Z</td><td>N</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Proses lookup per huruf:</b><br>
+<span class="badge">D</span> cari D di baris cipher &rarr; kolom A &rarr; plaintext = <b>A</b><br>
+<span class="badge">K</span> cari K di baris cipher &rarr; kolom B &rarr; plaintext = <b>B</b><br>
+<span class="badge">V</span> cari V di baris cipher &rarr; kolom C &rarr; plaintext = <b>C</b><br>
+<span class="badge">Q</span> cari Q di baris cipher &rarr; kolom D &rarr; plaintext = <b>D</b>
+</div>
+
+<div class="example-box">
+<b>Hasil dekripsi:</b> DKVQ &rarr; <b>ABCD</b>
+</div>
+</div>
+
+<div class="card">
+<h3>Simulasi Monoalphabetic Cipher</h3>
+<p>Masukkan alfabet substitusi (26 huruf unik) atau gunakan default:</p>
+<input id="monoSub" value="DKVQFIBJWPESCXHTMYAUOLRGZN" placeholder="Alfabet substitusi (26 huruf)">
+<input id="monoText" placeholder="Masukkan plaintext / ciphertext">
+<button class="run" onclick="encryptMono()">Enkripsi</button>
+<button class="run" onclick="decryptMono()">Dekripsi</button>
+<div id="monoResult" class="result"></div>
+</div>
+</div>
+
+<!-- ==================== VIGENERE CIPHER ==================== -->
+<div id="vigenere" class="content">
+<div class="card">
+<h2>Vigen&egrave;re Cipher</h2>
+<p>Ditemukan oleh Giovan Battista Bellaso (1553), dipopulerkan oleh Blaise de Vigen&egrave;re. Merupakan teknik <b>Polyalphabetic Cipher</b> terbaik dan paling sederhana. Menggunakan pengindeksan Caesar Cipher dengan kunci berulang.</p>
+
+<h3>Rumus</h3>
+<div class="formula">C<sub>i</sub> = (P<sub>i</sub> + K<sub>i mod m</sub>) mod 26</div>
+<div class="formula">P<sub>i</sub> = (C<sub>i</sub> - K<sub>i mod m</sub>) mod 26</div>
+<p>Dimana <i>m</i> adalah panjang kunci. Kunci diulang hingga sepanjang plaintext.</p>
+
+<h3>Step-by-Step</h3>
+<div class="step">1. Ulangi kunci hingga sepanjang plaintext</div>
+<div class="step">2. Konversi tiap huruf plaintext dan kunci menjadi angka (A=0...Z=25)</div>
+<div class="step">3. Jumlahkan modulo 26: C = (P + K) mod 26</div>
+<div class="step">4. Konversi kembali angka hasil menjadi huruf</div>
+</div>
+
+<div class="card">
+<h3>Contoh Soal 1 (Metode Aritmatika)</h3>
+<div class="example-box">
+<b>Plaintext:</b> BOBOLJAMSATU<br>
+<b>Kunci:</b> KEY &rarr; KEYKEYKEYKEY
+</div>
+<div class="step">
+B + K = (1 + 10) mod 26 = 11 = <b>L</b><br>
+O + E = (14 + 4) mod 26 = 18 = <b>S</b><br>
+B + Y = (1 + 24) mod 26 = 25 = <b>Z</b><br>
+O + K = (14 + 10) mod 26 = 24 = <b>Y</b><br>
+...<br>
+</div>
+<div class="example-box"><b>Hasil Ciphertext:</b> LSZY...</div>
+</div>
+
+<div class="card">
+<h3>Contoh Soal 2 (Metode Tabula Recta)</h3>
+<p>Cari plaintext pada baris, key pada kolom - intersection adalah ciphertext.</p>
+<div class="example-box">
+<b>Plaintext:</b> MEETMEATMIDNIGHT<br>
+<b>Kunci:</b> FULLMOONFULLMOON<br>
+<b>Ciphertext:</b> RYPEYSOGRCOYUUVG
+</div>
+<div class="tabula-recta" style="overflow-x:auto;">
+<table class="visual" style="font-size:10px;">
+<tr><th></th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td></tr>
+<tr><th>F</th><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td><b>R</b></td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td></tr>
+<tr><th>U</th><td>U</td><td>V</td><td>W</td><td>X</td><td><b>Y</b></td><td>Z</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td></tr>
+<tr><th>L</th><td>L</td><td>M</td><td>N</td><td>O</td><td><b>P</b></td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td></tr>
+<tr><th>L</th><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td>A</td><td>B</td><td>C</td><td>D</td><td><b>E</b></td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td></tr>
+<tr><th>M</th><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td><b>Y</b></td><td>Z</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td></tr>
+<tr><th>O</th><td>O</td><td>P</td><td>Q</td><td>R</td><td><b>S</b></td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td></tr>
+<tr><th>O</th><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td><b>A</b></td><td>B</td><td>C</td><td>D</td><td><b>O</b></td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td></tr>
+<tr><th>N</th><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td><b>G</b></td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td></tr>
+</table>
+</div>
+<p style="font-size:12px;margin-top:5px;">Contoh: M(F-row) = <b>R</b>, E(U-row) = <b>Y</b>, E(L-row) = <b>P</b>, T(L-row) = <b>E</b> &rarr; <b>RYPE...</b></p>
+</div>
+
+<div class="card">
+<h3>Contoh Dekripsi Vigen&egrave;re Cipher (Metode Aritmatika)</h3>
+<div class="example-box">
+<b>Ciphertext:</b> LSZY...<br>
+<b>Kunci:</b> KEY &rarr; KEYKEYKEYKEY
+</div>
+
+<div class="step">
+<b>Langkah 1 - Penjajaran ciphertext dan kunci:</b>
+<table class="visual">
+<tr><th>Ciphertext</th><td>L</td><td>S</td><td>Z</td><td>Y</td><td>...</td></tr>
+<tr><th>Kunci</th><td>K</td><td>E</td><td>Y</td><td>K</td><td>...</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Langkah 2 - Konversi ke angka &amp; hitung P = (C - K) mod 26:</b>
+<table class="visual">
+<tr><th>C (angka)</th><td>11</td><td>18</td><td>25</td><td>24</td><td>...</td></tr>
+<tr><th>K (angka)</th><td>10</td><td>4</td><td>24</td><td>10</td><td>...</td></tr>
+<tr><th>C-K</th><td>11-10</td><td>18-4</td><td>25-24</td><td>24-10</td><td>...</td></tr>
+<tr><th>Hasil</th><td>1</td><td>14</td><td>1</td><td>14</td><td>...</td></tr>
+<tr><th>Mod 26</th><td><b>1</b></td><td><b>14</b></td><td><b>1</b></td><td><b>14</b></td><td>...</td></tr>
+<tr><th>Plain</th><td><b>B</b></td><td><b>O</b></td><td><b>B</b></td><td><b>O</b></td><td>...</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Detail perhitungan:</b><br>
+(C - K) mod 26 = (11 - 10) mod 26 = 1 = <b>B</b><br>
+(C - K) mod 26 = (18 - 4) mod 26 = 14 = <b>O</b><br>
+(C - K) mod 26 = (25 - 24) mod 26 = 1 = <b>B</b><br>
+(C - K) mod 26 = (24 - 10) mod 26 = 14 = <b>O</b><br>
+...
+</div>
+
+<div class="example-box"><b>Hasil Dekripsi:</b> BOBOLJAMSATU</div>
+</div>
+
+<div class="card">
+<h3>Simulasi Vigen&egrave;re Cipher</h3>
+<input id="vigText" placeholder="Masukkan plaintext / ciphertext">
+<input id="vigKey" placeholder="Masukkan kunci">
+<button class="run" onclick="encryptVigenere()">Enkripsi</button>
+<button class="run" onclick="decryptVigenere()">Dekripsi</button>
+<div id="vigResult" class="result"></div>
+</div>
+</div>
+
+<!-- ==================== BEAUFORT CIPHER ==================== -->
+<div id="beaufort" class="content">
+<div class="card">
+<h2>Beaufort Cipher</h2>
+<p>Ditemukan oleh Sir Francis Beaufort. Hampir sama dengan Vigen&egrave;re Cipher, tetapi <b>urutan alfabet ciphertext B~Z terbalik</b> (urutan menurun, bukan menaik).</p>
+
+<h3>Rumus</h3>
+<div class="formula">C<sub>i</sub> = (K<sub>i</sub> - P<sub>i</sub>) mod 26</div>
+<div class="formula">P<sub>i</sub> = (K<sub>i</sub> - C<sub>i</sub>) mod 26</div>
+<p><b>Catatan:</b> Rumus enkripsi dan dekripsi Beaufort adalah <b>sama</b> (simetris).</p>
+
+<h3>Step-by-Step</h3>
+<div class="step">1. Ulangi kunci hingga sepanjang plaintext</div>
+<div class="step">2. Konversi tiap huruf menjadi angka (A=0...Z=25)</div>
+<div class="step">3. C = (K - P) mod 26 (kunci dikurangi plaintext)</div>
+<div class="step">4. Konversi kembali angka hasil menjadi huruf</div>
+</div>
+
+<div class="card">
+<h3>Contoh Soal (Metode Aritmatika)</h3>
+<div class="example-box">
+<b>Plaintext:</b> MEETMEATMIDNIGHT<br>
+<b>Kunci:</b> FULLMOONFULLMOON
+</div>
+
+<div class="step">
+<b>Langkah 1 - Sejajarkan plaintext dan kunci:</b>
+<table class="visual">
+<tr><th>Plaintext</th><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td><td>M</td><td>I</td><td>D</td><td>N</td><td>I</td><td>G</td><td>H</td><td>T</td></tr>
+<tr><th>Kunci</th><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Langkah 2 - Konversi ke angka (A=0, B=1, ..., Z=25):</b>
+<table class="visual">
+<tr><th>P (angka)</th><td>12</td><td>4</td><td>4</td><td>19</td><td>12</td><td>4</td><td>0</td><td>19</td><td>12</td><td>8</td><td>3</td><td>13</td><td>8</td><td>6</td><td>7</td><td>19</td></tr>
+<tr><th>K (angka)</th><td>5</td><td>20</td><td>11</td><td>11</td><td>12</td><td>14</td><td>14</td><td>13</td><td>5</td><td>20</td><td>11</td><td>11</td><td>12</td><td>14</td><td>14</td><td>13</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Langkah 3 - Hitung C = (K - P) mod 26:</b>
+<table class="visual">
+<tr><th>Huruf</th><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td><td>M</td><td>I</td><td>D</td><td>N</td><td>I</td><td>G</td><td>H</td><td>T</td></tr>
+<tr><th>K - P</th><td>5-12</td><td>20-4</td><td>11-4</td><td>11-19</td><td>12-12</td><td>14-4</td><td>14-0</td><td>13-19</td><td>5-12</td><td>20-8</td><td>11-3</td><td>11-13</td><td>12-8</td><td>14-6</td><td>14-7</td><td>13-19</td></tr>
+<tr><th>Hasil</th><td>-7</td><td>16</td><td>7</td><td>-8</td><td>0</td><td>10</td><td>14</td><td>-6</td><td>-7</td><td>12</td><td>8</td><td>-2</td><td>4</td><td>8</td><td>7</td><td>-6</td></tr>
+<tr><th>Mod 26</th><td><b>19</b></td><td><b>16</b></td><td><b>7</b></td><td><b>18</b></td><td><b>0</b></td><td><b>10</b></td><td><b>14</b></td><td><b>20</b></td><td><b>19</b></td><td><b>12</b></td><td><b>8</b></td><td><b>24</b></td><td><b>4</b></td><td><b>8</b></td><td><b>7</b></td><td><b>20</b></td></tr>
+<tr><th>Cipher</th><td><b>T</b></td><td><b>Q</b></td><td><b>H</b></td><td><b>S</b></td><td><b>A</b></td><td><b>K</b></td><td><b>O</b></td><td><b>U</b></td><td><b>T</b></td><td><b>M</b></td><td><b>I</b></td><td><b>Y</b></td><td><b>E</b></td><td><b>I</b></td><td><b>H</b></td><td><b>U</b></td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Detail perhitungan per karakter:</b><br>
+(K - P) mod 26 = (5 - 12) mod 26 = -7 mod 26 = <b>19 = T</b><br>
+(K - P) mod 26 = (20 - 4) mod 26 = 16 mod 26 = <b>16 = Q</b><br>
+(K - P) mod 26 = (11 - 4) mod 26 = 7 mod 26 = <b>7 = H</b><br>
+(K - P) mod 26 = (11 - 19) mod 26 = -8 mod 26 = <b>18 = S</b><br>
+(K - P) mod 26 = (12 - 12) mod 26 = 0 mod 26 = <b>0 = A</b><br>
+(K - P) mod 26 = (14 - 4) mod 26 = 10 mod 26 = <b>10 = K</b><br>
+(K - P) mod 26 = (14 - 0) mod 26 = 14 mod 26 = <b>14 = O</b><br>
+(K - P) mod 26 = (13 - 19) mod 26 = -6 mod 26 = <b>20 = U</b><br>
+(K - P) mod 26 = (5 - 12) mod 26 = -7 mod 26 = <b>19 = T</b><br>
+(K - P) mod 26 = (20 - 8) mod 26 = 12 mod 26 = <b>12 = M</b><br>
+(K - P) mod 26 = (11 - 3) mod 26 = 8 mod 26 = <b>8 = I</b><br>
+(K - P) mod 26 = (11 - 13) mod 26 = -2 mod 26 = <b>24 = Y</b><br>
+(K - P) mod 26 = (12 - 8) mod 26 = 4 mod 26 = <b>4 = E</b><br>
+(K - P) mod 26 = (14 - 6) mod 26 = 8 mod 26 = <b>8 = I</b><br>
+(K - P) mod 26 = (14 - 7) mod 26 = 7 mod 26 = <b>7 = H</b><br>
+(K - P) mod 26 = (13 - 19) mod 26 = -6 mod 26 = <b>20 = U</b>
+</div>
+
+<div class="example-box"><b>Hasil Ciphertext:</b> TQHSAKOUTMIYEIHU</div>
+</div>
+
+<div class="card">
+<h3>Contoh Soal (Metode Tabula Recta)</h3>
+<p>Berbeda dengan Vigen&egrave;re, Tabula Recta Beaufort memiliki <b>urutan menurun (B~Z terbalik)</b>. Cara pakai:<br>
+<b>Enkripsi:</b> Cari key pada <b>kolom</b> &rarr; telusuri ke kanan sampai <b>plaintext</b> ditemukan &rarr; telusuri <b>ke atas</b> untuk ciphertext.<br>
+<b>Dekripsi:</b> Sama persis karena simetris.</p>
+
+<div class="example-box">
+<b>Plaintext:</b> MEETMEATMIDNIGHT<br>
+<b>Kunci:</b> FULLMOONFULLMOON
+</div>
+
+<div class="tabula-recta" style="overflow-x:auto;margin:10px 0;">
+<table class="visual" style="font-size:10px;">
+<tr>
+<th>Key</th>
+<td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td>
+</tr>
+<tr style="background:#e3f2fd;">
+<th>F</th>
+<td style="background:#ffd700;">F</td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td>U</td><td style="background:#90ee90;">T</td><td>S</td><td>R</td><td>Q</td><td>P</td><td>O</td><td>N</td><td style="background:#ffcc00;">M</td><td>M</td><td>L</td><td>K</td><td>J</td><td>I</td><td>H</td><td>G</td>
+</tr>
+<tr style="background:#e3f2fd;">
+<th>U</th>
+<td style="background:#ffd700;">U</td><td>T</td><td>S</td><td>R</td><td style="background:#90ee90;">Q</td><td>P</td><td>O</td><td>N</td><td>M</td><td>L</td><td>K</td><td>J</td><td>I</td><td>H</td><td>G</td><td>F</td><td style="background:#ffcc00;">E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td>
+</tr>
+<tr style="background:#e3f2fd;">
+<th>L</th>
+<td style="background:#ffd700;">L</td><td>K</td><td>J</td><td>I</td><td style="background:#90ee90;">H</td><td>G</td><td>F</td><td style="background:#ffcc00;">E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td>U</td><td style="background:#90ee90;">T</td><td style="background:#ffd700;">S</td><td>R</td><td>Q</td><td>P</td><td>O</td><td>N</td><td>M</td>
+</tr>
+<tr style="background:#e3f2fd;">
+<th>M</th>
+<td style="background:#ffd700;">M</td><td>L</td><td>K</td><td>J</td><td>I</td><td>H</td><td>G</td><td>F</td><td>E</td><td>D</td><td>C</td><td>B</td><td style="background:#90ee90;">A</td><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td>U</td><td>T</td><td>S</td><td>R</td><td>Q</td><td>P</td><td>O</td><td>N</td>
+</tr>
+<tr style="background:#e3f2fd;">
+<th>O</th>
+<td style="background:#ffd700;">O</td><td>N</td><td>M</td><td>L</td><td style="background:#ffcc00;">K</td><td>J</td><td>I</td><td>H</td><td>G</td><td>F</td><td style="background:#90ee90;">E</td><td>D</td><td>C</td><td>B</td><td style="background:#90ee90;">A</td><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td style="background:#ffcc00;">U</td><td>T</td><td>S</td><td>R</td><td>Q</td><td>P</td>
+</tr>
+<tr style="background:#e3f2fd;">
+<th>N</th>
+<td style="background:#ffd700;">N</td><td>M</td><td>L</td><td>K</td><td>J</td><td>I</td><td style="background:#90ee90;">H</td><td style="background:#90ee90;">G</td><td>F</td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>Z</td><td>Y</td><td>X</td><td>W</td><td>V</td><td style="background:#ffcc00;">U</td><td>T</td><td>S</td><td>R</td><td>Q</td><td>P</td><td>O</td>
+</tr>
+</table>
+</div>
+
+<div class="step">
+<b>Cara membaca tabel (contoh enkripsi):</b><br>
+<span class="badge">M dgn F</span> Baris F, kolom plaintext <b>M</b> &rarr; telusuri ke atas &rarr; <b>T</b> (kolom paling kiri = ciphertext)<br>
+<span class="badge">E dgn U</span> Baris U, kolom plaintext <b>E</b> &rarr; telusuri ke atas &rarr; <b>Q</b><br>
+<span class="badge">E dgn L</span> Baris L, kolom plaintext <b>E</b> &rarr; telusuri ke atas &rarr; <b>H</b><br>
+<span class="badge">T dgn L</span> Baris L, kolom plaintext <b>T</b> &rarr; telusuri ke atas &rarr; <b>S</b><br>
+<span class="badge">M dgn M</span> Baris M, kolom plaintext <b>M</b> &rarr; telusuri ke atas &rarr; <b>A</b><br>
+<span class="badge">E dgn O</span> Baris O, kolom plaintext <b>E</b> &rarr; telusuri ke atas &rarr; <b>K</b><br>
+<span class="badge">A dgn O</span> Baris O, kolom plaintext <b>A</b> &rarr; telusuri ke atas &rarr; <b>O</b><br>
+<span class="badge">T dgn N</span> Baris N, kolom plaintext <b>T</b> &rarr; telusuri ke atas &rarr; <b>U</b><br>
+<span class="badge">M dgn F</span> Baris F, kolom plaintext <b>M</b> &rarr; telusuri ke atas &rarr; <b>T</b><br>
+<span class="badge">I dgn U</span> Baris U, kolom plaintext <b>I</b> &rarr; telusuri ke atas &rarr; <b>M</b><br>
+<span class="badge">D dgn L</span> Baris L, kolom plaintext <b>D</b> &rarr; telusuri ke atas &rarr; <b>I</b><br>
+<span class="badge">N dgn L</span> Baris L, kolom plaintext <b>N</b> &rarr; telusuri ke atas &rarr; <b>Y</b><br>
+<span class="badge">I dgn M</span> Baris M, kolom plaintext <b>I</b> &rarr; telusuri ke atas &rarr; <b>E</b><br>
+<span class="badge">G dgn O</span> Baris O, kolom plaintext <b>G</b> &rarr; telusuri ke atas &rarr; <b>I</b><br>
+<span class="badge">H dgn O</span> Baris O, kolom plaintext <b>H</b> &rarr; telusuri ke atas &rarr; <b>H</b><br>
+<span class="badge">T dgn N</span> Baris N, kolom plaintext <b>T</b> &rarr; telusuri ke atas &rarr; <b>U</b>
+</div>
+
+<div class="step">
+<b>Hasil:</b>
+<table class="visual">
+<tr><th>Key</th><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td></tr>
+<tr><th>Plaintext</th><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td><td>M</td><td>I</td><td>D</td><td>N</td><td>I</td><td>G</td><td>H</td><td>T</td></tr>
+<tr><th>Ciphertext</th><td><b>T</b></td><td><b>Q</b></td><td><b>H</b></td><td><b>S</b></td><td><b>A</b></td><td><b>K</b></td><td><b>O</b></td><td><b>U</b></td><td><b>T</b></td><td><b>M</b></td><td><b>I</b></td><td><b>Y</b></td><td><b>E</b></td><td><b>I</b></td><td><b>H</b></td><td><b>U</b></td></tr>
+</table>
+</div>
+
+<div class="example-box"><b>Hasil Ciphertext:</b> TQHSAKOUTMIYEIHU</div>
+</div>
+
+<div class="card">
+<h3>Contoh Dekripsi Beaufort Cipher</h3>
+<div class="example-box">
+Beaufort Cipher bersifat <b>simetris</b>: rumus enkripsi dan dekripsi <b>sama persis</b>.<br>
+P = (K - C) mod 26 &nbsp;=&nbsp; C = (K - P) mod 26
+</div>
+
+<div class="step">
+<b>Dekripsi ciphertext: TQHSAKOUTMIYEIHU dengan kunci FULLMOONFULLMOON</b>
+<table class="visual">
+<tr><th>Ciphertext</th><td>T</td><td>Q</td><td>H</td><td>S</td><td>A</td><td>K</td><td>O</td><td>U</td><td>T</td><td>M</td><td>I</td><td>Y</td><td>E</td><td>I</td><td>H</td><td>U</td></tr>
+<tr><th>Kunci</th><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Hitung P = (K - C) mod 26:</b>
+<table class="visual">
+<tr><th>C (angka)</th><td>19</td><td>16</td><td>7</td><td>18</td><td>0</td><td>10</td><td>14</td><td>20</td><td>19</td><td>12</td><td>8</td><td>24</td><td>4</td><td>8</td><td>7</td><td>20</td></tr>
+<tr><th>K (angka)</th><td>5</td><td>20</td><td>11</td><td>11</td><td>12</td><td>14</td><td>14</td><td>13</td><td>5</td><td>20</td><td>11</td><td>11</td><td>12</td><td>14</td><td>14</td><td>13</td></tr>
+<tr><th>K-C</th><td>5-19</td><td>20-16</td><td>11-7</td><td>11-18</td><td>12-0</td><td>14-10</td><td>14-14</td><td>13-20</td><td>5-19</td><td>20-12</td><td>11-8</td><td>11-24</td><td>12-4</td><td>14-8</td><td>14-7</td><td>13-20</td></tr>
+<tr><th>Hasil</th><td>-14</td><td>4</td><td>4</td><td>-7</td><td>12</td><td>4</td><td>0</td><td>-7</td><td>-14</td><td>8</td><td>3</td><td>-13</td><td>8</td><td>6</td><td>7</td><td>-7</td></tr>
+<tr><th>Mod 26</th><td><b>12</b></td><td><b>4</b></td><td><b>4</b></td><td><b>19</b></td><td><b>12</b></td><td><b>4</b></td><td><b>0</b></td><td><b>19</b></td><td><b>12</b></td><td><b>8</b></td><td><b>3</b></td><td><b>13</b></td><td><b>8</b></td><td><b>6</b></td><td><b>7</b></td><td><b>19</b></td></tr>
+<tr><th>Plain</th><td><b>M</b></td><td><b>E</b></td><td><b>E</b></td><td><b>T</b></td><td><b>M</b></td><td><b>E</b></td><td><b>A</b></td><td><b>T</b></td><td><b>M</b></td><td><b>I</b></td><td><b>D</b></td><td><b>N</b></td><td><b>I</b></td><td><b>G</b></td><td><b>H</b></td><td><b>T</b></td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Verifikasi 4 karakter pertama:</b><br>
+(K-C) mod 26 = (5-19) mod 26 = -14 mod 26 = 12 = <b>M</b><br>
+(K-C) mod 26 = (20-16) mod 26 = 4 = <b>E</b><br>
+(K-C) mod 26 = (11-7) mod 26 = 4 = <b>E</b><br>
+(K-C) mod 26 = (11-18) mod 26 = -7 mod 26 = 19 = <b>T</b>
+</div>
+
+<div class="example-box"><b>Hasil Dekripsi:</b> MEETMEATMIDNIGHT &check;</div>
+</div>
+
+<div class="card">
+<h3>Simulasi Beaufort Cipher</h3>
+<input id="beauText" placeholder="Masukkan plaintext / ciphertext">
+<input id="beauKey" placeholder="Masukkan kunci">
+<button class="run" onclick="encryptBeaufort()">Enkripsi</button>
+<button class="run" onclick="decryptBeaufort()">Dekripsi</button>
+<div id="beauResult" class="result"></div>
+</div>
+</div>
+
+<!-- ==================== AUTOKEY CIPHER ==================== -->
+<div id="autokey" class="content">
+<div class="card">
+<h2>Autokey Cipher</h2>
+<p>Mengatasi kelemahan kunci periodik pada Vigen&egrave;re dan Beaufort. Kunci awal digabungkan dengan <b>plaintext</b> untuk membentuk kunci baru yang lebih panjang.</p>
+<p>Pada Vigen&egrave;re dengan kunci KEY (3 huruf): plaintext ke-1,4,7,10 dienkripsi dengan K; ke-2,5,8,11 dengan E; ke-3,6,9,12 dengan Y. Ini menimbulkan <b>pola periodik</b> yang bisa dianalisis. Autokey mengatasinya dengan menjadikan plaintext sebagai bagian dari kunci.</p>
+
+<h3>Rumus</h3>
+<div class="formula">C<sub>i</sub> = (P<sub>i</sub> + K<sub>i</sub>) mod 26</div>
+<div class="formula">P<sub>i</sub> = (C<sub>i</sub> - K<sub>i</sub>) mod 26</div>
+<p>Dimana K = kunci_awal + plaintext (digabung, lalu dipotong sepanjang plaintext).</p>
+
+<h3>Perbandingan: Vigen&egrave;re vs Autokey</h3>
+<div class="compare">
+<div class="step">
+<b>Vigen&egrave;re (KEY = 3 huruf):</b><br>
+Posisi 1,4,7,10... &rarr; dienkripsi dgn K<br>
+Posisi 2,5,8,11... &rarr; dienkripsi dgn E<br>
+Posisi 3,6,9,12... &rarr; dienkripsi dgn Y<br>
+<span style="color:red;">&rarr; Pola periodik, bisa dianalisis!</span>
+</div>
+<div class="step">
+<b>Autokey (prefix = deceptive):</b><br>
+Kunci = deceptive + wearediscoveredsav...<br>
+Tiap posisi dienkripsi dengan huruf kunci berbeda<br>
+<span style="color:green;">&rarr; Tidak ada pola periodik!</span>
+</div>
+</div>
+
+<h3>Step-by-Step</h3>
+<div class="step">1. Mulai dengan kunci awal (prefix)</div>
+<div class="step">2. Kunci diperpanjang dengan menambahkan plaintext itu sendiri</div>
+<div class="step">3. Kunci_baru = kunci_awal + plaintext (dipotong sepanjang plaintext)</div>
+<div class="step">4. Enkripsi seperti Vigen&egrave;re: C = (P + K) mod 26</div>
+</div>
+
+<div class="card">
+<h3>Contoh Soal 1</h3>
+<div class="example-box">
+<b>Kunci awal (prefix):</b> deceptive<br>
+<b>Plaintext:</b> wearediscoveredsaveyourself
+</div>
+
+<div class="step">
+<b>Langkah 1 - Pembentukan kunci:</b><br>
+Kunci = <b>deceptive</b> + <b>wearediscoveredsav</b> = <b>deceptivewearediscoveredsav</b><br>
+(prefix 9 huruf + 15 huruf pertama plaintext = 24 huruf, sepanjang plaintext)
+</div>
+
+<div class="step">
+<b>Langkah 2 - Penjajaran (8 karakter pertama sebagai contoh):</b>
+<table class="visual">
+<tr><th>Plaintext</th><td>w</td><td>e</td><td>a</td><td>r</td><td>e</td><td>d</td><td>i</td><td>s</td><td>...</td></tr>
+<tr><th>Kunci</th><td>d</td><td>e</td><td>c</td><td>e</td><td>p</td><td>t</td><td>i</td><td>v</td><td>...</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Langkah 3 - Konversi ke angka &amp; perhitungan C = (P + K) mod 26:</b>
+<table class="visual">
+<tr><th>P (angka)</th><td>22</td><td>4</td><td>0</td><td>17</td><td>4</td><td>3</td><td>8</td><td>18</td><td>...</td></tr>
+<tr><th>K (angka)</th><td>3</td><td>4</td><td>2</td><td>4</td><td>15</td><td>19</td><td>8</td><td>21</td><td>...</td></tr>
+<tr><th>P+K</th><td>25</td><td>8</td><td>2</td><td>21</td><td>19</td><td>22</td><td>16</td><td>39</td><td>...</td></tr>
+<tr><th>Mod 26</th><td><b>25</b></td><td><b>8</b></td><td><b>2</b></td><td><b>21</b></td><td><b>19</b></td><td><b>22</b></td><td><b>16</b></td><td><b>13</b></td><td>...</td></tr>
+<tr><th>Cipher</th><td><b>z</b></td><td><b>i</b></td><td><b>c</b></td><td><b>v</b></td><td><b>t</b></td><td><b>w</b></td><td><b>q</b></td><td><b>n</b></td><td>...</td></tr>
+</table>
+<p>(w+d) = (22+3) mod 26 = 25 = <b>z</b>, (e+e) = (4+4) mod 26 = 8 = <b>i</b>, (a+c) = (0+2) mod 26 = 2 = <b>c</b>, ...</p>
+</div>
+
+<div class="example-box"><b>Hasil Ciphertext:</b> zicvtwqngkzeiigasxstslvvwla</div>
+</div>
+
+<div class="card">
+<h3>Contoh Soal 2 (Tabel Lengkap)</h3>
+<div class="example-box">
+<b>Plaintext:</b> MEETMEATMIDNIGHT<br>
+<b>Kunci awal (prefix):</b> FULLMOON
+</div>
+
+<div class="step">
+<b>Langkah 1 - Pembentukan kunci diperluas:</b><br>
+Kunci = <b>FULLMOON</b> + <b>MEETMEA</b> = <b>FULLMOONMEETMEA</b><br>
+(prefix 7 huruf + 7 huruf pertama plaintext = 14 huruf, minus 1 agar sepanjang plaintext)
+</div>
+
+<div class="step">
+<b>Langkah 2 - Penjajaran plaintext dan kunci:</b>
+<table class="visual">
+<tr><th>Plaintext</th><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td><td>M</td><td>I</td><td>D</td><td>N</td><td>I</td><td>G</td><td>H</td><td>T</td></tr>
+<tr><th>Kunci</th><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td></tr>
+</table>
+<p style="font-size:12px;color:#666;">Perhatikan: 8 karakter pertama kunci = FULLMOON (prefix), 8 karakter berikutnya = MEETMEAT (diambil dari plaintext)</p>
+</div>
+
+<div class="step">
+<b>Langkah 3 - Konversi ke angka (A=0, B=1, ..., Z=25):</b>
+<table class="visual">
+<tr><th>P (angka)</th><td>12</td><td>4</td><td>4</td><td>19</td><td>12</td><td>4</td><td>0</td><td>19</td><td>12</td><td>8</td><td>3</td><td>13</td><td>8</td><td>6</td><td>7</td><td>19</td></tr>
+<tr><th>K (angka)</th><td>5</td><td>20</td><td>11</td><td>11</td><td>12</td><td>14</td><td>14</td><td>13</td><td>12</td><td>4</td><td>4</td><td>19</td><td>12</td><td>4</td><td>0</td><td>19</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Langkah 4 - Hitung C = (P + K) mod 26:</b>
+<table class="visual">
+<tr><th>Huruf</th><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td><td>M</td><td>I</td><td>D</td><td>N</td><td>I</td><td>G</td><td>H</td><td>T</td></tr>
+<tr><th>P+K</th><td>12+5</td><td>4+20</td><td>4+11</td><td>19+11</td><td>12+12</td><td>4+14</td><td>0+14</td><td>19+13</td><td>12+12</td><td>8+4</td><td>3+4</td><td>13+19</td><td>8+12</td><td>6+4</td><td>7+0</td><td>19+19</td></tr>
+<tr><th>Hasil</th><td>17</td><td>24</td><td>15</td><td>30</td><td>24</td><td>18</td><td>14</td><td>32</td><td>24</td><td>12</td><td>7</td><td>32</td><td>20</td><td>10</td><td>7</td><td>38</td></tr>
+<tr><th>Mod 26</th><td><b>17</b></td><td><b>24</b></td><td><b>15</b></td><td><b>4</b></td><td><b>24</b></td><td><b>18</b></td><td><b>14</b></td><td><b>6</b></td><td><b>24</b></td><td><b>12</b></td><td><b>7</b></td><td><b>6</b></td><td><b>20</b></td><td><b>10</b></td><td><b>7</b></td><td><b>12</b></td></tr>
+<tr><th>Cipher</th><td><b>R</b></td><td><b>Y</b></td><td><b>P</b></td><td><b>E</b></td><td><b>Y</b></td><td><b>S</b></td><td><b>O</b></td><td><b>G</b></td><td><b>Y</b></td><td><b>M</b></td><td><b>H</b></td><td><b>G</b></td><td><b>U</b></td><td><b>K</b></td><td><b>H</b></td><td><b>M</b></td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Detail perhitungan per karakter:</b><br>
+(P+K) mod 26 = (12+5) mod 26 = 17 mod 26 = <b>17 = R</b><br>
+(P+K) mod 26 = (4+20) mod 26 = 24 mod 26 = <b>24 = Y</b><br>
+(P+K) mod 26 = (4+11) mod 26 = 15 mod 26 = <b>15 = P</b><br>
+(P+K) mod 26 = (19+11) mod 26 = 30 mod 26 = <b>4 = E</b><br>
+(P+K) mod 26 = (12+12) mod 26 = 24 mod 26 = <b>24 = Y</b><br>
+(P+K) mod 26 = (4+14) mod 26 = 18 mod 26 = <b>18 = S</b><br>
+(P+K) mod 26 = (0+14) mod 26 = 14 mod 26 = <b>14 = O</b><br>
+(P+K) mod 26 = (19+13) mod 26 = 32 mod 26 = <b>6 = G</b><br>
+(P+K) mod 26 = (12+12) mod 26 = 24 mod 26 = <b>24 = Y</b><br>
+(P+K) mod 26 = (8+4) mod 26 = 12 mod 26 = <b>12 = M</b><br>
+(P+K) mod 26 = (3+4) mod 26 = 7 mod 26 = <b>7 = H</b><br>
+(P+K) mod 26 = (13+19) mod 26 = 32 mod 26 = <b>6 = G</b><br>
+(P+K) mod 26 = (8+12) mod 26 = 20 mod 26 = <b>20 = U</b><br>
+(P+K) mod 26 = (6+4) mod 26 = 10 mod 26 = <b>10 = K</b><br>
+(P+K) mod 26 = (7+0) mod 26 = 7 mod 26 = <b>7 = H</b><br>
+(P+K) mod 26 = (19+19) mod 26 = 38 mod 26 = <b>12 = M</b>
+</div>
+
+<div class="step">
+<b>Langkah 5 - Hasil akhir:</b>
+<table class="visual">
+<tr><th>Plaintext</th><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td><td>M</td><td>I</td><td>D</td><td>N</td><td>I</td><td>G</td><td>H</td><td>T</td></tr>
+<tr><th>Kunci</th><td>F</td><td>U</td><td>L</td><td>L</td><td>M</td><td>O</td><td>O</td><td>N</td><td>M</td><td>E</td><td>E</td><td>T</td><td>M</td><td>E</td><td>A</td><td>T</td></tr>
+<tr><th>Ciphertext</th><td><b>R</b></td><td><b>Y</b></td><td><b>P</b></td><td><b>E</b></td><td><b>Y</b></td><td><b>S</b></td><td><b>O</b></td><td><b>G</b></td><td><b>Y</b></td><td><b>M</b></td><td><b>H</b></td><td><b>G</b></td><td><b>U</b></td><td><b>K</b></td><td><b>H</b></td><td><b>M</b></td></tr>
+</table>
+</div>
+
+<div class="example-box"><b>Hasil Ciphertext:</b> RYPEYSOGYMHGUKHM</div>
+</div>
+
+<div class="card">
+<h3>Contoh Dekripsi Autokey Cipher</h3>
+<p>Dekripsi Autokey bersifat <b>progresif</b>: setiap karakter plaintext yang berhasil didekripsi langsung ditambahkan sebagai kunci untuk karakter berikutnya.</p>
+
+<div class="example-box">
+<b>Ciphertext:</b> zicvtwqngkzeiigasxstslvvwla<br>
+<b>Kunci awal (prefix):</b> deceptive
+</div>
+
+<div class="step">
+<b>Langkah 1 - Dekripsi 9 karakter pertama (menggunakan prefix "deceptive"):</b>
+<table class="visual">
+<tr><th>Ciphertext</th><td>z</td><td>i</td><td>c</td><td>v</td><td>t</td><td>w</td><td>q</td><td>n</td><td>g</td><td>...</td></tr>
+<tr><th>Kunci</th><td>d</td><td>e</td><td>c</td><td>e</td><td>p</td><td>t</td><td>i</td><td>v</td><td>e</td><td>...</td></tr>
+<tr><th>C-K</th><td>25-3</td><td>8-4</td><td>2-2</td><td>21-4</td><td>19-15</td><td>22-19</td><td>16-8</td><td>13-21</td><td>6-4</td><td>...</td></tr>
+<tr><th>Mod 26</th><td><b>22=w</b></td><td><b>4=e</b></td><td><b>0=a</b></td><td><b>17=r</b></td><td><b>4=e</b></td><td><b>3=d</b></td><td><b>8=i</b></td><td><b>18=s</b></td><td><b>2=c</b></td><td>...</td></tr>
+</table>
+<p>Plaintext didekripsi: <b>wearedisc</b>...</p>
+</div>
+
+<div class="step">
+<b>Langkah 2 - Kunci diperluas otomatis:</b><br>
+Setelah 9 karakter pertama didekripsi, kunci sekarang = <b>deceptive</b> + <b>wearedisc</b> = <b>deceptivewearedisc</b><br>
+Plaintext yang baru didekripsi langsung menjadi kunci untuk posisi berikutnya.
+</div>
+
+<div class="step">
+<b>Langkah 3 - Lanjutkan hingga seluruh ciphertext terdekripsi:</b>
+<table class="visual">
+<tr><th>Ciphertext</th><td>z</td><td>i</td><td>c</td><td>v</td><td>t</td><td>w</td><td>q</td><td>n</td><td>g</td><td>k</td><td>z</td><td>e</td><td>i</td><td>i</td><td>g</td><td>a</td><td>s</td><td>x</td><td>s</td><td>t</td><td>s</td><td>l</td><td>v</td><td>v</td><td>w</td><td>l</td><td>a</td></tr>
+<tr><th>Kunci</th><td>d</td><td>e</td><td>c</td><td>e</td><td>p</td><td>t</td><td>i</td><td>v</td><td>e</td><td>w</td><td>e</td><td>a</td><td>r</td><td>e</td><td>d</td><td>i</td><td>s</td><td>c</td><td>o</td><td>v</td><td>e</td><td>r</td><td>e</td><td>d</td><td>s</td><td>a</td><td>v</td></tr>
+<tr><th>Plain</th><td>w</td><td>e</td><td>a</td><td>r</td><td>e</td><td>d</td><td>i</td><td>s</td><td>c</td><td>o</td><td>v</td><td>e</td><td>r</td><td>e</td><td>d</td><td>s</td><td>a</td><td>v</td><td>e</td><td>y</td><td>o</td><td>u</td><td>r</td><td>s</td><td>e</td><td>l</td><td>f</td></tr>
+</table>
+<p style="font-size:12px;color:#666;">Perhatikan: mulai posisi ke-10, kunci = huruf plaintext yang sudah didekripsi sebelumnya (berwarna merah pada contoh ini)</p>
+</div>
+
+<div class="example-box"><b>Hasil Dekripsi:</b> wearediscoveredsaveyourself</div>
+</div>
+
+<div class="card">
+<h3>Simulasi Autokey Cipher</h3>
+<input id="autoText" placeholder="Masukkan plaintext / ciphertext">
+<input id="autoKey" placeholder="Masukkan kunci awal (prefix)">
+<button class="run" onclick="encryptAuto()">Enkripsi</button>
+<button class="run" onclick="decryptAuto()">Dekripsi</button>
+<div id="autoResult" class="result"></div>
+</div>
+</div>
+
+<!-- ==================== PLAYFAIR CIPHER ==================== -->
+<div id="playfair" class="content">
+<div class="card">
+<h2>Playfair Cipher</h2>
+<p>Diciptakan oleh Charles Wheatstone (1854), dipopulerkan oleh Lord Playfair. Termasuk sistem substitusi <b>digraph</b> (enkripsi per pasangan huruf) menggunakan matriks 5&times;5. Huruf J digabung dengan I sehingga hanya 25 alfabet yang digunakan.</p>
+
+<h3>Visualisasi Pembangunan Matriks</h3>
+<p>Kunci: <b>PLAYFAIR</b> &rarr; setelah duplikat dihapus = <b>PLAYFIR</b></p>
+
+<h4>Tahap 1 &mdash; Masukkan kunci ke matriks kosong</h4>
+<div class="step">Isi matriks 5&times;5 mulai dari baris paling atas, kolom paling kiri dengan huruf kunci.</div>
+<table class="matrix" style="margin:10px 0;">
+<tr>
+<td style="background:#90ee90;">P</td><td style="background:#90ee90;">L</td><td style="background:#90ee90;">A</td><td style="background:#90ee90;">Y</td><td style="background:#90ee90;">F</td>
+</tr>
+<tr>
+<td style="background:#90ee90;">I</td><td style="background:#90ee90;">R</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td>
+</tr>
+<tr>
+<td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td>
+</tr>
+<tr>
+<td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td>
+</tr>
+<tr>
+<td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td><td style="background:#ffd700;color:#999;font-size:18px;">·</td>
+</tr>
+</table>
+<p><span style="background:#90ee90;padding:2px 6px;">Hijau</span> = kunci yang sudah dimasukkan  <span style="background:#ffd700;padding:2px 6px;">Kuning</span> = sel belum terisi</p>
+
+<h4>Tahap 2 &mdash; Isi sisa huruf sesuai urutan alfabet</h4>
+<div class="step">Masukkan huruf yang belum dipakai (B,C,D,E,G,H,K,M,N,O,Q,S,T,U,V,W,X,Z) berurutan. Lewati J (digabung dgn I).</div>
+<table class="matrix" style="margin:10px 0;">
+<tr>
+<td style="background:#90ee90;">P</td><td style="background:#90ee90;">L</td><td style="background:#90ee90;">A</td><td style="background:#90ee90;">Y</td><td style="background:#90ee90;">F</td>
+</tr>
+<tr>
+<td style="background:#90ee90;">I</td><td style="background:#90ee90;">R</td><td style="background:#b3e5fc;">B</td><td style="background:#b3e5fc;">C</td><td style="background:#b3e5fc;">D</td>
+</tr>
+<tr>
+<td style="background:#b3e5fc;">E</td><td style="background:#b3e5fc;">G</td><td style="background:#b3e5fc;">H</td><td style="background:#b3e5fc;">K</td><td style="background:#b3e5fc;">M</td>
+</tr>
+<tr>
+<td style="background:#b3e5fc;">N</td><td style="background:#b3e5fc;">O</td><td style="background:#b3e5fc;">Q</td><td style="background:#b3e5fc;">S</td><td style="background:#b3e5fc;">T</td>
+</tr>
+<tr>
+<td style="background:#b3e5fc;">U</td><td style="background:#b3e5fc;">V</td><td style="background:#b3e5fc;">W</td><td style="background:#b3e5fc;">X</td><td style="background:#b3e5fc;">Z</td>
+</tr>
+</table>
+<p><span style="background:#90ee90;padding:2px 6px;">Hijau</span> = dari kunci  <span style="background:#b3e5fc;padding:2px 6px;">Biru</span> = sisipan alfabet</p>
+
+<h4>Tahap 3 &mdash; Perluas matriks ke 6&times;6 (Opsional)</h4>
+<div class="step">Kolom ke-6 = salinan kolom ke-1, Baris ke-6 = salinan baris ke-1. Berguna agar aturan geser kanan/bawah tidak perlu modulo.</div>
+<table class="matrix" style="margin:10px 0;">
+<tr>
+<td>P</td><td>L</td><td>A</td><td>Y</td><td>F</td><td style="background:#ffcc80;">P</td>
+</tr>
+<tr>
+<td>I</td><td>R</td><td>B</td><td>C</td><td>D</td><td style="background:#ffcc80;">I</td>
+</tr>
+<tr>
+<td>E</td><td>G</td><td>H</td><td>K</td><td>M</td><td style="background:#ffcc80;">E</td>
+</tr>
+<tr>
+<td>N</td><td>O</td><td>Q</td><td>S</td><td>T</td><td style="background:#ffcc80;">N</td>
+</tr>
+<tr>
+<td>U</td><td>V</td><td>W</td><td>X</td><td>Z</td><td style="background:#ffcc80;">U</td>
+</tr>
+<tr>
+<td style="background:#ffcc80;">P</td><td style="background:#ffcc80;">L</td><td style="background:#ffcc80;">A</td><td style="background:#ffcc80;">Y</td><td style="background:#ffcc80;">F</td><td style="background:#ffcc80;">P</td>
+</tr>
+</table>
+<p><span style="background:#ffcc80;padding:2px 6px;">Oranye</span> = salinan kolom-1 / baris-1</p>
+</div>
+
+<div class="card">
+<h3>Visualisasi Penyiapan Plaintext</h3>
+<p><b>Plaintext:</b> GOOD BROOMS SWEEP CLEAN</p>
+
+<h4>Tahap 1 &mdash; Hapus spasi &amp; ganti J &rarr; I</h4>
+<div class="step">
+<span class="code">GOODBROOMSSWEEPCLEAN</span><br>
+Tidak ada huruf J, lanjut ke tahap pairing.
+</div>
+
+<h4>Tahap 2 &mdash; Pasangan huruf (digraph) + aturan khusus</h4>
+<div class="step">
+<table class="visual" style="font-size:14px;">
+<tr>
+<td style="font-size:20px;padding:6px 10px;">G</td><td style="font-size:20px;padding:6px 10px;">O</td>
+<td style="background:#e8e8e8;font-size:20px;padding:6px 10px;">O</td><td style="background:#e8e8e8;font-size:20px;padding:6px 10px;">D</td>
+<td style="font-size:20px;padding:6px 10px;">B</td><td style="font-size:20px;padding:6px 10px;">R</td>
+</tr>
+<tr>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;"><b>GO</b></td>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;">OO &rarr; <b>OD</b></td>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;"><b>BR</b></td>
+</tr>
+</table>
+<br>
+<table class="visual" style="font-size:14px;">
+<tr>
+<td style="background:#ffcdd2;font-size:20px;padding:6px 10px;">O</td><td style="background:#ffcdd2;font-size:20px;padding:6px 10px;">O</td>
+<td style="font-size:20px;padding:6px 10px;">M</td><td style="font-size:20px;padding:6px 10px;">S</td>
+<td style="background:#ffcdd2;font-size:20px;padding:6px 10px;">S</td><td style="font-size:20px;padding:6px 10px;">W</td>
+</tr>
+<tr>
+<td colspan="2" style="border:2px solid red;background:#ffebee;">OO &rarr; <span style="background:#ffd700;padding:0 4px;">Z</span> disisip: <b>OZ</b></td>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;"><b>OM</b></td>
+<td colspan="2" style="border:2px solid red;background:#ffebee;">SS &rarr; <span style="background:#ffd700;padding:0 4px;">Z</span> disisip: <b>SZ</b></td>
+</tr>
+</table>
+<br>
+<table class="visual" style="font-size:14px;">
+<tr>
+<td style="background:#ffcdd2;font-size:20px;padding:6px 10px;">S</td><td style="font-size:20px;padding:6px 10px;">W</td>
+<td style="font-size:20px;padding:6px 10px;">E</td><td style="background:#ffcdd2;font-size:20px;padding:6px 10px;">E</td>
+<td style="font-size:20px;padding:6px 10px;">P</td><td style="font-size:20px;padding:6px 10px;">C</td>
+</tr>
+<tr>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;"><b>SW</b></td>
+<td colspan="2" style="border:2px solid red;background:#ffebee;">EE &rarr; <span style="background:#ffd700;padding:0 4px;">Z</span> disisip: <b>EZ</b></td>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;"><b>EP</b></td>
+</tr>
+</table>
+<br>
+<table class="visual" style="font-size:14px;">
+<tr>
+<td style="font-size:20px;padding:6px 10px;">L</td><td style="font-size:20px;padding:6px 10px;">E</td>
+<td style="font-size:20px;padding:6px 10px;">A</td>
+<td style="background:#fff3e0;font-size:20px;padding:6px 10px;">N</td><td colspan="2" style="font-size:12px;color:#666;background:#fff3e0;">← ganjil!</td>
+</tr>
+<tr>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;"><b>CL</b></td>
+<td colspan="2" style="border:2px solid green;background:#e8f5e9;"><b>EA</b></td>
+<td colspan="2" style="border:2px solid orange;background:#fff3e0;">N sendirian &rarr; +<span style="background:#ffd700;padding:0 4px;">Z</span>: <b>NZ</b></td>
+</tr>
+</table>
+</div>
+
+<h4>Tahap 3 &mdash; Hasil pasangan digraph</h4>
+<div class="example-box">
+<b>12 Pasangan:</b><br>
+<div style="font-size:18px;letter-spacing:2px;">
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>GO</b></span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>OD</b></span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>BR</b></span>
+<span style="border:2px solid red;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;background:#ffebee;">OZ</span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>OM</b></span>
+<span style="border:2px solid red;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;background:#ffebee;">SZ</span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>SW</b></span>
+<span style="border:2px solid red;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;background:#ffebee;">EZ</span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>EP</b></span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>CL</b></span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;"><b>EA</b></span>
+<span style="border:2px solid orange;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;background:#fff3e0;">NZ</span>
+</div>
+<br><span style="background:#ffebee;padding:2px 6px;">Merah</span> = terdapat sisipan Z (duplikat)  <span style="background:#fff3e0;padding:2px 6px;">Oranye</span> = Z tambahan (ganjil)
+</div>
+</div>
+
+<div class="card">
+<h3>Visualisasi 3 Aturan Enkripsi</h3>
+<p>Gunakan matriks kunci <b>PLAYFAIR</b> (5&times;5) berikut. Untuk aturan geser, bayangkan matriks melingkar (atau gunakan perluasan 6&times;6).</p>
+
+<h4>Aturan 1 &mdash; Baris Sama: Geser ke KANAN</h4>
+<div class="step">Jika dua huruf pada <b>baris yang sama</b> &rarr; masing-masing diganti huruf di kanannya.</div>
+<table class="matrix" style="margin:10px 0;">
+<tr><td>P</td><td>L</td><td>A</td><td>Y</td><td>F</td></tr>
+<tr><td>I</td><td>R</td><td>B</td><td>C</td><td>D</td></tr>
+<tr><td>E</td><td>G</td><td>H</td><td>K</td><td>M</td></tr>
+<tr style="background:#e3f2fd;">
+<td>N</td>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">O</td>
+<td>Q</td>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">S</td>
+<td>T</td>
+</tr>
+<tr><td>U</td><td>V</td><td>W</td><td>X</td><td>Z</td></tr>
+</table>
+<p>
+<span class="badge">SO</span>
+<span style="background:#ffd700;padding:2px 6px;border:2px solid #f57c00;">S</span>(3,3) geser kanan &rarr; <b>T</b>(3,4)  | 
+<span style="background:#ffd700;padding:2px 6px;border:2px solid #f57c00;">O</span>(3,1) geser kanan &rarr; <b>Q</b>(3,2)  &rarr; 
+<span style="font-size:20px;font-weight:bold;color:#0b5fa5;">TQ</span>
+</p>
+<p style="font-size:12px;color:#666;">Baris ke-4 (indeks 3): N-O-Q-S-T. S di kolom 4 geser kanan → kolom 5 (T, atau kembali ke N jika 5×5 murni). O di kolom 2 geser kanan → kolom 3 (Q).</p>
+
+<h4>Aturan 2 &mdash; Kolom Sama: Geser ke BAWAH</h4>
+<div class="step">Jika dua huruf pada <b>kolom yang sama</b> &rarr; masing-masing diganti huruf di bawahnya.</div>
+<table class="matrix" style="margin:10px 0;">
+<tr><td>P</td><td style="border-left:3px solid #f57c00;border-right:3px solid #f57c00;">L</td><td>A</td><td>Y</td><td>F</td></tr>
+<tr><td>I</td><td style="border-left:3px solid #f57c00;border-right:3px solid #f57c00;">R</td><td>B</td><td>C</td><td>D</td></tr>
+<tr><td>E</td><td style="background:#e3f2fd;border-left:3px solid #f57c00;border-right:3px solid #f57c00;">G</td><td>H</td><td>K</td><td>M</td></tr>
+<tr><td>N</td><td style="background:#e3f2fd;border-left:3px solid #f57c00;border-right:3px solid #f57c00;">O</td><td>Q</td><td>S</td><td>T</td></tr>
+<tr><td>U</td><td style="border-left:3px solid #f57c00;border-right:3px solid #f57c00;">V</td><td>W</td><td>X</td><td>Z</td></tr>
+</table>
+<p>
+<span class="badge">GO</span>
+<span style="background:#ffd700;padding:2px 6px;">G</span>(2,1) geser bawah &rarr; <b>O</b>(3,1)  | 
+<span style="background:#ffd700;padding:2px 6px;">O</span>(3,1) geser bawah &rarr; <b>V</b>(4,1)  &rarr; 
+<span style="font-size:20px;font-weight:bold;color:#0b5fa5;">OV</span>
+</p>
+
+<h4>Aturan 3 &mdash; Tidak Sebaris/Sekolom: TUKAR SUDUT</h4>
+<div class="step">Jika dua huruf <b>tidak</b> pada baris/kolom yang sama &rarr; bentuk persegi panjang, ganti dengan huruf di <b>sudut berlawanan pada baris yang sama</b>.</div>
+<table class="matrix" style="margin:10px 0;">
+<tr><td>P</td><td>L</td><td>A</td><td>Y</td><td>F</td></tr>
+<tr>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">I</td>
+<td>R</td><td>B</td>
+<td style="background:#90ee90;font-weight:bold;border:2px solid green;">C</td>
+<td>D</td>
+</tr>
+<tr><td>E</td><td>G</td><td>H</td><td>K</td><td>M</td></tr>
+<tr>
+<td style="background:#90ee90;font-weight:bold;border:2px solid green;">N</td>
+<td>O</td><td>Q</td>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">S</td>
+<td>T</td>
+</tr>
+<tr><td>U</td><td>V</td><td>W</td><td>X</td><td>Z</td></tr>
+</table>
+<p>
+<span class="badge">IS</span>
+<span style="background:#ffd700;padding:2px 6px;border:2px solid #f57c00;">I</span>(1,0) ⇄ <span style="background:#90ee90;padding:2px 6px;border:2px solid green;">C</span>(1,3)  | 
+<span style="background:#ffd700;padding:2px 6px;border:2px solid #f57c00;">S</span>(3,3) ⇄ <span style="background:#90ee90;padding:2px 6px;border:2px solid green;">N</span>(3,0)  &rarr; 
+<span style="font-size:20px;font-weight:bold;color:#0b5fa5;">CN</span>
+</p>
+<p style="font-size:12px;color:#666;">
+<span style="background:#ffd700;padding:1px 4px;">Kuning</span> = plaintext  | 
+<span style="background:#90ee90;padding:1px 4px;">Hijau</span> = ciphertext (sudut berlawanan)<br>
+I(baris1,kol0) + S(baris3,kol3) → persegi: sudut lain = C(baris1,kol3) + N(baris3,kol0)
+</p>
+</div>
+
+<div class="card">
+<h3>Hasil Enkripsi Lengkap</h3>
+<p><b>Plaintext:</b> GOOD BROOMS SWEEP CLEAN</p>
+
+<table class="visual" style="font-size:13px;">
+<tr><th>Pasangan</th><td>GO</td><td>OD</td><td>BR</td><td style="background:#ffebee;">OZ</td><td>OM</td><td style="background:#ffebee;">SZ</td><td>SW</td><td style="background:#ffebee;">EZ</td><td>EP</td><td>CL</td><td>EA</td><td style="background:#fff3e0;">NZ</td></tr>
+<tr><th>Aturan</th><td>Kolom</td><td>Persegi</td><td>Baris</td><td>Persegi</td><td>Persegi</td><td>Persegi</td><td>Persegi</td><td>Persegi</td><td>Kolom</td><td>Persegi</td><td>Persegi</td><td>Persegi</td></tr>
+<tr><th>Posisi</th><td>G(2,1)<br>O(3,1)</td><td>O(3,1)<br>D(1,4)</td><td>B(1,2)<br>R(1,1)</td><td>O(3,1)<br>Z(4,4)</td><td>O(3,1)<br>M(2,4)</td><td>S(3,3)<br>Z(4,4)</td><td>S(3,3)<br>W(4,2)</td><td>E(2,0)<br>Z(4,4)</td><td>E(2,0)<br>P(0,0)</td><td>C(1,3)<br>L(0,1)</td><td>E(2,0)<br>A(0,2)</td><td>N(3,0)<br>Z(4,4)</td></tr>
+<tr><th>Cipher</th><td><b>OV</b></td><td><b>TR</b></td><td><b>CB</b></td><td><b>TV</b></td><td><b>TG</b></td><td><b>TX</b></td><td><b>QX</b></td><td><b>MU</b></td><td><b>NI</b></td><td><b>RY</b></td><td><b>HP</b></td><td><b>TU</b></td></tr>
+</table>
+
+<div class="example-box" style="margin-top:15px;">
+<b>Ciphertext lengkap:</b> OVTRCBT VTG TX QX MUNI RYHP TU<br>
+<span style="font-size:12px;color:#666;">(spasi hanya untuk pembacaan, ciphertext asli tanpa spasi: OVTRCBTVTGTXQXMUNIRYHPTU)</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Contoh Dekripsi Playfair Cipher</h3>
+<p>Aturan dekripsi adalah <b>kebalikan</b> dari enkripsi. Matriks kunci tetap sama (PLAYFAIR).</p>
+
+<h4>Aturan Dekripsi (3 Aturan Terbalik)</h4>
+
+<div class="step">
+<b>Aturan 1 - Baris Sama: Geser ke KIRI</b> (kebalikan enkripsi: kanan → kiri)
+</div>
+
+<div class="step">
+<b>Aturan 2 - Kolom Sama: Geser ke ATAS</b> (kebalikan enkripsi: bawah → atas)
+</div>
+
+<div class="step">
+<b>Aturan 3 - Tidak Sebaris/Sekolom: TETAP</b> (tukar sudut, sama dengan enkripsi karena simetris)
+</div>
+
+<h4>Dekripsi Ciphertext: OVTRCBTVTGTXQXMUNIRYHPTU</h4>
+
+<div class="step" style="background:#f8f9fa;">
+<b>Pasangan 1: OV &rarr; GO</b> &nbsp;(Kolom sama, geser ATAS)
+<table class="matrix" style="margin:5px 0;">
+<tr><td>P</td><td style="border-left:3px solid #f57c00;border-right:3px solid #f57c00;">L</td><td>A</td><td>Y</td><td>F</td></tr>
+<tr><td>I</td><td style="border-left:3px solid #f57c00;border-right:3px solid #f57c00;">R</td><td>B</td><td>C</td><td>D</td></tr>
+<tr><td>E</td><td style="background:#90ee90;border-left:3px solid #f57c00;border-right:3px solid #f57c00;">G</td><td>H</td><td>K</td><td>M</td></tr>
+<tr><td>N</td><td style="background:#ffd700;border-left:3px solid #f57c00;border-right:3px solid #f57c00;">O</td><td>Q</td><td>S</td><td>T</td></tr>
+<tr><td>U</td><td style="background:#ffd700;border-left:3px solid #f57c00;border-right:3px solid #f57c00;">V</td><td>W</td><td>X</td><td>Z</td></tr>
+</table>
+<p><span style="background:#ffd700;padding:2px 6px;">O, V</span> (kolom 1) geser ATAS &rarr; <span style="background:#90ee90;padding:2px 6px;">G, O</span> = <b>GO</b></p>
+</div>
+
+<div class="step" style="background:#f8f9fa;">
+<b>Pasangan 3: CB &rarr; BR</b> &nbsp;(Baris sama, geser KIRI)
+<table class="matrix" style="margin:5px 0;">
+<tr><td>P</td><td>L</td><td>A</td><td>Y</td><td>F</td></tr>
+<tr style="background:#e3f2fd;">
+<td>I</td>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">R</td>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">B</td>
+<td style="background:#90ee90;font-weight:bold;border:2px solid green;">C</td>
+<td>D</td>
+</tr>
+<tr><td>E</td><td>G</td><td>H</td><td>K</td><td>M</td></tr>
+<tr><td>N</td><td>O</td><td>Q</td><td>S</td><td>T</td></tr>
+<tr><td>U</td><td>V</td><td>W</td><td>X</td><td>Z</td></tr>
+</table>
+<p><span style="background:#ffd700;padding:2px 6px;">C, B</span> (baris 1) geser KIRI &rarr; <span style="background:#90ee90;padding:2px 6px;">B, R</span> = <b>BR</b></p>
+</div>
+
+<div class="step" style="background:#f8f9fa;">
+<b>Pasangan 4: TV &rarr; OZ</b> &nbsp;(Tidak sebaris/sekolom, TUKAR SUDUT)
+<table class="matrix" style="margin:5px 0;">
+<tr><td>P</td><td>L</td><td>A</td><td>Y</td><td>F</td></tr>
+<tr><td>I</td><td>R</td><td>B</td><td>C</td><td>D</td></tr>
+<tr><td>E</td><td>G</td><td>H</td><td>K</td><td>M</td></tr>
+<tr>
+<td>N</td>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">O</td>
+<td>Q</td><td>S</td>
+<td style="background:#ffd700;font-weight:bold;border:2px solid #f57c00;">T</td>
+</tr>
+<tr>
+<td>U</td>
+<td style="background:#90ee90;font-weight:bold;border:2px solid green;">V</td>
+<td>W</td><td>X</td>
+<td style="background:#90ee90;font-weight:bold;border:2px solid green;">Z</td>
+</tr>
+</table>
+<p><span style="background:#ffd700;padding:2px 6px;">T, V</span> (persegi) tukar sudut &rarr; <span style="background:#90ee90;padding:2px 6px;">O, Z</span> = <b>OZ</b></p>
+</div>
+
+<div class="step">
+<b>Hasil dekripsi lengkap per pasangan:</b>
+<table class="visual" style="font-size:12px;">
+<tr><th>Cipher</th><td style="background:#ffd700;">OV</td><td>TR</td><td style="background:#ffd700;">CB</td><td style="background:#ffd700;">TV</td><td>TG</td><td>TX</td><td>QX</td><td>MU</td><td>NI</td><td>RY</td><td>HP</td><td>TU</td></tr>
+<tr><th>Aturan</th><td>Kolom<br>&uarr;atas</td><td>Persegi<br>tukar</td><td>Baris<br>&larr;kiri</td><td>Persegi<br>tukar</td><td>Persegi<br>tukar</td><td>Persegi<br>tukar</td><td>Persegi<br>tukar</td><td>Persegi<br>tukar</td><td>Kolom<br>&uarr;atas</td><td>Persegi<br>tukar</td><td>Persegi<br>tukar</td><td>Persegi<br>tukar</td></tr>
+<tr><th>Plain</th><td><b>GO</b></td><td><b>OD</b></td><td><b>BR</b></td><td style="background:#ffebee;"><b>OZ</b></td><td><b>OM</b></td><td style="background:#ffebee;"><b>SZ</b></td><td><b>SW</b></td><td style="background:#ffebee;"><b>EZ</b></td><td><b>EP</b></td><td><b>CL</b></td><td><b>EA</b></td><td style="background:#fff3e0;"><b>NZ</b></td></tr>
+</table>
+</div>
+
+<div class="example-box">
+<b>Plaintext hasil dekripsi:</b> GOODOZOMSZSWEZEPCL EANZ<br>
+Setelah dirapikan (hapus spasi & Z pengisi): <b>GOOD BROOMS SWEEP CLEAN</b><br>
+<span style="font-size:12px;color:#666;">(Huruf Z pada OZ, SZ, EZ adalah pengisi dari aturan pairing, bukan bagian plaintext asli. NZ adalah Z tambahan karena ganjil.)</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Simulasi Playfair Cipher</h3>
+<input id="pfKey" placeholder="Masukkan kunci (contoh: PLAYFAIR)">
+<input id="pfText" placeholder="Masukkan plaintext / ciphertext">
+<button class="run" onclick="runPlayfair()">Enkripsi</button>
+<button class="run" onclick="runPlayfairDecrypt()">Dekripsi</button>
+<div id="pfMatrix" style="margin:10px 0;font-family:monospace;"></div>
+<div id="pfResult" class="result"></div>
+</div>
+</div>
+
+<!-- ==================== HILL CIPHER ==================== -->
+<div id="hill" class="content">
+<div class="card">
+<h2>Hill Cipher</h2>
+<p>Diciptakan oleh Lester S. Hill (1929). Merupakan teknik substitusi <b>multigraph</b> yang menggunakan operasi matriks modulo 26. Tidak dapat dipecahkan dengan analisis frekuensi biasa karena plaintext yang sama bisa menghasilkan ciphertext berbeda (bergantung posisi blok).</p>
+
+<h3>Rumus</h3>
+<div class="formula">Enkripsi: C = (K &times; P) mod 26</div>
+<div class="formula">Dekripsi: P = (K<sup>-1</sup> &times; C) mod 26</div>
+<p>K = matriks kunci m&times;m, syarat: <b>determinan koprima dengan 26</b> (harus ganjil & bukan kelipatan 13).</p>
+
+<h3>Tabel Konversi Huruf &harr; Angka</h3>
+<table class="visual" style="font-size:11px;">
+<tr><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th><th>N</th><th>O</th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>U</th><th>V</th><th>W</th><th>X</th><th>Y</th><th>Z</th></tr>
+<tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
+</table>
+
+<h3>Step-by-Step Enkripsi</h3>
+<div class="step">1. Konversi setiap huruf plaintext menjadi angka (A=0...Z=25)</div>
+<div class="step">2. Bagi plaintext menjadi blok seukuran matriks kunci (2 huruf per blok untuk 2&times;2)</div>
+<div class="step">3. Bentuk vektor kolom dari tiap blok</div>
+<div class="step">4. Kalikan matriks kunci K dengan vektor plaintext P</div>
+<div class="step">5. Ambil hasil modulo 26, lalu konversi kembali ke huruf</div>
+</div>
+
+<div class="card">
+<h3>Visualisasi Enkripsi</h3>
+<div class="example-box">
+<b>Plaintext:</b> KRIPTO &nbsp;|&nbsp;
+<b>Matriks Kunci K (2&times;2):</b>
+<table style="display:inline-table;vertical-align:middle;margin:0 8px;border-collapse:collapse;">
+<tr><td style="border:1px solid #0b5fa5;padding:4px 10px;text-align:center;font-weight:bold;">5</td><td style="border:1px solid #0b5fa5;padding:4px 10px;text-align:center;font-weight:bold;">8</td></tr>
+<tr><td style="border:1px solid #0b5fa5;padding:4px 10px;text-align:center;font-weight:bold;">17</td><td style="border:1px solid #0b5fa5;padding:4px 10px;text-align:center;font-weight:bold;">3</td></tr>
+</table>
+</div>
+
+<div class="step">
+<b>Tahap 1 &mdash; Konversi plaintext ke angka &amp; bagi blok:</b>
+<table class="visual">
+<tr><th>Plaintext</th><td>K</td><td>R</td><td style="background:#e8e8e8;">I</td><td style="background:#e8e8e8;">P</td><td>T</td><td>O</td></tr>
+<tr><th>Angka</th><td>10</td><td>17</td><td style="background:#e8e8e8;">8</td><td style="background:#e8e8e8;">15</td><td>19</td><td>14</td></tr>
+</table>
+<div style="margin-top:8px;">
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;">Blok 1: [10, 17] = KR</span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;">Blok 2: [8, 15] = IP</span>
+<span style="border:2px solid #0b5fa5;padding:4px 8px;margin:3px;display:inline-block;border-radius:4px;">Blok 3: [19, 14] = TO</span>
+</div>
+</div>
+
+<h4>Tahap 2 &mdash; Perkalian matriks per blok:</h4>
+
+<div class="step" style="background:#f8f9fa;">
+<b style="font-size:15px;">Blok 1: KR &rarr; EN</b>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;">
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">5</td>
+<td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">8</td>
+</tr>
+<tr>
+<td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">17</td>
+<td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">3</td>
+</tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">&times;</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr><td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">10</td></tr>
+<tr><td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">17</td></tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">=</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="padding:4px 8px;"><span style="background:#fce4ec;padding:2px 6px;border-radius:3px;">5&times;10</span> + <span style="background:#e3f2fd;padding:2px 6px;border-radius:3px;">8&times;17</span></td>
+<td style="padding:4px 8px;">= 50 + 136</td>
+<td style="padding:4px 8px;">= 186</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 4 = E</td>
+</tr>
+<tr>
+<td style="padding:4px 8px;"><span style="background:#fce4ec;padding:2px 6px;border-radius:3px;">17&times;10</span> + <span style="background:#e3f2fd;padding:2px 6px;border-radius:3px;">3&times;17</span></td>
+<td style="padding:4px 8px;">= 170 + 51</td>
+<td style="padding:4px 8px;">= 221</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 13 = N</td>
+</tr>
+</table>
+</div>
+<div style="font-size:12px;color:#666;">
+<span style="background:#fce4ec;padding:1px 4px;">Merah</span> = kolom 1 (dikalikan baris 1 P₁₀) &nbsp;
+<span style="background:#e3f2fd;padding:1px 4px;">Biru</span> = kolom 2 (dikalikan baris 2 P₁₇)
+</div>
+</div>
+
+<div class="step" style="background:#f8f9fa;">
+<b style="font-size:15px;">Blok 2: IP &rarr; EZ</b>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;">
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">5</td>
+<td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">8</td>
+</tr>
+<tr>
+<td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">17</td>
+<td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">3</td>
+</tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">&times;</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr><td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">8</td></tr>
+<tr><td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">15</td></tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">=</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="padding:4px 8px;"><span style="background:#fce4ec;padding:2px 6px;border-radius:3px;">5&times;8</span> + <span style="background:#e3f2fd;padding:2px 6px;border-radius:3px;">8&times;15</span></td>
+<td style="padding:4px 8px;">= 40 + 120</td>
+<td style="padding:4px 8px;">= 160</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 4 = E</td>
+</tr>
+<tr>
+<td style="padding:4px 8px;"><span style="background:#fce4ec;padding:2px 6px;border-radius:3px;">17&times;8</span> + <span style="background:#e3f2fd;padding:2px 6px;border-radius:3px;">3&times;15</span></td>
+<td style="padding:4px 8px;">= 136 + 45</td>
+<td style="padding:4px 8px;">= 181</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 25 = Z</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="step" style="background:#f8f9fa;">
+<b style="font-size:15px;">Blok 3: TO &rarr; ZB</b>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;">
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">5</td>
+<td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">8</td>
+</tr>
+<tr>
+<td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">17</td>
+<td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">3</td>
+</tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">&times;</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr><td style="border:2px solid #e91e63;padding:6px 12px;text-align:center;font-weight:bold;background:#fce4ec;">19</td></tr>
+<tr><td style="border:2px solid #2196F3;padding:6px 12px;text-align:center;font-weight:bold;background:#e3f2fd;">14</td></tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">=</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="padding:4px 8px;"><span style="background:#fce4ec;padding:2px 6px;border-radius:3px;">5&times;19</span> + <span style="background:#e3f2fd;padding:2px 6px;border-radius:3px;">8&times;14</span></td>
+<td style="padding:4px 8px;">= 95 + 112</td>
+<td style="padding:4px 8px;">= 207</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 25 = Z</td>
+</tr>
+<tr>
+<td style="padding:4px 8px;"><span style="background:#fce4ec;padding:2px 6px;border-radius:3px;">17&times;19</span> + <span style="background:#e3f2fd;padding:2px 6px;border-radius:3px;">3&times;14</span></td>
+<td style="padding:4px 8px;">= 323 + 42</td>
+<td style="padding:4px 8px;">= 365</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 1 = B</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="step">
+<b>Tahap 3 &mdash; Hasil enkripsi:</b>
+<table class="visual">
+<tr><th>Plaintext</th><td><b>K</b></td><td><b>R</b></td><td><b>I</b></td><td><b>P</b></td><td><b>T</b></td><td><b>O</b></td></tr>
+<tr><th>Angka</th><td>10</td><td>17</td><td>8</td><td>15</td><td>19</td><td>14</td></tr>
+<tr><th>&darr;</th><td colspan="2" style="background:#e8f5e9;">C = K &times; P mod 26</td><td colspan="2" style="background:#e8f5e9;">C = K &times; P mod 26</td><td colspan="2" style="background:#e8f5e9;">C = K &times; P mod 26</td></tr>
+<tr><th>Cipher</th><td style="background:#90ee90;font-size:16px;"><b>E</b></td><td style="background:#90ee90;font-size:16px;"><b>N</b></td><td style="background:#90ee90;font-size:16px;"><b>E</b></td><td style="background:#90ee90;font-size:16px;"><b>Z</b></td><td style="background:#90ee90;font-size:16px;"><b>Z</b></td><td style="background:#90ee90;font-size:16px;"><b>B</b></td></tr>
+</table>
+</div>
+
+<div class="example-box"><b>Hasil Ciphertext:</b> <span style="font-size:18px;">ENEZZB</span></div>
+</div>
+
+<div class="card">
+<h3>Visualisasi Dekripsi</h3>
+<p>Untuk mendekripsi, kita perlu menghitung <b>K<sup>-1</sup></b> (invers matriks kunci) terlebih dahulu.</p>
+
+<h4>Tahap 1 &mdash; Hitung Determinan</h4>
+<div class="step">
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;margin-right:15px;">
+<tr>
+<td style="border:2px solid #4CAF50;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">5</td>
+<td style="border:2px solid #f44336;padding:6px 12px;text-align:center;font-weight:bold;background:#ffebee;">8</td>
+</tr>
+<tr>
+<td style="border:2px solid #f44336;padding:6px 12px;text-align:center;font-weight:bold;background:#ffebee;">17</td>
+<td style="border:2px solid #4CAF50;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">3</td>
+</tr>
+</table>
+<br><br>
+det(K) = <span style="background:#e8f5e9;padding:2px 6px;border-radius:3px;">(5 &times; 3)</span> &minus; <span style="background:#ffebee;padding:2px 6px;border-radius:3px;">(17 &times; 8)</span><br>
+= <span style="background:#e8f5e9;padding:2px 6px;">15</span> &minus; <span style="background:#ffebee;padding:2px 6px;">136</span> = <b>&minus;121</b><br>
+&minus;121 mod 26 = &minus;121 + (5 &times; 26) = &minus;121 + 130 = <span style="background:#ffd700;padding:2px 8px;font-weight:bold;font-size:16px;">9</span>
+<div style="font-size:12px;color:#666;margin-top:5px;">
+<span style="background:#e8f5e9;padding:1px 4px;">Hijau</span> = diagonal utama (a&times;d) &nbsp;
+<span style="background:#ffebee;padding:1px 4px;">Merah</span> = diagonal samping (b&times;c)
+</div>
+</div>
+
+<h4>Tahap 2 &mdash; Modular Inverse Determinan</h4>
+<div class="step">
+Cari y sehingga <b>(9 &times; y) mod 26 = 1</b>, dengan 0 &lt; y &lt; 26.
+<table class="visual" style="margin:10px 0;">
+<tr><th>y</th><td>0</td><td>1</td><td>2</td><td style="background:#ffd700;"><b>3</b></td><td>4</td><td>5</td><td>...</td></tr>
+<tr><th>9&times;y</th><td>0</td><td>9</td><td>18</td><td style="background:#ffd700;">27</td><td>36</td><td>45</td><td>...</td></tr>
+<tr><th>mod 26</th><td>0</td><td>9</td><td>18</td><td style="background:#ffd700;font-weight:bold;font-size:16px;">1 &check;</td><td>10</td><td>19</td><td>...</td></tr>
+</table>
+<b>9<sup>&minus;1</sup> mod 26 = <span style="background:#ffd700;padding:2px 8px;font-size:16px;">3</span></b>
+</div>
+
+<h4>Tahap 3 &mdash; Hitung Invers Matriks K</h4>
+<div class="step">
+K<sup>&minus;1</sup> = det<sup>&minus;1</sup> &times; adj(K) mod 26
+
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0;">
+= <b>3</b> &times;
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#e3f2fd;">3</td>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#e3f2fd;">&minus;8</td>
+</tr>
+<tr>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#e3f2fd;">&minus;17</td>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#e3f2fd;">5</td>
+</tr>
+</table>
+=
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#fff3e0;">9</td>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#fff3e0;">&minus;24</td>
+</tr>
+<tr>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#fff3e0;">&minus;51</td>
+<td style="border:2px solid #0b5fa5;padding:4px 10px;text-align:center;background:#fff3e0;">15</td>
+</tr>
+</table>
+<span style="font-size:24px;">&equiv;</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;font-size:16px;">9</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;font-size:16px;">2</td>
+</tr>
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;font-size:16px;">1</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;font-size:16px;">15</td>
+</tr>
+</table>
+<span style="font-size:14px;">mod 26</span>
+</div>
+
+<div style="font-size:12px;color:#666;">
+Cara: adj(K) = tukar diagonal utama (5&harr;3), negatifkan diagonal samping (&minus;8, &minus;17)<br>
+Mod 26: &minus;24 &equiv; 2 (mod 26) karena &minus;24 + 26 = 2 &nbsp;|&nbsp; &minus;51 &equiv; 1 (mod 26) karena &minus;51 + 2&times;26 = 1
+</div>
+</div>
+
+<h4>Tahap 4 &mdash; Dekripsi per Blok</h4>
+<p>Ciphertext = ENEZZB, K<sup>&minus;1</sup> = [[9,2],[1,15]]</p>
+
+<div class="step" style="background:#f8f9fa;">
+<b style="font-size:15px;">Blok 1: EN &rarr; KR</b>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;">
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">9</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">2</td>
+</tr>
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">1</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">15</td>
+</tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">&times;</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr><td style="border:2px solid #ff9800;padding:6px 12px;text-align:center;font-weight:bold;background:#fff3e0;">4 (E)</td></tr>
+<tr><td style="border:2px solid #ff9800;padding:6px 12px;text-align:center;font-weight:bold;background:#fff3e0;">13 (N)</td></tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">=</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="padding:4px 8px;">(9&times;4) + (2&times;13)</td>
+<td style="padding:4px 8px;">= 36 + 26</td>
+<td style="padding:4px 8px;">= 62</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 10 = K</td>
+</tr>
+<tr>
+<td style="padding:4px 8px;">(1&times;4) + (15&times;13)</td>
+<td style="padding:4px 8px;">= 4 + 195</td>
+<td style="padding:4px 8px;">= 199</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 17 = R</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="step" style="background:#f8f9fa;">
+<b style="font-size:15px;">Blok 2: EZ &rarr; IP</b>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;">
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">9</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">2</td>
+</tr>
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">1</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">15</td>
+</tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">&times;</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr><td style="border:2px solid #ff9800;padding:6px 12px;text-align:center;font-weight:bold;background:#fff3e0;">4 (E)</td></tr>
+<tr><td style="border:2px solid #ff9800;padding:6px 12px;text-align:center;font-weight:bold;background:#fff3e0;">25 (Z)</td></tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">=</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="padding:4px 8px;">(9&times;4) + (2&times;25)</td>
+<td style="padding:4px 8px;">= 36 + 50</td>
+<td style="padding:4px 8px;">= 86</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 8 = I</td>
+</tr>
+<tr>
+<td style="padding:4px 8px;">(1&times;4) + (15&times;25)</td>
+<td style="padding:4px 8px;">= 4 + 375</td>
+<td style="padding:4px 8px;">= 379</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 15 = P</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="step" style="background:#f8f9fa;">
+<b style="font-size:15px;">Blok 3: ZB &rarr; TO</b>
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;">
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">9</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">2</td>
+</tr>
+<tr>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">1</td>
+<td style="border:2px solid green;padding:6px 12px;text-align:center;font-weight:bold;background:#e8f5e9;">15</td>
+</tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">&times;</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr><td style="border:2px solid #ff9800;padding:6px 12px;text-align:center;font-weight:bold;background:#fff3e0;">25 (Z)</td></tr>
+<tr><td style="border:2px solid #ff9800;padding:6px 12px;text-align:center;font-weight:bold;background:#fff3e0;">1 (B)</td></tr>
+</table>
+<span style="font-size:24px;font-weight:bold;">=</span>
+<table style="border-collapse:collapse;display:inline-table;vertical-align:middle;">
+<tr>
+<td style="padding:4px 8px;">(9&times;25) + (2&times;1)</td>
+<td style="padding:4px 8px;">= 225 + 2</td>
+<td style="padding:4px 8px;">= 227</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 19 = T</td>
+</tr>
+<tr>
+<td style="padding:4px 8px;">(1&times;25) + (15&times;1)</td>
+<td style="padding:4px 8px;">= 25 + 15</td>
+<td style="padding:4px 8px;">= 40</td>
+<td style="padding:4px 8px;font-weight:bold;color:#0b5fa5;">&equiv; 14 = O</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="example-box"><b>Hasil Dekripsi:</b> <span style="font-size:18px;">KRIPTO</span> &check;</div>
+</div>
+
+<div class="card">
+<h3>Simulasi Hill Cipher (2&times;2)</h3>
+<p>Masukkan matriks kunci 2&times;2 (harus invertible mod 26):</p>
+<div style="display:flex;gap:5px;align-items:center;">
+<input id="hk00" type="number" value="5" style="width:60px;">
+<input id="hk01" type="number" value="8" style="width:60px;">
+</div>
+<div style="display:flex;gap:5px;align-items:center;">
+<input id="hk10" type="number" value="17" style="width:60px;">
+<input id="hk11" type="number" value="3" style="width:60px;">
+</div>
+<input id="hillText" placeholder="Masukkan plaintext / ciphertext (panjang genap)">
+<button class="run" onclick="encryptHill()">Enkripsi</button>
+<button class="run" onclick="decryptHill()">Dekripsi</button>
+<div id="hillResult" class="result"></div>
+</div>
+</div>
+
+<!-- ==================== KUIS ==================== -->
+<div id="quiz" class="content">
+<div class="card">
+<h2>Kuis Kriptografi Klasik</h2>
+
+<div class="quiz"><p>1. Caesar Cipher menggunakan metode?</p>
+<label><input type="radio" name="q1" value="a"> Hashing</label>
+<label><input type="radio" name="q1" value="b"> Pergeseran Huruf</label>
+<label><input type="radio" name="q1" value="c"> XOR</label>
+</div>
+
+<div class="quiz"><p>2. Berapa jumlah kemungkinan kunci pada Caesar Cipher?</p>
+<label><input type="radio" name="q2" value="a"> 26</label>
+<label><input type="radio" name="q2" value="b"> 25</label>
+<label><input type="radio" name="q2" value="c"> 10</label>
+</div>
+
+<div class="quiz"><p>3. Monoalphabetic Cipher memiliki berapa kemungkinan kunci?</p>
+<label><input type="radio" name="q3" value="a"> 26! - 1</label>
+<label><input type="radio" name="q3" value="b"> 26</label>
+<label><input type="radio" name="q3" value="c"> 25</label>
+</div>
+
+<div class="quiz"><p>4. Monoalphabetic Cipher mudah dipecahkan dengan teknik?</p>
+<label><input type="radio" name="q4" value="a"> Brute-force</label>
+<label><input type="radio" name="q4" value="b"> Analisis frekuensi</label>
+<label><input type="radio" name="q4" value="c"> SQL injection</label>
+</div>
+
+<div class="quiz"><p>5. Vigen&egrave;re Cipher termasuk dalam kategori?</p>
+<label><input type="radio" name="q5" value="a"> Polyalphabetic Cipher</label>
+<label><input type="radio" name="q5" value="b"> Hash Function</label>
+<label><input type="radio" name="q5" value="c"> Monoalphabetic Cipher</label>
+</div>
+
+<div class="quiz"><p>6. Rumus enkripsi Vigen&egrave;re Cipher adalah?</p>
+<label><input type="radio" name="q6" value="a"> C = P &times; K mod 26</label>
+<label><input type="radio" name="q6" value="b"> C = (P + K) mod 26</label>
+<label><input type="radio" name="q6" value="c"> C = (P - K) mod 26</label>
+</div>
+
+<div class="quiz"><p>7. Beaufort Cipher memiliki urutan ciphertext yang?</p>
+<label><input type="radio" name="q7" value="a"> Sama seperti Vigen&egrave;re</label>
+<label><input type="radio" name="q7" value="b"> Terbalik (B~Z)</label>
+<label><input type="radio" name="q7" value="c"> Acak</label>
+</div>
+
+<div class="quiz"><p>8. Autokey Cipher menggunakan kunci yang digabung dengan?</p>
+<label><input type="radio" name="q8" value="a"> Ciphertext</label>
+<label><input type="radio" name="q8" value="b"> Plaintext</label>
+<label><input type="radio" name="q8" value="c"> Angka acak</label>
+</div>
+
+<div class="quiz"><p>9. Berapa ukuran matriks pada Playfair Cipher?</p>
+<label><input type="radio" name="q9" value="a"> 4&times;4</label>
+<label><input type="radio" name="q9" value="b"> 5&times;5</label>
+<label><input type="radio" name="q9" value="c"> 6&times;6</label>
+</div>
+
+<div class="quiz"><p>10. Syarat matriks kunci Hill Cipher adalah?</p>
+<label><input type="radio" name="q10" value="a"> Determinan = 0</label>
+<label><input type="radio" name="q10" value="b"> Determinan koprima dengan 26</label>
+<label><input type="radio" name="q10" value="c"> Determinan = 1</label>
+</div>
+
+<button class="run" onclick="checkQuiz()">Periksa Jawaban</button>
+<div id="quizResult"></div>
+</div>
+</div>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+// --- Tab Navigation ---
+function showTab(tab){
+  document.querySelectorAll('.content').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active-tab'));
+  document.getElementById(tab).classList.add('active');
+  event.target.classList.add('active-tab');
+}
+
+// --- Caesar Cipher ---
+function caesarTransform(text, key, encrypt){
+  text=text.toUpperCase(); let result="";
+  for(let i=0;i<text.length;i++){
+    let ch=text.charCodeAt(i);
+    if(ch>=65 && ch<=90){
+      let shift=encrypt?((ch-65+key)%26):((ch-65-key)%26+26)%26;
+      result+=String.fromCharCode(shift+65);
+    }else{result+=text[i];}
+  }
+  return result;
+}
+function encryptCaesar(){
+  let text=document.getElementById('caesarText').value;
+  let key=parseInt(document.getElementById('caesarKey').value)||3;
+  document.getElementById('caesarResult').innerHTML="Ciphertext: <b>"+caesarTransform(text,key,true)+"</b>";
+}
+function decryptCaesar(){
+  let text=document.getElementById('caesarText').value;
+  let key=parseInt(document.getElementById('caesarKey').value)||3;
+  document.getElementById('caesarResult').innerHTML="Plaintext: <b>"+caesarTransform(text,key,false)+"</b>";
+}
+
+// --- Monoalphabetic Cipher ---
+function monoTransform(text, sub, encrypt){
+  text=text.toUpperCase(); let result="";
+  let plain="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for(let i=0;i<text.length;i++){
+    let ch=text[i];
+    if(ch>='A'&&ch<='Z'){
+      if(encrypt){result+=sub[plain.indexOf(ch)];}
+      else{result+=plain[sub.indexOf(ch)];}
+    }else{result+=ch;}
+  }
+  return result;
+}
+function encryptMono(){
+  let text=document.getElementById('monoText').value;
+  let sub=document.getElementById('monoSub').value.toUpperCase();
+  if(sub.length!==26){document.getElementById('monoResult').innerHTML="<span class='wrong'>Alfabet substitusi harus 26 huruf!</span>";return;}
+  document.getElementById('monoResult').innerHTML="Ciphertext: <b>"+monoTransform(text,sub,true)+"</b>";
+}
+function decryptMono(){
+  let text=document.getElementById('monoText').value;
+  let sub=document.getElementById('monoSub').value.toUpperCase();
+  if(sub.length!==26){document.getElementById('monoResult').innerHTML="<span class='wrong'>Alfabet substitusi harus 26 huruf!</span>";return;}
+  document.getElementById('monoResult').innerHTML="Plaintext: <b>"+monoTransform(text,sub,false)+"</b>";
+}
+
+// --- Vigenere Cipher ---
+function vigenereTransform(text, key, encrypt){
+  text=text.toUpperCase(); key=key.toUpperCase();
+  let result="", j=0;
+  for(let i=0;i<text.length;i++){
+    if(text[i]>='A'&&text[i]<='Z'){
+      let p=text.charCodeAt(i)-65;
+      let k=key.charCodeAt(j%key.length)-65;
+      let c=encrypt?(p+k)%26:((p-k)%26+26)%26;
+      result+=String.fromCharCode(c+65);
+      j++;
+    }else{result+=text[i];}
+  }
+  return result;
+}
+function encryptVigenere(){
+  let text=document.getElementById('vigText').value;
+  let key=document.getElementById('vigKey').value;
+  if(!key){document.getElementById('vigResult').innerHTML="<span class='wrong'>Masukkan kunci!</span>";return;}
+  document.getElementById('vigResult').innerHTML="Ciphertext: <b>"+vigenereTransform(text,key,true)+"</b>";
+}
+function decryptVigenere(){
+  let text=document.getElementById('vigText').value;
+  let key=document.getElementById('vigKey').value;
+  if(!key){document.getElementById('vigResult').innerHTML="<span class='wrong'>Masukkan kunci!</span>";return;}
+  document.getElementById('vigResult').innerHTML="Plaintext: <b>"+vigenereTransform(text,key,false)+"</b>";
+}
+
+// --- Beaufort Cipher ---
+function beaufortTransform(text, key){
+  text=text.toUpperCase(); key=key.toUpperCase();
+  let result="", j=0;
+  for(let i=0;i<text.length;i++){
+    if(text[i]>='A'&&text[i]<='Z'){
+      let p=text.charCodeAt(i)-65;
+      let k=key.charCodeAt(j%key.length)-65;
+      let c=((k-p)%26+26)%26;
+      result+=String.fromCharCode(c+65);
+      j++;
+    }else{result+=text[i];}
+  }
+  return result;
+}
+function encryptBeaufort(){
+  let text=document.getElementById('beauText').value;
+  let key=document.getElementById('beauKey').value;
+  if(!key){document.getElementById('beauResult').innerHTML="<span class='wrong'>Masukkan kunci!</span>";return;}
+  document.getElementById('beauResult').innerHTML="Ciphertext: <b>"+beaufortTransform(text,key)+"</b>";
+}
+function decryptBeaufort(){
+  let text=document.getElementById('beauText').value;
+  let key=document.getElementById('beauKey').value;
+  if(!key){document.getElementById('beauResult').innerHTML="<span class='wrong'>Masukkan kunci!</span>";return;}
+  document.getElementById('beauResult').innerHTML="Plaintext: <b>"+beaufortTransform(text,key)+"</b>";
+}
+
+// --- Autokey Cipher ---
+function autokeyTransform(text, prefix, encrypt){
+  text=text.toUpperCase(); prefix=prefix.toUpperCase();
+  let fullKey=prefix;
+  if(encrypt){
+    fullKey=prefix+text;
+    fullKey=fullKey.substring(0,text.length);
+  }
+  let result="", j=0;
+  for(let i=0;i<text.length;i++){
+    if(text[i]>='A'&&text[i]<='Z'){
+      let p=text.charCodeAt(i)-65;
+      let k=fullKey.charCodeAt(j)-65;
+      let c;
+      if(encrypt){
+        c=(p+k)%26;
+      }else{
+        c=((p-k)%26+26)%26;
+        if(j>=prefix.length){fullKey+=String.fromCharCode(c+65);}
+      }
+      result+=String.fromCharCode(c+65);
+      j++;
+    }else{result+=text[i];}
+  }
+  return result;
+}
+function encryptAuto(){
+  let text=document.getElementById('autoText').value;
+  let key=document.getElementById('autoKey').value;
+  if(!key){document.getElementById('autoResult').innerHTML="<span class='wrong'>Masukkan kunci awal!</span>";return;}
+  document.getElementById('autoResult').innerHTML="Ciphertext: <b>"+autokeyTransform(text,key,true)+"</b>";
+}
+function decryptAuto(){
+  let text=document.getElementById('autoText').value;
+  let key=document.getElementById('autoKey').value;
+  if(!key){document.getElementById('autoResult').innerHTML="<span class='wrong'>Masukkan kunci awal!</span>";return;}
+  document.getElementById('autoResult').innerHTML="Plaintext: <b>"+autokeyTransform(text,key,false)+"</b>";
+}
+
+// --- Playfair Cipher ---
+function buildPFMatrix(key){
+  key=key.toUpperCase().replace(/J/g,'I').replace(/[^A-Z]/g,'');
+  let seen={}; let mat=[];
+  for(let ch of key){if(!seen[ch]){seen[ch]=true;mat.push(ch);}}
+  for(let i=0;i<26;i++){
+    let ch=String.fromCharCode(65+i);
+    if(ch=='J')continue;
+    if(!seen[ch])mat.push(ch);
+  }
+  let rows=[]; for(let r=0;r<5;r++)rows.push(mat.slice(r*5,r*5+5));
+  return rows;
+}
+function findPos(mat,ch){
+  for(let r=0;r<5;r++){let c=mat[r].indexOf(ch);if(c>=0)return[r,c];}
+  return null;
+}
+function preparePF(text, encrypt){
+  text=text.toUpperCase().replace(/J/g,'I').replace(/[^A-Z]/g,'');
+  let pairs=[];
+  if(encrypt){
+    let i=0;
+    while(i<text.length){
+      let a=text[i], b=(i+1<text.length)?text[i+1]:'Z';
+      if(a===b){b='X';i++;}
+      else{i+=2;}
+      if(!b||b==='')b='Z';
+      pairs.push(a+b);
+    }
+    if(pairs.length>0 && pairs[pairs.length-1].length===1)pairs[pairs.length-1]+='Z';
+  }else{
+    for(let i=0;i<text.length;i+=2){
+      if(i+1<text.length)pairs.push(text[i]+text[i+1]);
+      else pairs.push(text[i]+'Z');
+    }
+  }
+  return pairs;
+}
+function playfairTransform(mat, pairs, encrypt){
+  let result="";
+  for(let pair of pairs){
+    let posA=findPos(mat,pair[0]), posB=findPos(mat,pair[1]);
+    if(!posA||!posB){result+=pair;continue;}
+    let [rA,cA]=posA, [rB,cB]=posB;
+    if(rA===rB){
+      result+=mat[rA][(cA+(encrypt?1:4))%5]+mat[rB][(cB+(encrypt?1:4))%5];
+    }else if(cA===cB){
+      result+=mat[(rA+(encrypt?1:4))%5][cA]+mat[(rB+(encrypt?1:4))%5][cB];
+    }else{
+      result+=mat[rA][cB]+mat[rB][cA];
+    }
+  }
+  return result;
+}
+function displayPFMatrix(mat){
+  let html="<table class='matrix'>";
+  for(let r=0;r<5;r++){html+="<tr>";for(let c=0;c<5;c++)html+="<td>"+mat[r][c]+"</td>";html+="</tr>";}
+  html+="</table>";
+  return html;
+}
+function runPlayfair(){
+  let key=document.getElementById('pfKey').value;
+  let text=document.getElementById('pfText').value;
+  if(!key){document.getElementById('pfResult').innerHTML="<span class='wrong'>Masukkan kunci!</span>";return;}
+  let mat=buildPFMatrix(key);
+  document.getElementById('pfMatrix').innerHTML=displayPFMatrix(mat);
+  let pairs=preparePF(text,true);
+  let cipher=playfairTransform(mat,pairs,true);
+  document.getElementById('pfResult').innerHTML="Pasangan: <b>"+pairs.join(' ')+"</b><br>Ciphertext: <b>"+cipher+"</b>";
+}
+function runPlayfairDecrypt(){
+  let key=document.getElementById('pfKey').value;
+  let text=document.getElementById('pfText').value;
+  if(!key){document.getElementById('pfResult').innerHTML="<span class='wrong'>Masukkan kunci!</span>";return;}
+  let mat=buildPFMatrix(key);
+  document.getElementById('pfMatrix').innerHTML=displayPFMatrix(mat);
+  let pairs=preparePF(text,false);
+  let plain=playfairTransform(mat,pairs,false);
+  document.getElementById('pfResult').innerHTML="Plaintext: <b>"+plain+"</b>";
+}
+
+// --- Hill Cipher ---
+function mod26(n){return ((n%26)+26)%26;}
+function modInverse(a,m){
+  a=((a%m)+m)%m;
+  for(let y=1;y<m;y++){if((a*y)%m===1)return y;}
+  return -1;
+}
+function matrixMultiply(K, P){
+  let res=[];
+  for(let r=0;r<2;r++){
+    let sum=0;
+    for(let c=0;c<2;c++)sum+=K[r][c]*P[c];
+    res.push(mod26(sum));
+  }
+  return res;
+}
+function encryptHill(){
+  let text=document.getElementById('hillText').value.toUpperCase().replace(/[^A-Z]/g,'');
+  let K=[[parseInt(document.getElementById('hk00').value),parseInt(document.getElementById('hk01').value)],
+         [parseInt(document.getElementById('hk10').value),parseInt(document.getElementById('hk11').value)]];
+  if(text.length%2!==0)text+='Z';
+  let det=mod26(K[0][0]*K[1][1]-K[0][1]*K[1][0]);
+  if(modInverse(det,26)===-1){document.getElementById('hillResult').innerHTML="<span class='wrong'>Matriks tidak invertible mod 26! Determinan="+det+"</span>";return;}
+  let result="";
+  for(let i=0;i<text.length;i+=2){
+    let P=[text.charCodeAt(i)-65,text.charCodeAt(i+1)-65];
+    let C=matrixMultiply(K,P);
+    result+=String.fromCharCode(C[0]+65)+String.fromCharCode(C[1]+65);
+  }
+  document.getElementById('hillResult').innerHTML="Ciphertext: <b>"+result+"</b>";
+}
+function decryptHill(){
+  let text=document.getElementById('hillText').value.toUpperCase().replace(/[^A-Z]/g,'');
+  let K=[[parseInt(document.getElementById('hk00').value),parseInt(document.getElementById('hk01').value)],
+         [parseInt(document.getElementById('hk10').value),parseInt(document.getElementById('hk11').value)]];
+  if(text.length%2!==0)text+='Z';
+  let det=mod26(K[0][0]*K[1][1]-K[0][1]*K[1][0]);
+  let invDet=modInverse(det,26);
+  if(invDet===-1){document.getElementById('hillResult').innerHTML="<span class='wrong'>Matriks tidak invertible mod 26!</span>";return;}
+  let invK=[[mod26(invDet*K[1][1]),mod26(invDet*(-K[0][1]))],
+            [mod26(invDet*(-K[1][0])),mod26(invDet*K[0][0])]];
+  let result="";
+  for(let i=0;i<text.length;i+=2){
+    let C=[text.charCodeAt(i)-65,text.charCodeAt(i+1)-65];
+    let P=matrixMultiply(invK,C);
+    result+=String.fromCharCode(P[0]+65)+String.fromCharCode(P[1]+65);
+  }
+  document.getElementById('hillResult').innerHTML="Plaintext: <b>"+result+"</b>";
+}
+
+// --- Quiz ---
+function checkQuiz(){
+  let answers={q1:'b',q2:'b',q3:'a',q4:'b',q5:'a',q6:'b',q7:'b',q8:'b',q9:'b',q10:'b'};
+  let score=0; let html="";
+  for(let i=1;i<=10;i++){
+    let q='q'+i;
+    let selected=document.querySelector('input[name="'+q+'"]:checked');
+    if(selected){
+      if(selected.value===answers[q]){score++;html+=q+": <span class='correct'>Benar</span><br>";}
+      else{html+=q+": <span class='wrong'>Salah</span> (jawaban benar: "+answers[q]+")<br>";}
+    }else{html+=q+": <span class='wrong'>Tidak dijawab</span><br>";}
+  }
+  document.getElementById("quizResult").innerHTML="<h3>Skor: "+score+"/10</h3>"+html;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ringkasan Materi: Analisis dan Manajemen Risiko</title>
+  <style>
+    :root {
+      --bg: #f6fbff;
+      --card: #ffffff;
+      --primary: #1f5f8b;
+      --primary-2: #2e86c1;
+      --text: #1f2937;
+      --muted: #5b6573;
+      --border: #dbe7f3;
+      --good: #0f766e;
+      --bad: #b42318;
+      --shadow: 0 10px 30px rgba(31, 95, 139, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef7ff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 900px;
+      opacity: 0.95;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      color: var(--primary);
+      margin: 18px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li { margin: 8px 0; }
+
+    .tag {
+      display: inline-block;
+      background: #e8f3fb;
+      color: var(--primary);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin: 0 8px 8px 0;
+      border: 1px solid #cae4f7;
+    }
+
+    .highlight {
+      background: #f1f8ff;
+      border-left: 5px solid var(--primary-2);
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-top: 14px;
+    }
+
+    .quiz-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #fcfeff;
+    }
+
+    .options label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .options input { margin-right: 10px; }
+
+    .btn {
+      appearance: none;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn.secondary { background: #64748b; }
+
+    .result {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      display: none;
+      font-weight: bold;
+    }
+
+    .result.good {
+      display: block;
+      background: #ecfdf3;
+      color: var(--good);
+      border: 1px solid #abefc6;
+    }
+
+    .result.bad {
+      display: block;
+      background: #fff1f1;
+      color: var(--bad);
+      border: 1px solid #fecaca;
+    }
+
+    .answer-key {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      color: var(--muted);
+      display: none;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .mini-box {
+      padding: 14px;
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+      .mini-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Ringkasan Materi: Analisis dan Manajemen Risiko</h1>
+      <p>
+        Materi ini menjelaskan bagaimana organisasi mengenali risiko, menilai dampaknya,
+        memilih strategi penanganan, lalu membandingkan biaya dan manfaat dari keputusan yang diambil.
+      </p>
+    </section>
+
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h2>Ringkasan Materi</h2>
+          <span class="tag">Lifecycle Keamanan</span>
+          <span class="tag">Analisis Risiko</span>
+          <span class="tag">Mitigasi Risiko</span>
+          <span class="tag">Cost Benefit Analysis</span>
+
+          <div class="highlight">
+            <strong>Ide utama:</strong> risiko tidak bisa dihilangkan sepenuhnya, tetapi bisa diidentifikasi,
+            dinilai, dan dikelola supaya dampaknya tidak mengganggu tujuan proyek atau organisasi.
+          </div>
+
+          <h3>1. Information Security Life Cycle</h3>
+          <ul>
+            <li><strong>Assess</strong>: mengidentifikasi perangkat, sumber daya jaringan, dan data yang perlu dilindungi.</li>
+            <li><strong>Design</strong>: menyusun aplikasi keamanan, lokasi penempatan, strategi implementasi, dan pedoman konfigurasi.</li>
+            <li><strong>Deploy</strong>: menjalankan rencana melalui instalasi, pengujian, pelatihan, dan pindah ke produksi.</li>
+            <li><strong>Manage and Support</strong>: memantau kinerja keamanan, menangani kejadian, dan mengevaluasi ulang kebijakan.</li>
+            <li><strong>Educate</strong>: meningkatkan kesadaran keamanan untuk eksekutif, manajemen, admin, dan pengguna akhir.</li>
+          </ul>
+
+          <h3>2. Konsep dasar risiko</h3>
+          <ul>
+            <li><strong>Asset</strong>: sesuatu yang bernilai.</li>
+            <li><strong>Threat</strong>: potensi kejadian yang bisa merusak aset.</li>
+            <li><strong>Vulnerability</strong>: kelemahan yang bisa dieksploitasi ancaman.</li>
+            <li><strong>Probability</strong>: seberapa mungkin ancaman terjadi.</li>
+            <li><strong>Impact</strong>: besarnya kerugian jika ancaman terjadi.</li>
+            <li><strong>Risk</strong>: gabungan ancaman, probabilitas, dan dampak.</li>
+          </ul>
+
+          <h3>3. Risk Analysis Process</h3>
+          <ul>
+            <li>Proses analisis risiko membantu manajer proyek mengidentifikasi dan melacak risiko sepanjang siklus proyek.</li>
+            <li>Langkah umum: definisi aset, identifikasi ancaman, menentukan probabilitas, menentukan dampak, rekomendasi kontrol, dan dokumentasi.</li>
+            <li>Ada dua jenis analisis: <strong>kualitatif</strong> dan <strong>kuantitatif</strong>.</li>
+          </ul>
+
+          <div class="mini-grid">
+            <div class="mini-box">
+              <strong>Kualitatif</strong>
+              <div>Memprioritaskan risiko berdasarkan penilaian, matriks dampak, kategori risiko, urgensi, dan expert judgement.</div>
+            </div>
+            <div class="mini-box">
+              <strong>Kuantitatif</strong>
+              <div>Menganalisis risiko secara numerik melalui wawancara stakeholder, EMV, simulasi, analisis biaya, dan jadwal.</div>
+            </div>
+          </div>
+
+          <h3>4. Jenis ancaman</h3>
+          <ul>
+            <li><strong>Alam</strong>: banjir, gempa, badai.</li>
+            <li><strong>Manusia</strong>: kesalahan teknis, akses ilegal, perusakan sistem.</li>
+            <li><strong>Lingkungan</strong>: gangguan daya, kebocoran, dan faktor operasional lain.</li>
+          </ul>
+
+          <h3>5. Risk Mitigation</h3>
+          <ul>
+            <li><strong>Avoid</strong>: menghindari risiko dengan tidak menjalankan aktivitas yang terlalu berbahaya.</li>
+            <li><strong>Accept</strong>: menerima risiko jika dampaknya masih dapat ditoleransi.</li>
+            <li><strong>Reduce / Control</strong>: mengurangi peluang atau dampak dengan kontrol, deteksi, dan diversifikasi.</li>
+            <li><strong>Transfer</strong>: memindahkan beban risiko ke pihak lain, misalnya lewat asuransi.</li>
+          </ul>
+
+          <h3>6. Cost / Benefit Analysis</h3>
+          <ul>
+            <li>Analisis biaya manfaat membandingkan total biaya dan total keuntungan dari sebuah kebijakan atau proyek.</li>
+            <li>Hal yang dihitung: biaya implementasi, perangkat awal, pelatihan staf, penurunan efisiensi awal, dan biaya kebijakan/prosedur pendukung.</li>
+            <li>Tujuannya memilih solusi yang paling masuk akal secara manfaat dan biaya.</li>
+          </ul>
+
+          <div class="highlight">
+            <strong>Kesimpulan singkat:</strong> kenali risiko → nilai probabilitas dan dampaknya → pilih mitigasi yang tepat → hitung biaya dan manfaat → dokumentasikan dan pantau terus.
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>Poin Penting</h2>
+          <ul>
+            <li>Risiko selalu ada pada setiap proyek.</li>
+            <li>Manajer proyek harus fokus pada risiko paling penting.</li>
+            <li>Kontrol yang baik bukan hanya teknis, tetapi juga prosedural.</li>
+            <li>Training dan kesadaran pengguna adalah bagian dari keamanan.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Istilah Kunci</h2>
+          <ul>
+            <li><strong>EMV</strong>: Expected Monetary Value.</li>
+            <li><strong>5 x 5 Risk Matrix</strong>: alat bantu memetakan kemungkinan dan dampak.</li>
+            <li><strong>Expert judgment</strong>: keputusan berbasis pengetahuan ahli.</li>
+            <li><strong>Documentation</strong>: pencatatan hasil analisis dan tindakan risiko.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card">
+      <h2>Kuis</h2>
+      <p class="footer-note">Pilih jawaban yang paling tepat, lalu klik <strong>Periksa Jawaban</strong>.</p>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>1. Tahap yang berisi identifikasi perangkat, sumber daya, dan penilaian awal adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> Educate</label>
+          <label><input type="radio" name="q1" value="b"> Assess</label>
+          <label><input type="radio" name="q1" value="c"> Transfer</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>2. Mana yang termasuk komponen dari definisi risiko?</strong>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Warna, ukuran, dan harga</label>
+          <label><input type="radio" name="q2" value="b"> Prosedur, layout, dan merek</label>
+          <label><input type="radio" name="q2" value="c"> Threat, probability, dan impact</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>3. Contoh ancaman dari kategori alam adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Banjir</label>
+          <label><input type="radio" name="q3" value="b"> Akses ilegal</label>
+          <label><input type="radio" name="q3" value="c"> Gangguan daya</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>4. Analisis risiko kualitatif biasanya digunakan untuk...</strong>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> Menghitung biaya implementasi hardware</label>
+          <label><input type="radio" name="q4" value="b"> Memprioritaskan risiko untuk tindakan lebih lanjut</label>
+          <label><input type="radio" name="q4" value="c"> Menyusun daftar merek produk</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>5. Strategi transfer risiko yang paling umum adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Menutup proyek</label>
+          <label><input type="radio" name="q5" value="b"> Mengabaikan risiko</label>
+          <label><input type="radio" name="q5" value="c"> Membeli asuransi</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>6. Salah satu komponen biaya dalam Cost / Benefit Analysis adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Biaya pelatihan staf</label>
+          <label><input type="radio" name="q6" value="b"> Warna logo perusahaan</label>
+          <label><input type="radio" name="q6" value="c"> Nama domain saja</label>
+        </div>
+      </div>
+
+      <button class="btn" onclick="checkQuiz()">Periksa Jawaban</button>
+      <button class="btn secondary" onclick="toggleKey()">Tampilkan Kunci Jawaban</button>
+
+      <div id="result" class="result"></div>
+      <div id="answerKey" class="answer-key">
+        <strong>Kunci jawaban:</strong><br>
+        1) B · 2) C · 3) A · 4) B · 5) C · 6) A
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function checkQuiz() {
+      const questions = [
+        { name: 'q1', answer: 'b' },
+        { name: 'q2', answer: 'c' },
+        { name: 'q3', answer: 'a' },
+        { name: 'q4', answer: 'b' },
+        { name: 'q5', answer: 'c' },
+        { name: 'q6', answer: 'a' },
+      ];
+
+      let score = 0;
+      const total = questions.length;
+
+      questions.forEach(q => {
+        const selected = document.querySelector(`input[name="${q.name}"]:checked`);
+        if (selected && selected.value === q.answer) score++;
+      });
+
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+      result.className = 'result ' + (score >= 4 ? 'good' : 'bad');
+      result.textContent = `Skor kamu: ${score}/${total}. ${score >= 4 ? 'Bagus! Kamu sudah memahami sebagian besar materi.' : 'Coba baca ringkasannya lagi, lalu ulangi kuis.'}`;
+    }
+
+    function toggleKey() {
+      const key = document.getElementById('answerKey');
+      key.style.display = key.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

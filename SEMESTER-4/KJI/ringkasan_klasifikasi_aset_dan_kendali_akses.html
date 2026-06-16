@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ringkasan Materi: Klasifikasi Aset dan Kendali Akses</title>
+  <style>
+    :root {
+      --bg: #f7fbff;
+      --card: #ffffff;
+      --primary: #1f5f8b;
+      --primary-2: #2e86c1;
+      --text: #1f2937;
+      --muted: #5b6573;
+      --border: #dbe7f3;
+      --good: #0f766e;
+      --bad: #b42318;
+      --shadow: 0 10px 30px rgba(31, 95, 139, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef7ff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 850px;
+      opacity: 0.95;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li { margin: 8px 0; }
+
+    .tag {
+      display: inline-block;
+      background: #e8f3fb;
+      color: var(--primary);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin: 0 8px 8px 0;
+      border: 1px solid #cae4f7;
+    }
+
+    .highlight {
+      background: #f1f8ff;
+      border-left: 5px solid var(--primary-2);
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-top: 14px;
+    }
+
+    .quiz-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #fcfeff;
+    }
+
+    .options label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .options input { margin-right: 10px; }
+
+    .btn {
+      appearance: none;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn.secondary { background: #64748b; }
+
+    .result {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      display: none;
+      font-weight: bold;
+    }
+
+    .result.good {
+      display: block;
+      background: #ecfdf3;
+      color: var(--good);
+      border: 1px solid #abefc6;
+    }
+
+    .result.bad {
+      display: block;
+      background: #fff1f1;
+      color: var(--bad);
+      border: 1px solid #fecaca;
+    }
+
+    .answer-key {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      color: var(--muted);
+      display: none;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Ringkasan Materi: Klasifikasi Aset dan Kendali Akses</h1>
+      <p>
+        Materi ini membahas cara organisasi mengenali aset yang dimiliki, menentukan tingkat
+        kepentingannya, lalu memberi perlindungan yang sesuai melalui klasifikasi informasi,
+        kontrol infrastruktur IT, dan kebijakan manajemen.
+      </p>
+    </section>
+
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h2>Ringkasan Materi</h2>
+          <span class="tag">Identifikasi Aset</span>
+          <span class="tag">Klasifikasi Informasi</span>
+          <span class="tag">Kontrol IT</span>
+          <span class="tag">Kebijakan Manajemen</span>
+
+          <div class="highlight">
+            <strong>Ide utama:</strong> tidak semua aset dilindungi dengan cara yang sama.
+            Aset yang lebih penting atau sensitif harus diberi kontrol yang lebih ketat.
+          </div>
+
+          <h3>1. Identifikasi aset</h3>
+          <ul>
+            <li>Langkah awal adalah menginventarisasi aset perusahaan yang terkait dengan sistem informasi.</li>
+            <li>Aset tidak hanya berupa komputer atau server, tetapi juga data, software, layanan, prosedur, database, orang, dan reputasi perusahaan.</li>
+            <li>Semua aset dicatat dalam daftar aset agar mudah dipantau dan dilindungi.</li>
+          </ul>
+
+          <h3>2. Klasifikasi informasi</h3>
+          <ul>
+            <li>Informasi dibagi ke beberapa level, misalnya <strong>Top Secret/Confidential</strong>, <strong>Internal Use</strong>, dan <strong>Public</strong>.</li>
+            <li>Tujuannya agar sumber daya keamanan diprioritaskan pada informasi yang paling penting.</li>
+            <li>Contoh informasi rahasia: data akuisisi, strategi bisnis, laporan keuangan, kode program, hak cipta, paten, dan merek dagang.</li>
+          </ul>
+
+          <h3>3. Kontrol terhadap infrastruktur IT</h3>
+          <ul>
+            <li>Perkembangan TI meningkatkan manfaat bisnis, tetapi juga menambah risiko keamanan.</li>
+            <li>Kontrol penting yang dibahas: peraturan pengadaan, persoalan pengelolaan, dan integritas sistem.</li>
+            <li>Pengadaan harus resmi dan tertulis, pengelolaan sistem harus terarah, dan akses ke sistem harus dijaga.</li>
+          </ul>
+
+          <h3>4. Peraturan manajemen tentang IT</h3>
+          <ul>
+            <li>Manajemen perlu membuat kebijakan resmi untuk melindungi aset digital.</li>
+            <li>Contohnya: aturan penggunaan internet/email, SOP ICT, prosedur recovery, pengecekan konfigurasi, pemeriksaan mesin, dan pemeriksaan ekstensi file tersembunyi.</li>
+            <li>Kebijakan ini penting agar keamanan tidak hanya bergantung pada alat teknis, tetapi juga pada disiplin organisasi.</li>
+          </ul>
+
+          <div class="highlight">
+            <strong>Kesimpulan singkat:</strong> identifikasi aset → klasifikasi informasi → terapkan kontrol → buat kebijakan → awasi penerapannya.
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>Poin Penting</h2>
+          <ul>
+            <li>Aset fisik dan nonfisik sama-sama perlu dilindungi.</li>
+            <li>Informasi sensitif harus diberi akses terbatas.</li>
+            <li>Kontrol IT harus mencakup pembelian, pengelolaan, dan keamanan sistem.</li>
+            <li>Kebijakan tertulis membantu mencegah penyalahgunaan dan serangan.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Istilah Kunci</h2>
+          <ul>
+            <li><strong>Asset inventory</strong>: daftar aset yang dimiliki organisasi.</li>
+            <li><strong>Classification</strong>: pengelompokan informasi berdasarkan tingkat sensitif.</li>
+            <li><strong>Access control</strong>: pembatasan siapa yang boleh mengakses aset.</li>
+            <li><strong>Policy</strong>: aturan resmi yang harus diikuti.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card">
+      <h2>Kuis</h2>
+      <p class="footer-note">Pilih jawaban yang paling tepat, lalu klik <strong>Periksa Jawaban</strong>.</p>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>1. Apa langkah pertama dalam pengamanan aset menurut materi?</strong>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> Membeli perangkat baru sebanyak mungkin</label>
+          <label><input type="radio" name="q1" value="b"> Identifikasi dan inventarisasi aset</label>
+          <label><input type="radio" name="q1" value="c"> Menghapus semua data lama</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>2. Mengapa informasi perlu diklasifikasikan?</strong>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Supaya semua orang bisa mengaksesnya</label>
+          <label><input type="radio" name="q2" value="b"> Agar ukuran file menjadi lebih kecil</label>
+          <label><input type="radio" name="q2" value="c"> Agar perlindungan bisa disesuaikan dengan tingkat kepentingannya</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>3. Mana yang termasuk aset nonfisik?</strong>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Reputasi perusahaan</label>
+          <label><input type="radio" name="q3" value="b"> Monitor komputer</label>
+          <label><input type="radio" name="q3" value="c"> Kabel jaringan</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>4. Contoh kontrol terhadap infrastruktur IT adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> Mengabaikan prosedur pengadaan</label>
+          <label><input type="radio" name="q4" value="b"> Peraturan pengadaan barang yang tertulis dan resmi</label>
+          <label><input type="radio" name="q4" value="c"> Menghapus semua password</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>5. Mengapa PC yang berisiko tinggi perlu physical security?</strong>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Agar terlihat lebih mahal</label>
+          <label><input type="radio" name="q5" value="b"> Supaya tidak perlu password</label>
+          <label><input type="radio" name="q5" value="c"> Untuk membatasi akses hanya pada orang tertentu</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>6. Salah satu kebijakan manajemen IT yang disarankan adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Prosedur recovery</label>
+          <label><input type="radio" name="q6" value="b"> Menunda semua update selamanya</label>
+          <label><input type="radio" name="q6" value="c"> Membuka semua akses ke publik</label>
+        </div>
+      </div>
+
+      <button class="btn" onclick="checkQuiz()">Periksa Jawaban</button>
+      <button class="btn secondary" onclick="toggleKey()">Tampilkan Kunci Jawaban</button>
+
+      <div id="result" class="result"></div>
+      <div id="answerKey" class="answer-key">
+        <strong>Kunci jawaban:</strong><br>
+        1) B · 2) C · 3) A · 4) B · 5) C · 6) A
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function checkQuiz() {
+      const questions = [
+        { name: 'q1', answer: 'b' },
+        { name: 'q2', answer: 'c' },
+        { name: 'q3', answer: 'a' },
+        { name: 'q4', answer: 'b' },
+        { name: 'q5', answer: 'c' },
+        { name: 'q6', answer: 'a' },
+      ];
+
+      let score = 0;
+      const total = questions.length;
+
+      questions.forEach(q => {
+        const selected = document.querySelector(`input[name="${q.name}"]:checked`);
+        if (selected && selected.value === q.answer) score++;
+      });
+
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+      result.className = 'result ' + (score >= 4 ? 'good' : 'bad');
+      result.textContent = `Skor kamu: ${score}/${total}. ${score >= 4 ? 'Bagus! Kamu sudah memahami sebagian besar materi.' : 'Coba baca ringkasannya lagi, lalu ulangi kuis.'}`;
+    }
+
+    function toggleKey() {
+      const key = document.getElementById('answerKey');
+      key.style.display = key.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

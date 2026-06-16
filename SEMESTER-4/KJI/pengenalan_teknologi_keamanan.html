@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ringkasan Materi: Pengenalan Teknologi Keamanan</title>
+  <style>
+    :root {
+      --bg: #f6fbff;
+      --card: #ffffff;
+      --primary: #0b5fa5;
+      --primary-2: #1779c7;
+      --text: #1f2937;
+      --muted: #5b6573;
+      --border: #dbe7f3;
+      --good: #0f766e;
+      --bad: #b42318;
+      --shadow: 0 10px 30px rgba(31, 95, 139, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef7ff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 920px;
+      opacity: 0.95;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      color: var(--primary);
+      margin: 18px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    li { margin: 8px 0; }
+
+    .tag {
+      display: inline-block;
+      background: #e8f3fb;
+      color: var(--primary);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin: 0 8px 8px 0;
+      border: 1px solid #cae4f7;
+    }
+
+    .highlight {
+      background: #f1f8ff;
+      border-left: 5px solid var(--primary-2);
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-top: 14px;
+    }
+
+    .quiz-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 14px 0;
+      background: #fcfeff;
+    }
+
+    .options label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .options input { margin-right: 10px; }
+
+    .btn {
+      appearance: none;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn.secondary { background: #64748b; }
+
+    .result {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      display: none;
+      font-weight: bold;
+    }
+
+    .result.good {
+      display: block;
+      background: #ecfdf3;
+      color: var(--good);
+      border: 1px solid #abefc6;
+    }
+
+    .result.bad {
+      display: block;
+      background: #fff1f1;
+      color: var(--bad);
+      border: 1px solid #fecaca;
+    }
+
+    .answer-key {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      color: var(--muted);
+      display: none;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .mini-box {
+      padding: 14px;
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Pengenalan Teknologi Keamanan</h1>
+      <p>
+        Ringkasan materi ini menjelaskan konsep dasar keamanan informasi, CIA Triad dan perluasannya,
+        serta teknologi keamanan yang umum dipakai seperti hardening, enkripsi, firewall,
+        dan penetration testing.
+      </p>
+    </section>
+
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h2>Ringkasan Materi</h2>
+          <span class="tag">Konsep Keamanan</span>
+          <span class="tag">CIA Triad</span>
+          <span class="tag">Firewall</span>
+          <span class="tag">Encryption</span>
+          <span class="tag">Pentest</span>
+
+          <div class="highlight">
+            <strong>Inti materi:</strong> keamanan informasi bukan hanya soal mencegah akses ilegal,
+            tetapi juga menjaga kerahasiaan, integritas, ketersediaan, autentikasi, dan akuntabilitas.
+          </div>
+
+          <h3>1. Konsep keamanan</h3>
+          <ul>
+            <li>Menurut NIST, keamanan melindungi sistem informasi otomatis agar tujuan sistem tercapai.</li>
+            <li>Fokus utamanya adalah menjaga integritas, ketersediaan, dan kerahasiaan sumber daya sistem informasi.</li>
+          </ul>
+
+          <h3>2. CIA Triad</h3>
+          <ul>
+            <li><strong>Confidentiality</strong>: data rahasia hanya bisa diakses pihak berwenang; privacy membuat individu dapat mengendalikan informasinya.</li>
+            <li><strong>Integrity</strong>: data dan program hanya boleh diubah dengan cara yang sah.</li>
+            <li><strong>Availability</strong>: sistem dan layanan harus tersedia bagi pengguna yang berwenang.</li>
+          </ul>
+
+          <h3>3. Konsep tambahan</h3>
+          <ul>
+            <li><strong>Authenticity</strong>: memastikan pengguna dan pesan benar-benar asli serta dapat dipercaya.</li>
+            <li><strong>Accountability</strong>: setiap tindakan bisa ditelusuri ke pelakunya, mendukung audit, deteksi intrusi, dan tindakan hukum.</li>
+          </ul>
+
+          <h3>4. Perimeter defense dan system hardening</h3>
+          <ul>
+            <li>Perimeter defense mencakup ACL, encryption, hardening aplikasi/OS, update, autentikasi, firewall, VPN, segmentasi jaringan, dan edukasi pengguna.</li>
+            <li>System hardening berarti memperkuat sistem: instalasi konfigurasi aman, patching, membatasi aplikasi, mengelola user/group, backup, log, uji kerentanan, firewall host, dan enkripsi data.</li>
+          </ul>
+
+          <h3>5. Encryption dan hashing</h3>
+          <ul>
+            <li><strong>Encryption</strong> mengubah plaintext menjadi ciphertext agar data terlindungi saat disimpan atau dikirim.</li>
+            <li>Slide menunjukkan <strong>symmetric encryption</strong> memakai shared key, sedangkan <strong>asymmetric encryption</strong> memakai public key dan private key.</li>
+            <li><strong>Hashing</strong> dipakai untuk validasi informasi; hasil hash tidak ditujukan untuk dibalik menjadi plaintext.</li>
+          </ul>
+
+          <h3>6. Firewall</h3>
+          <ul>
+            <li>Firewall adalah titik kontrol dan monitoring yang menghubungkan jaringan dengan tingkat kepercayaan berbeda.</li>
+            <li>Fungsinya membatasi layanan jaringan, melakukan audit, menyediakan NAT/monitoring, mendukung VPN IPSec, dan mencegah penetrasi.</li>
+            <li>Client defense seperti antivirus dan personal firewall membantu menutup serangan yang lolos dari perimeter.</li>
+          </ul>
+
+          <h3>7. Penetration testing</h3>
+          <ul>
+            <li><strong>Pentest</strong> menguji kekuatan kontrol keamanan dengan mencoba mengeksploitasi kelemahan.</li>
+            <li>Berbeda dari vulnerability testing yang hanya mengidentifikasi dan melaporkan kerentanan.</li>
+            <li>Jenis yang ditampilkan: network service, web application, client side, wireless, social engineering, dan physical pentest.</li>
+          </ul>
+
+          <div class="highlight">
+            <strong>Kesimpulan singkat:</strong> lindungi data dan layanan dengan kombinasi kebijakan, teknologi, konfigurasi aman, dan pengujian berkala.
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>Poin Penting</h2>
+          <ul>
+            <li>Kerahasiaan, integritas, dan ketersediaan adalah fondasi keamanan.</li>
+            <li>Authenticity dan accountability melengkapi CIA Triad.</li>
+            <li>Enkripsi melindungi isi data, hashing memvalidasi data.</li>
+            <li>Firewall dan hardening mengurangi permukaan serangan.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Istilah Kunci</h2>
+          <ul>
+            <li><strong>ACL</strong>: Access Control List.</li>
+            <li><strong>OS Hardening</strong>: memperkuat sistem operasi.</li>
+            <li><strong>NIDS</strong>: Network Intrusion Detection System.</li>
+            <li><strong>VPN</strong>: Virtual Private Network.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Contoh Teknologi</h2>
+          <div class="two-col">
+            <div class="mini-box"><strong>Preventif</strong><br>Firewall, enkripsi, hardening, patching</div>
+            <div class="mini-box"><strong>Detektif</strong><br>Log, monitoring, vulnerability testing</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card">
+      <h2>Kuis</h2>
+      <p class="footer-note">Pilih jawaban yang paling tepat, lalu klik <strong>Periksa Jawaban</strong>.</p>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>1. Apa tujuan utama keamanan menurut NIST pada materi ini?</strong>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> Mempercepat desain grafis</label>
+          <label><input type="radio" name="q1" value="b"> Melindungi sistem informasi agar tujuan sistem tercapai</label>
+          <label><input type="radio" name="q1" value="c"> Menghapus semua data lama</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>2. Apa isi utama dari Confidentiality?</strong>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Data rahasia tidak dapat diakses pihak tidak berwenang</label>
+          <label><input type="radio" name="q2" value="b"> Sistem selalu online 24 jam</label>
+          <label><input type="radio" name="q2" value="c"> Semua data harus dihapus setelah dipakai</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>3. Yang termasuk konsep tambahan di luar CIA Triad adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Compression</label>
+          <label><input type="radio" name="q3" value="b"> Availability only</label>
+          <label><input type="radio" name="q3" value="c"> Authenticity dan accountability</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="b">
+        <strong>4. Apa perbedaan encryption dan hashing?</strong>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> Keduanya sama-sama untuk kompresi</label>
+          <label><input type="radio" name="q4" value="b"> Encryption melindungi data; hashing memvalidasi data</label>
+          <label><input type="radio" name="q4" value="c"> Hashing dipakai untuk login internet</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="a">
+        <strong>5. Salah satu fungsi firewall adalah...</strong>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Mengontrol dan memonitor lalu lintas jaringan</label>
+          <label><input type="radio" name="q5" value="b"> Menambah warna tampilan aplikasi</label>
+          <label><input type="radio" name="q5" value="c"> Mengganti semua password otomatis</label>
+        </div>
+      </div>
+
+      <div class="quiz-item" data-answer="c">
+        <strong>6. Pentest berbeda dari vulnerability testing karena...</strong>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Pentest hanya membaca log</label>
+          <label><input type="radio" name="q6" value="b"> Pentest hanya untuk website</label>
+          <label><input type="radio" name="q6" value="c"> Pentest mencoba mengeksploitasi kelemahan</label>
+        </div>
+      </div>
+
+      <button class="btn" onclick="checkQuiz()">Periksa Jawaban</button>
+      <button class="btn secondary" onclick="toggleKey()">Tampilkan Kunci Jawaban</button>
+
+      <div id="result" class="result"></div>
+      <div id="answerKey" class="answer-key">
+        <strong>Kunci jawaban:</strong><br>
+        1) B · 2) A · 3) C · 4) B · 5) A · 6) C
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function checkQuiz() {
+      const questions = [
+        { name: 'q1', answer: 'b' },
+        { name: 'q2', answer: 'a' },
+        { name: 'q3', answer: 'c' },
+        { name: 'q4', answer: 'b' },
+        { name: 'q5', answer: 'a' },
+        { name: 'q6', answer: 'c' },
+      ];
+
+      let score = 0;
+      const total = questions.length;
+
+      questions.forEach(q => {
+        const selected = document.querySelector(`input[name="${q.name}"]:checked`);
+        if (selected && selected.value === q.answer) score++;
+      });
+
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+      result.className = 'result ' + (score >= 4 ? 'good' : 'bad');
+      result.textContent = `Skor kamu: ${score}/${total}. ${score >= 4 ? 'Bagus! Kamu sudah memahami sebagian besar materi.' : 'Coba baca ringkasannya lagi, lalu ulangi kuis.'}`;
+    }
+
+    function toggleKey() {
+      const key = document.getElementById('answerKey');
+      key.style.display = key.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
